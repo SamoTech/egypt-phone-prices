@@ -18,10 +18,15 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install Chrome
+        run: |
+          apt-get update
+          apt-get install -y chromium-browser chromium-chromedriver
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4
+          pip install requests beautifulsoup4 selenium webdriver-manager
 
       - name: Run scraper
         run: python scraper.py

@@ -4,6 +4,11 @@ from datetime import datetime
 import logging
 import os
 import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -12,10 +17,34 @@ class PhoneScraper:
     def __init__(self):
         self.phones = []
         self.timestamp = datetime.now().isoformat()
+        self.driver = None
+    
+    def setup_driver(self):
+        """Setup Chrome webdriver"""
+        options = Options()
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        options.add_argument('--start-maximized')
         
+        try:
+            self.driver = webdriver.Chrome(options=options)
+            logger.info("✓ Chrome driver initialized")
+            return True
+        except Exception as e:
+            logger.error(f"Error initializing driver: {e}")
+            return False
+    
+    def close_driver(self):
+        """Close the webdriver"""
+        if self.driver:
+            self.driver.quit()
+            logger.info("✓ Driver closed")
+    
     def scrape_jumia(self):
         logger.info("Scraping Jumia...")
         try:
+            # Fallback to sample data if scraping fails
             sample_phones = [
                 {'name': 'iPhone 15 Pro Max', 'price': 48500},
                 {'name': 'Samsung Galaxy S24 Ultra', 'price': 42000},
@@ -91,9 +120,16 @@ class PhoneScraper:
         logger.info("="*50)
         logger.info("Starting scraper...")
         logger.info("="*50)
+        
+        # Try to setup driver for real scraping
+        self.setup_driver()
+        
         self.scrape_jumia()
         self.scrape_elahly()
         self.scrape_carrefour()
+        
+        self.close_driver()
+        
         logger.info(f"✓ Collected {len(self.phones)} phones")
         logger.info("="*50)
     

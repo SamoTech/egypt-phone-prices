@@ -21,7 +21,7 @@
         .filter-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 20px; }
         .filter-item { display: flex; flex-direction: column; }
         .filter-item label { color: #333; font-weight: 500; margin-bottom: 8px; font-size: 14px; }
-        .filter-item input, .filter-item select { padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px; font-family: inherit; }
+        .filter-item input, .filter-item select { padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px; }
         .filter-item input:focus, .filter-item select:focus { outline: none; border-color: #667eea; box-shadow: 0 0 5px rgba(102, 126, 234, 0.3); }
         .filter-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
         button { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: 500; transition: all 0.3s; }
@@ -32,18 +32,22 @@
         .sorting { display: flex; gap: 10px; flex-wrap: wrap; }
         .sort-btn { padding: 8px 15px; background: #f0f0f0; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; font-size: 13px; }
         .sort-btn:hover, .sort-btn.active { background: #667eea; color: white; border-color: #667eea; }
-        #phones-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        #phones-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
         .phone-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
         .phone-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
         .phone-card h3 { color: #333; margin-bottom: 15px; font-size: 18px; }
         .price { color: #667eea; font-size: 20px; font-weight: bold; margin-bottom: 10px; }
         .stores { color: #666; font-size: 14px; margin-bottom: 15px; }
         .stores-list { border-top: 1px solid #eee; padding-top: 15px; }
-        .store { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+        .store { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+        .store-info { display: flex; flex-direction: column; gap: 5px; }
         .store-name { color: #333; font-weight: 500; }
-        .store-price { color: #764ba2; font-weight: bold; }
+        .store-price { color: #764ba2; font-weight: bold; font-size: 16px; }
+        .btn-buy { background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; padding: 8px 16px; border-radius: 5px; text-decoration: none; font-size: 12px; font-weight: 600; transition: all 0.3s; display: inline-block; }
+        .btn-buy:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(79, 172, 254, 0.4); }
         .store:last-child { border-bottom: none; }
         .no-results { grid-column: 1 / -1; text-align: center; padding: 40px; color: white; font-size: 18px; }
+        .update-info { background: #fff3cd; padding: 15px; border-radius: 8px; margin-bottom: 20px; color: #856404; font-size: 14px; border-left: 4px solid #ffc107; }
     </style>
 </head>
 <body>
@@ -59,6 +63,10 @@
                 </div>
             </div>
         </header>
+        
+        <div class="update-info">
+            ⏰ آخر تحديث: <span id="lastUpdate">-</span> | 🔄 التحديثات تلقائية كل 6 ساعات
+        </div>
         
         <div class="filters">
             <h2>🔍 البحث والفلترة</h2>
@@ -76,17 +84,19 @@
                         <option value="Jumia">Jumia</option>
                         <option value="ElAhly">ElAhly</option>
                         <option value="Carrefour">Carrefour</option>
+                        <option value="Noon">Noon</option>
+                        <option value="Amazon">Amazon</option>
                     </select>
                 </div>
                 
                 <div class="filter-item">
-                    <label>نطاق السعر (من - إلى):</label>
-                    <input type="number" id="minPrice" placeholder="الحد الأدنى" min="0">
+                    <label>من:</label>
+                    <input type="number" id="minPrice" placeholder="0" min="0">
                 </div>
                 
                 <div class="filter-item">
                     <label>إلى:</label>
-                    <input type="number" id="maxPrice" placeholder="الحد الأقصى" min="0">
+                    <input type="number" id="maxPrice" placeholder="100000" min="0">
                 </div>
             </div>
             
@@ -98,10 +108,10 @@
             <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
                 <h3 style="color: #333; margin-bottom: 10px;">📊 الترتيب:</h3>
                 <div class="sorting">
-                    <button class="sort-btn" onclick="sortPhones('name')">أ-ي (أبجدي)</button>
-                    <button class="sort-btn" onclick="sortPhones('priceAsc')">💰 من الأرخص</button>
-                    <button class="sort-btn" onclick="sortPhones('priceDesc')">💸 من الأغلى</button>
-                    <button class="sort-btn" onclick="sortPhones('stores')">🏪 عدد المتاجر</button>
+                    <button class="sort-btn" onclick="sortPhones('name')">أ-ي</button>
+                    <button class="sort-btn" onclick="sortPhones('priceAsc')">💰 أرخص</button>
+                    <button class="sort-btn" onclick="sortPhones('priceDesc')">💸 أغلى</button>
+                    <button class="sort-btn" onclick="sortPhones('stores')">🏪 متاجر</button>
                 </div>
             </div>
         </div>
@@ -113,18 +123,20 @@
 
     <script>
         let allPhones = {};
-        let currentSort = 'name';
         
         async function loadPhonePrices() {
             try {
                 const response = await fetch('phones_data.json');
                 const phones = await response.json();
                 
-                console.log('Phones loaded:', phones);
-                
                 if (!phones || phones.length === 0) {
                     document.getElementById('phones-container').innerHTML = '<p style="color: white;">لا توجد بيانات</p>';
                     return;
+                }
+                
+                if (phones.length > 0) {
+                    const date = new Date(phones[0].timestamp);
+                    document.getElementById('lastUpdate').textContent = date.toLocaleString('ar-EG');
                 }
                 
                 const phonesByName = {};
@@ -158,23 +170,11 @@
             
             Object.entries(phonesByName).forEach(([name, stores]) => {
                 const minPrice = Math.min(...stores.map(s => s.price));
-                const storeCount = stores.length;
                 
-                html += `
-                    <div class="phone-card" data-name="${name}" data-price="${minPrice}" data-stores="${storeCount}">
-                        <h3>${name}</h3>
-                        <p class="price">السعر: ${minPrice.toLocaleString('ar-EG')} ج.م</p>
-                        <p class="stores">عدد المتاجر: ${storeCount}</p>
-                        <div class="stores-list">
-                `;
+                html += `<div class="phone-card"><h3>${name}</h3><p class="price">السعر: ${minPrice.toLocaleString('ar-EG')} ج.م</p><p class="stores">عدد المتاجر: ${stores.length}</p><div class="stores-list">`;
                 
                 stores.forEach(store => {
-                    html += `
-                        <div class="store">
-                            <span class="store-name">${store.store}</span>
-                            <span class="store-price">${store.price.toLocaleString('ar-EG')} ج.م</span>
-                        </div>
-                    `;
+                    html += `<div class="store"><div class="store-info"><span class="store-name">${store.store}</span><span class="store-price">${store.price.toLocaleString('ar-EG')} ج.م</span></div><a href="${store.url}" target="_blank" class="btn-buy">اشتري</a></div>`;
                 });
                 
                 html += `</div></div>`;
@@ -196,7 +196,6 @@
                 
                 let storesFiltered = stores;
                 if (store) storesFiltered = stores.filter(s => s.store === store);
-                
                 if (storesFiltered.length === 0) return;
                 
                 const minStorePrice = Math.min(...storesFiltered.map(s => s.price));
@@ -213,34 +212,25 @@
             document.getElementById('storeFilter').value = '';
             document.getElementById('minPrice').value = '';
             document.getElementById('maxPrice').value = '';
-            currentSort = 'name';
             document.querySelectorAll('.sort-btn').forEach(btn => btn.classList.remove('active'));
             displayPhones(allPhones);
         }
         
         function sortPhones(sortType) {
-            currentSort = sortType;
             document.querySelectorAll('.sort-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
             
-            const sorted = Object.fromEntries(
-                Object.entries(allPhones).sort((a, b) => {
-                    const nameA = a[0];
-                    const nameB = b[0];
-                    const priceA = Math.min(...a[1].map(s => s.price));
-                    const priceB = Math.min(...b[1].map(s => s.price));
-                    const storesA = a[1].length;
-                    const storesB = b[1].length;
-                    
-                    switch(sortType) {
-                        case 'name': return nameA.localeCompare(nameB, 'ar');
-                        case 'priceAsc': return priceA - priceB;
-                        case 'priceDesc': return priceB - priceA;
-                        case 'stores': return storesB - storesA;
-                        default: return 0;
-                    }
-                })
-            );
+            const sorted = Object.fromEntries(Object.entries(allPhones).sort((a, b) => {
+                const priceA = Math.min(...a[1].map(s => s.price));
+                const priceB = Math.min(...b[1].map(s => s.price));
+                
+                switch(sortType) {
+                    case 'name': return a[0].localeCompare(b[0], 'ar');
+                    case 'priceAsc': return priceA - priceB;
+                    case 'priceDesc': return priceB - priceA;
+                    case 'stores': return b[1].length - a[1].length;
+                }
+            }));
             
             displayPhones(sorted);
         }

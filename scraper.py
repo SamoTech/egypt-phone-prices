@@ -16,7 +16,6 @@ class PhoneScraper:
     def scrape_jumia(self):
         logger.info("Scraping Jumia...")
         try:
-            # بيانات تجريبية من Jumia
             sample_phones = [
                 {'name': 'iPhone 15 Pro Max', 'price': 48500},
                 {'name': 'Samsung Galaxy S24 Ultra', 'price': 42000},

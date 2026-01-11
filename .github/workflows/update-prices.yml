@@ -43,8 +43,20 @@ jobs:
         run: |
           mkdir -p docs
           cp data/stores.json docs/stores.json
+- name: Update website data
+  run: |
+    mkdir -p docs
+    cp data/phones_data.json docs/phones_data.json
+    cp docs/price_report.md docs/report.md 2>/dev/null || true
 
       - name: Commit changes
+      - name: Deploy to GitHub Pages
+  uses: peaceiris/actions-gh-pages@v3
+  with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    publish_dir: ./docs
+    branch: gh-pages
+
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"

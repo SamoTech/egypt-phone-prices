@@ -227,9 +227,31 @@
 <body>
     <div class="container">
         <header>
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+        <div>
             <h1>🇪🇬 أسعار الموبايلات في مصر</h1>
             <p class="count">عدد الهواتف: <span id="count">جاري التحميل...</span></p>
-        </header>
+        </div>
+        <a href="analytics.html" style="
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        " 
+        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.4)';"
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.3)';">
+            📊 الإحصائيات والتحليل
+        </a>
+    </div>
+</header>
+
         
         <!-- Filters -->
         <div class="filters">

@@ -120,7 +120,7 @@ let comparison = [];
 async function loadData() {
   try {
     const [phonesRes, storesRes] = await Promise.all([
-      fetch("phones.json"),
+      fetch("phones_data.json"),
       fetch("stores.json")
     ]);
     if (!phonesRes.ok || !storesRes.ok) throw new Error("Failed to load data");

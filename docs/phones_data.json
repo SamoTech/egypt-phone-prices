@@ -1,37 +1,32 @@
 [
   {
-    "timestamp": "2026-01-11T12:58:37.727986",
+    "name": "iPhone 15",
     "store": "Jumia",
-    "model": "iPhone 15",
-    "price_egp": 32000,
+    "price": 32000,
     "url": "https://www.jumia.com.eg/mobile-phones/"
   },
   {
-    "timestamp": "2026-01-11T12:58:37.727986",
+    "name": "Samsung S24",
     "store": "Jumia",
-    "model": "Samsung S24",
-    "price_egp": 28000,
+    "price": 28000,
     "url": "https://www.jumia.com.eg/mobile-phones/"
   },
   {
-    "timestamp": "2026-01-11T12:58:37.727986",
+    "name": "Oppo A17",
     "store": "Jumia",
-    "model": "Oppo A17",
-    "price_egp": 8500,
+    "price": 8500,
     "url": "https://www.jumia.com.eg/mobile-phones/"
   },
   {
-    "timestamp": "2026-01-11T12:58:37.727986",
+    "name": "iPhone 15 Pro",
     "store": "ElAhly",
-    "model": "iPhone 15 Pro",
-    "price_egp": 45000,
+    "price": 45000,
     "url": "https://www.elahly.com"
   },
   {
-    "timestamp": "2026-01-11T12:58:37.727986",
+    "name": "Samsung S24 Ultra",
     "store": "ElAhly",
-    "model": "Samsung S24 Ultra",
-    "price_egp": 38000,
+    "price": 38000,
     "url": "https://www.elahly.com"
   }
 ]

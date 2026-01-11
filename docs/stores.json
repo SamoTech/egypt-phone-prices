@@ -1,0 +1,20 @@
+{
+  "amazon_eg": {
+    "name": "Amazon Egypt",
+    "short_name": "Amazon.eg",
+    "url": "https://www.amazon.eg",
+    "reputation": 5
+  },
+  "jumia_eg": {
+    "name": "Jumia Egypt",
+    "short_name": "Jumia",
+    "url": "https://www.jumia.com.eg",
+    "reputation": 4
+  },
+  "noon_eg": {
+    "name": "Noon Egypt",
+    "short_name": "Noon",
+    "url": "https://www.noon.com/egypt-en",
+    "reputation": 4
+  }
+}

@@ -23,7 +23,7 @@ jobs:
           pip install requests beautifulsoup4
 
       - name: Run Selenium Scraper
-        run: python test_scraper.py
+        run: python scraper_v2.py
 
       - name: Generate JSON for frontend
         run: |

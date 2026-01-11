@@ -1,0 +1,96 @@
+{
+  "iPhone 15 Pro Max": {
+    "timestamps": [
+      "20260111_143343"
+    ],
+    "prices": [
+      48500
+    ]
+  },
+  "Samsung Galaxy S24 Ultra": {
+    "timestamps": [
+      "20260111_143343"
+    ],
+    "prices": [
+      42000
+    ]
+  },
+  "Google Pixel 8 Pro": {
+    "timestamps": [
+      "20260111_143343"
+    ],
+    "prices": [
+      38000
+    ]
+  },
+  "iPhone 15": {
+    "timestamps": [
+      "20260111_143343",
+      "20260111_143343",
+      "20260111_143343"
+    ],
+    "prices": [
+      32000,
+      31000,
+      33000
+    ]
+  },
+  "Samsung Galaxy S24": {
+    "timestamps": [
+      "20260111_143343",
+      "20260111_143343"
+    ],
+    "prices": [
+      28000,
+      29000
+    ]
+  },
+  "Oppo A17": {
+    "timestamps": [
+      "20260111_143343"
+    ],
+    "prices": [
+      8500
+    ]
+  },
+  "Xiaomi Redmi Note 13": {
+    "timestamps": [
+      "20260111_143343"
+    ],
+    "prices": [
+      7500
+    ]
+  },
+  "OnePlus 12": {
+    "timestamps": [
+      "20260111_143343"
+    ],
+    "prices": [
+      25000
+    ]
+  },
+  "iPhone 15 Pro": {
+    "timestamps": [
+      "20260111_143343"
+    ],
+    "prices": [
+      45000
+    ]
+  },
+  "Samsung S24 Ultra": {
+    "timestamps": [
+      "20260111_143343"
+    ],
+    "prices": [
+      38000
+    ]
+  },
+  "Samsung S24": {
+    "timestamps": [
+      "20260111_143343"
+    ],
+    "prices": [
+      27000
+    ]
+  }
+}

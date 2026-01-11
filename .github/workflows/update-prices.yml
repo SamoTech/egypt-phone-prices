@@ -24,7 +24,7 @@ jobs:
 
       - name: Run scraper
         run: |
-          python scraper.py
+          python scraper_v2.py
 
       - name: Generate JSON for frontend
         run: |

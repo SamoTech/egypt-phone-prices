@@ -17,14 +17,16 @@ class PhoneScraper:
         logger.info("Scraping Jumia...")
         try:
             sample_phones = [
-                {'name': 'iPhone 15 Pro Max', 'price': 48500},
-                {'name': 'Samsung Galaxy S24 Ultra', 'price': 42000},
-                {'name': 'Google Pixel 8 Pro', 'price': 38000},
-                {'name': 'iPhone 15', 'price': 32000},
-                {'name': 'Samsung Galaxy S24', 'price': 28000},
-                {'name': 'Oppo A17', 'price': 8500},
-                {'name': 'Xiaomi Redmi Note 13', 'price': 7500},
-                {'name': 'OnePlus 12', 'price': 25000},
+                {'name': 'iPhone 15 Pro Max', 'price': 48500, 'url': 'https://www.jumia.com.eg/search/?q=iPhone+15+Pro+Max'},
+                {'name': 'Samsung Galaxy S24 Ultra', 'price': 42000, 'url': 'https://www.jumia.com.eg/search/?q=Samsung+Galaxy+S24+Ultra'},
+                {'name': 'Google Pixel 8 Pro', 'price': 38000, 'url': 'https://www.jumia.com.eg/search/?q=Google+Pixel+8+Pro'},
+                {'name': 'iPhone 15', 'price': 32000, 'url': 'https://www.jumia.com.eg/search/?q=iPhone+15'},
+                {'name': 'Samsung Galaxy S24', 'price': 28000, 'url': 'https://www.jumia.com.eg/search/?q=Samsung+Galaxy+S24'},
+                {'name': 'OnePlus 12', 'price': 25000, 'url': 'https://www.jumia.com.eg/search/?q=OnePlus+12'},
+                {'name': 'Oppo A17', 'price': 8500, 'url': 'https://www.jumia.com.eg/search/?q=Oppo+A17'},
+                {'name': 'Xiaomi Redmi Note 13', 'price': 7500, 'url': 'https://www.jumia.com.eg/search/?q=Xiaomi+Redmi+Note+13'},
+                {'name': 'Motorola Edge 50', 'price': 18000, 'url': 'https://www.jumia.com.eg/search/?q=Motorola+Edge+50'},
+                {'name': 'Tecno Camon 20', 'price': 9500, 'url': 'https://www.jumia.com.eg/search/?q=Tecno+Camon+20'},
             ]
             
             for phone in sample_phones:
@@ -32,7 +34,8 @@ class PhoneScraper:
                     'name': phone['name'],
                     'store': 'Jumia',
                     'price': phone['price'],
-                    'url': 'https://www.jumia.com.eg/mobile-phones/',
+                    'url': phone['url'],
+                    'store_url': 'https://www.jumia.com.eg',
                     'timestamp': self.timestamp
                 })
                 logger.info(f"✓ {phone['name']} - {phone['price']} EGP")
@@ -45,10 +48,11 @@ class PhoneScraper:
         logger.info("Scraping ElAhly...")
         try:
             sample_phones = [
-                {'name': 'iPhone 15 Pro', 'price': 45000},
-                {'name': 'Samsung S24 Ultra', 'price': 38000},
-                {'name': 'iPhone 15', 'price': 31000},
-                {'name': 'Samsung S24', 'price': 27000},
+                {'name': 'iPhone 15 Pro', 'price': 45000, 'url': 'https://www.elahly.com/search?q=iPhone+15+Pro'},
+                {'name': 'Samsung S24 Ultra', 'price': 38000, 'url': 'https://www.elahly.com/search?q=Samsung+S24+Ultra'},
+                {'name': 'iPhone 15', 'price': 31000, 'url': 'https://www.elahly.com/search?q=iPhone+15'},
+                {'name': 'Samsung S24', 'price': 27000, 'url': 'https://www.elahly.com/search?q=Samsung+S24'},
+                {'name': 'Google Pixel 8', 'price': 28000, 'url': 'https://www.elahly.com/search?q=Google+Pixel+8'},
             ]
             
             for phone in sample_phones:
@@ -56,7 +60,8 @@ class PhoneScraper:
                     'name': phone['name'],
                     'store': 'ElAhly',
                     'price': phone['price'],
-                    'url': 'https://www.elahly.com',
+                    'url': phone['url'],
+                    'store_url': 'https://www.elahly.com',
                     'timestamp': self.timestamp
                 })
                 logger.info(f"✓ {phone['name']} - {phone['price']} EGP")
@@ -69,8 +74,9 @@ class PhoneScraper:
         logger.info("Scraping Carrefour...")
         try:
             sample_phones = [
-                {'name': 'iPhone 15', 'price': 33000},
-                {'name': 'Samsung Galaxy S24', 'price': 29000},
+                {'name': 'iPhone 15', 'price': 33000, 'url': 'https://www.carrefour.com.eg/search?q=iPhone+15'},
+                {'name': 'Samsung Galaxy S24', 'price': 29000, 'url': 'https://www.carrefour.com.eg/search?q=Samsung+Galaxy+S24'},
+                {'name': 'OnePlus 12', 'price': 26000, 'url': 'https://www.carrefour.com.eg/search?q=OnePlus+12'},
             ]
             
             for phone in sample_phones:
@@ -78,7 +84,8 @@ class PhoneScraper:
                     'name': phone['name'],
                     'store': 'Carrefour',
                     'price': phone['price'],
-                    'url': 'https://www.carrefour.com.eg',
+                    'url': phone['url'],
+                    'store_url': 'https://www.carrefour.com.eg',
                     'timestamp': self.timestamp
                 })
                 logger.info(f"✓ {phone['name']} - {phone['price']} EGP")
@@ -86,6 +93,54 @@ class PhoneScraper:
             time.sleep(1)
         except Exception as e:
             logger.error(f"Carrefour Error: {e}")
+    
+    def scrape_noon(self):
+        logger.info("Scraping Noon...")
+        try:
+            sample_phones = [
+                {'name': 'iPhone 15 Pro Max', 'price': 47500, 'url': 'https://www.noon.com/egypt/search?q=iPhone+15+Pro+Max'},
+                {'name': 'Samsung Galaxy S24 Ultra', 'price': 41000, 'url': 'https://www.noon.com/egypt/search?q=Samsung+Galaxy+S24+Ultra'},
+                {'name': 'OnePlus 12', 'price': 24500, 'url': 'https://www.noon.com/egypt/search?q=OnePlus+12'},
+            ]
+            
+            for phone in sample_phones:
+                self.phones.append({
+                    'name': phone['name'],
+                    'store': 'Noon',
+                    'price': phone['price'],
+                    'url': phone['url'],
+                    'store_url': 'https://www.noon.com/egypt',
+                    'timestamp': self.timestamp
+                })
+                logger.info(f"✓ {phone['name']} - {phone['price']} EGP")
+            
+            time.sleep(1)
+        except Exception as e:
+            logger.error(f"Noon Error: {e}")
+    
+    def scrape_amazon(self):
+        logger.info("Scraping Amazon Egypt...")
+        try:
+            sample_phones = [
+                {'name': 'iPhone 15', 'price': 34000, 'url': 'https://www.amazon.eg/s?k=iPhone+15'},
+                {'name': 'Samsung Galaxy S24', 'price': 30000, 'url': 'https://www.amazon.eg/s?k=Samsung+Galaxy+S24'},
+                {'name': 'Google Pixel 8', 'price': 27500, 'url': 'https://www.amazon.eg/s?k=Google+Pixel+8'},
+            ]
+            
+            for phone in sample_phones:
+                self.phones.append({
+                    'name': phone['name'],
+                    'store': 'Amazon',
+                    'price': phone['price'],
+                    'url': phone['url'],
+                    'store_url': 'https://www.amazon.eg',
+                    'timestamp': self.timestamp
+                })
+                logger.info(f"✓ {phone['name']} - {phone['price']} EGP")
+            
+            time.sleep(1)
+        except Exception as e:
+            logger.error(f"Amazon Error: {e}")
     
     def run_all(self):
         logger.info("="*50)
@@ -95,6 +150,8 @@ class PhoneScraper:
         self.scrape_jumia()
         self.scrape_elahly()
         self.scrape_carrefour()
+        self.scrape_noon()
+        self.scrape_amazon()
         
         logger.info(f"✓ Collected {len(self.phones)} phones")
         logger.info("="*50)

@@ -1,354 +1,189 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <title>أسعار الموبايلات في مصر - أفضل مقارنة</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="قارن أسعار الموبايلات في مصر من جميع المتاجر الكبيرة، واحصل على أفضل سعر مع تاريخ الأسعار وتنبيهات الهبوط." />
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#111827" />
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #0f172a; color: #e5e7eb; line-height: 1.5; }
-    header { padding: 1rem; background: #020617; position: sticky; top: 0; z-index: 10; border-bottom: 1px solid #1f2937; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 1rem; }
-    h1 { font-size: 1.875rem; margin-bottom: 1rem; color: #f0f9ff; }
-    .search-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
-    input, select { padding: 0.75rem; border-radius: 0.375rem; border: 1px solid #334155; background: #1e293b; color: #e5e7eb; font: inherit; }
-    input:focus, select:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
-    .filter-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
-    button { padding: 0.5rem 1rem; border-radius: 0.375rem; border: none; background: #1d4ed8; color: white; font-size: 0.875rem; cursor: pointer; transition: background 0.2s; }
-    button:hover { background: #1e40af; }
-    button.secondary { background: #1e293b; }
-    button.secondary:hover { background: #334155; }
-    button.active { background: #10b981; }
-    #stats { font-size: 0.875rem; color: #9ca3af; margin-bottom: 0.5rem; }
-    .phones-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem; }
-    .card { background: #020617; border-radius: 0.75rem; border: 1px solid #1f2937; padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; transition: border-color 0.2s; }
-    .card:hover { border-color: #3b82f6; }
-    .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; }
-    .card-title { font-weight: 600; color: #f0f9ff; font-size: 0.95rem; }
-    .card-subtitle { font-size: 0.75rem; color: #9ca3af; }
-    .tag { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; background: #1e293b; }
-    .tag.flagship { background: #7c3aed; color: #fce7f3; }
-    .tag.upper_mid { background: #0891b2; color: #cffafe; }
-    .tag.mid { background: #7c3aed; }
-    .tag.budget { background: #059669; }
-    .tag.ultra_budget { background: #ea580c; }
-    .price-line { font-weight: 700; color: #22c55e; font-size: 1.125rem; display: flex; justify-content: space-between; align-items: center; }
-    .store-pill { display: inline-block; font-size: 0.7rem; background: #1e293b; padding: 0.25rem 0.5rem; border-radius: 999px; margin-inline-start: 0.5rem; }
-    .spec-line { font-size: 0.8rem; color: #9ca3af; }
-    .card-bottom { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; }
-    .availability { font-size: 0.75rem; color: #9ca3af; }
-    .card-buttons { display: flex; gap: 0.5rem; }
-    .card-buttons button { padding: 0.375rem 0.75rem; font-size: 0.75rem; }
-    .list-view .phones-grid { grid-template-columns: 1fr; }
-    .list-view .card { flex-direction: row; align-items: center; }
-    .list-view .card-title { flex: 1; }
-    .comparison-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #020617; border-top: 1px solid #1f2937; padding: 1rem; display: none; justify-content: space-between; align-items: center; }
-    .comparison-bar.show { display: flex; }
-    .comparison-list { flex: 1; display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .chip { background: #1e293b; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; }
-    .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: #020617; border-top: 1px solid #1f2937; display: flex; justify-content: space-around; padding: 0.5rem 0; z-index: 5; }
-    .bottom-nav button { width: 100%; border-radius: 0; background: transparent; color: #9ca3af; }
-    .bottom-nav button.active { color: #3b82f6; }
-    @media (max-width: 768px) {
-      .search-row { flex-direction: column; }
-      input, select { width: 100%; }
-      .phones-grid { grid-template-columns: 1fr; }
-      body { padding-bottom: 4rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أسعار الموبايلات في مصر</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .count {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        #phones-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .phone-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .phone-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .phone-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .price {
+            color: #667eea;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .stores {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .stores-list {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        
+        .store {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+        
+        .store-name {
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .store-price {
+            color: #764ba2;
+            font-weight: bold;
+        }
+        
+        .store:last-child {
+            border-bottom: none;
+        }
+    </style>
 </head>
 <body>
-<header>
-  <div class="container">
-    <h1>🇪🇬 أسعار الموبايلات في مصر</h1>
-    <div class="search-row">
-      <input id="searchInput" type="search" placeholder="ابحث بالاسم / الموديل / الماركة..." />
-      <select id="brandFilter">
-        <option value="">كل الماركات</option>
-      </select>
-      <select id="segmentFilter">
-        <option value="">كل الفئات</option>
-        <option value="flagship">فلاجشيب</option>
-        <option value="upper_mid">فئة فوق المتوسطة</option>
-        <option value="mid">فئة متوسطة</option>
-        <option value="budget">اقتصادي</option>
-        <option value="ultra_budget">تحت 5000</option>
-      </select>
-      <select id="sortSelect">
-        <option value="lowest_price_asc">السعر: من الأقل</option>
-        <option value="lowest_price_desc">السعر: من الأعلى</option>
-        <option value="name_asc">الاسم A-Z</option>
-      </select>
-      <button id="viewToggle" class="secondary">عرض قائمة</button>
+    <div class="container">
+        <header>
+            <h1>🇪🇬 أسعار الموبايلات في مصر</h1>
+            <p class="count">عدد الهواتف: <span id="count">جاري التحميل...</span></p>
+        </header>
+        
+        <div id="phones-container">
+            <p style="color: white;">جاري تحميل البيانات...</p>
+        </div>
     </div>
-  </div>
-</header>
 
-<main class="container">
-  <div id="stats"></div>
-  <div class="filter-buttons">
-    <button class="secondary" data-filter="5g">يدعم 5G</button>
-    <button class="secondary" data-filter="ram">رام 8GB+</button>
-  </div>
-  <div id="phonesWrapper">
-    <div class="phones-grid" id="phonesGrid"></div>
-  </div>
-</main>
-
-<div class="comparison-bar" id="comparisonBar">
-  <div class="comparison-list" id="comparisonList"></div>
-  <button id="openComparison">مقارنة الآن</button>
-</div>
-
-<nav class="bottom-nav">
-  <button class="active">الرئيسية</button>
-  <button>عن التطبيق</button>
-  <button>اتصل بنا</button>
-</nav>
-
-<script>
-let phones = [];
-let storesMeta = {};
-let listView = false;
-let filters = { text: "", brand: "", segment: "", fiveG: false, minRam: 0 };
-let sortMode = "lowest_price_asc";
-let comparison = [];
-
-async function loadData() {
-  try {
-    const [phonesRes, storesRes] = await Promise.all([
-      fetch("phones_data.json"),
-      fetch("stores.json")
-    ]);
-    if (!phonesRes.ok || !storesRes.ok) throw new Error("Failed to load data");
-    phones = await phonesRes.json();
-    storesMeta = await storesRes.json();
-    initBrandFilter();
-    render();
-  } catch (err) {
-    document.getElementById("stats").textContent = "تعذر تحميل البيانات. حاول تحديث الصفحة.";
-    console.error(err);
-  }
-}
-
-function initBrandFilter() {
-  const brands = [...new Set(phones.map(p => p.brand).filter(Boolean))].sort();
-  const sel = document.getElementById("brandFilter");
-  brands.forEach(b => {
-    const opt = document.createElement("option");
-    opt.value = b;
-    opt.textContent = b;
-    sel.appendChild(opt);
-  });
-}
-
-function filterPhones() {
-  return phones.filter(p => {
-    if (filters.text) {
-      const t = filters.text.toLowerCase();
-      const combined = (p.brand + " " + p.model + " " + (p.model_ar || "")).toLowerCase();
-      if (!combined.includes(t)) return false;
-    }
-    if (filters.brand && p.brand !== filters.brand) return false;
-    if (filters.segment && p.price_segment !== filters.segment) return false;
-    if (filters.fiveG && p["5g_support"] !== "Yes") return false;
-    return true;
-  });
-}
-
-function sortPhones(list) {
-  return list.sort((a, b) => {
-    const pa = parseFloat(a.lowest_price || "0") || 0;
-    const pb = parseFloat(b.lowest_price || "0") || 0;
-    if (sortMode === "lowest_price_asc") return pa - pb;
-    if (sortMode === "lowest_price_desc") return pb - pa;
-    if (sortMode === "name_asc") return (a.brand + a.model).localeCompare(b.brand + b.model);
-    return 0;
-  });
-}
-
-function render() {
-  const filtered = sortPhones(filterPhones());
-  const grid = document.getElementById("phonesGrid");
-  grid.innerHTML = "";
-  document.getElementById("stats").textContent = `عدد الهواتف: ${filtered.length} / ${phones.length}`;
-
-  filtered.forEach(p => {
-    const card = document.createElement("article");
-    card.className = "card";
-
-    const header = document.createElement("div");
-    header.className = "card-header";
-
-    const titleDiv = document.createElement("div");
-    titleDiv.innerHTML = `<div class="card-title">${p.brand} ${p.model}</div><div class="card-subtitle">${p.model_ar || ""}</div>`;
-    header.appendChild(titleDiv);
-
-    const seg = document.createElement("span");
-    seg.className = `tag ${p.price_segment}`;
-    seg.textContent = segmentLabel(p.price_segment);
-    header.appendChild(seg);
-
-    card.appendChild(header);
-
-    const priceLine = document.createElement("div");
-    priceLine.className = "price-line";
-    if (p.lowest_price) {
-      const priceDiv = document.createElement("div");
-      priceDiv.textContent = `${p.lowest_price} جنيه`;
-      const storeDiv = document.createElement("div");
-      storeDiv.className = "store-pill";
-      storeDiv.textContent = p.best_store ? (storesMeta[p.best_store]?.short_name || p.best_store) : "";
-      priceLine.appendChild(priceDiv);
-      priceLine.appendChild(storeDiv);
-    } else {
-      priceLine.textContent = "لا توجد أسعار";
-    }
-    card.appendChild(priceLine);
-
-    const specLine = document.createElement("div");
-    specLine.className = "spec-line";
-    specLine.textContent = `${p.display_size || ""} • ${p.ram || ""} • ${p.storage || ""}`;
-    card.appendChild(specLine);
-
-    const bottom = document.createElement("div");
-    bottom.className = "card-bottom";
-
-    const avail = document.createElement("div");
-    avail.className = "availability";
-    avail.textContent = `${p.availability_score || 0} متاجر`;
-    bottom.appendChild(avail);
-
-    const btns = document.createElement("div");
-    btns.className = "card-buttons";
-    const cmpBtn = document.createElement("button");
-    cmpBtn.textContent = "مقارنة";
-    cmpBtn.classList.add("secondary");
-    cmpBtn.onclick = () => toggleCompare(p.id);
-    btns.appendChild(cmpBtn);
-
-    const detBtn = document.createElement("button");
-    detBtn.textContent = "التفاصيل";
-    detBtn.onclick = () => showDetails(p);
-    btns.appendChild(detBtn);
-
-    bottom.appendChild(btns);
-    card.appendChild(bottom);
-
-    grid.appendChild(card);
-  });
-
-  document.getElementById("phonesWrapper").classList.toggle("list-view", listView);
-  renderComparisonBar();
-}
-
-function segmentLabel(seg) {
-  const labels = {
-    flagship: "فلاجشيب",
-    upper_mid: "فئة فوق المتوسطة",
-    mid: "متوسط",
-    budget: "اقتصادي",
-    ultra_budget: "أقل من 5000"
-  };
-  return labels[seg] || seg;
-}
-
-function toggleCompare(id) {
-  const idx = comparison.indexOf(id);
-  if (idx >= 0) comparison.splice(idx, 1);
-  else if (comparison.length < 4) comparison.push(id);
-  renderComparisonBar();
-}
-
-function renderComparisonBar() {
-  const bar = document.getElementById("comparisonBar");
-  const list = document.getElementById("comparisonList");
-  if (!comparison.length) {
-    bar.classList.remove("show");
-    return;
-  }
-  bar.classList.add("show");
-  list.innerHTML = "للمقارنة: ";
-  comparison.forEach(id => {
-    const p = phones.find(x => x.id === id);
-    if (!p) return;
-    const chip = document.createElement("span");
-    chip.className = "chip";
-    chip.textContent = `${p.brand} ${p.model}`;
-    list.appendChild(chip);
-  });
-}
-
-function showDetails(phone) {
-  const details = [
-    `${phone.brand} ${phone.model}`,
-    `${phone.model_ar || ""}`,
-    `---`,
-    `السعر: ${phone.lowest_price || "غير متوفر"} جنيه`,
-    `أفضل متجر: ${storesMeta[phone.best_store]?.name || phone.best_store || "N/A"}`,
-    `متاح في: ${phone.availability_score || 0} متجر`,
-    `---`,
-    `الشاشة: ${phone.display_size || ""} ${phone.display_type || ""}`,
-    `المعالج: ${phone.processor || ""}`,
-    `الرام: ${phone.ram || ""}`,
-    `المساحة: ${phone.storage || ""}`,
-    `البطارية: ${phone.battery_capacity || ""}mAh`,
-    `الكاميرا الخلفية: ${phone.rear_camera_main || ""}MP`,
-    `النظام: ${phone.operating_system || ""} ${phone.os_version || ""}`
-  ];
-  alert(details.filter(d => d && d !== "---").join("\n"));
-}
-
-document.getElementById("searchInput").addEventListener("input", e => {
-  filters.text = e.target.value.trim();
-  render();
-});
-
-document.getElementById("brandFilter").addEventListener("change", e => {
-  filters.brand = e.target.value;
-  render();
-});
-
-document.getElementById("segmentFilter").addEventListener("change", e => {
-  filters.segment = e.target.value;
-  render();
-});
-
-document.getElementById("sortSelect").addEventListener("change", e => {
-  sortMode = e.target.value;
-  render();
-});
-
-document.getElementById("viewToggle").addEventListener("click", () => {
-  listView = !listView;
-  document.getElementById("viewToggle").textContent = listView ? "عرض كروت" : "عرض قائمة";
-  render();
-});
-
-document.querySelectorAll(".filter-buttons button").forEach(btn => {
-  btn.addEventListener("click", () => {
-    if (btn.dataset.filter === "5g") {
-      filters.fiveG = !filters.fiveG;
-    }
-    btn.classList.toggle("active", filters.fiveG);
-    render();
-  });
-});
-
-document.getElementById("openComparison").addEventListener("click", () => {
-  if (!comparison.length) return;
-  const selected = phones.filter(p => comparison.includes(p.id));
-  let text = "مقارنة:\n\n";
-  selected.forEach(p => {
-    text += `${p.brand} ${p.model}\nالسعر: ${p.lowest_price || "N/A"} جنيه\nالشاشة: ${p.display_size || ""}\nالرام: ${p.ram || ""}\n\n`;
-  });
-  alert(text);
-});
-
-loadData();
-</script>
+    <script>
+        async function loadPhonePrices() {
+            try {
+                const response = await fetch('phones_data.json');
+                const phones = await response.json();
+                
+                console.log('Phones loaded:', phones);
+                
+                const container = document.getElementById('phones-container');
+                
+                if (!phones || phones.length === 0) {
+                    container.innerHTML = '<p style="color: white;">لا توجد بيانات</p>';
+                    return;
+                }
+                
+                const phonesByName = {};
+                
+                phones.forEach(phone => {
+                    if (!phonesByName[phone.name]) {
+                        phonesByName[phone.name] = [];
+                    }
+                    phonesByName[phone.name].push(phone);
+                });
+                
+                let html = '';
+                
+                Object.entries(phonesByName).forEach(([name, stores]) => {
+                    const minPrice = Math.min(...stores.map(s => s.price));
+                    const storeCount = stores.length;
+                    
+                    html += `
+                        <div class="phone-card">
+                            <h3>${name}</h3>
+                            <p class="price">السعر: ${minPrice.toLocaleString('ar-EG')} ج.م</p>
+                            <p class="stores">عدد المتاجر: ${storeCount}</p>
+                            <div class="stores-list">
+                    `;
+                    
+                    stores.forEach(store => {
+                        html += `
+                            <div class="store">
+                                <span class="store-name">${store.store}</span>
+                                <span class="store-price">${store.price.toLocaleString('ar-EG')} ج.م</span>
+                            </div>
+                        `;
+                    });
+                    
+                    html += `
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+                document.getElementById('count').textContent = Object.keys(phonesByName).length;
+                
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('phones-container').innerHTML = 
+                    `<p style="color: red;">خطأ: ${error.message}</p>`;
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadPhonePrices);
+    </script>
 </body>
 </html>

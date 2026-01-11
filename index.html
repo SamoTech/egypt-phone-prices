@@ -5,255 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أسعار الموبايلات في مصر</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        header {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
-        header h1 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-        
-        .count {
-            color: #667eea;
-            font-weight: bold;
-            font-size: 18px;
-        }
-        
-        /* Filters Section */
-        .filters {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
-        .filters h2 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-        
-        .filter-group {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .filter-item {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .filter-item label {
-            color: #333;
-            font-weight: 500;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-        
-        .filter-item input,
-        .filter-item select {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-            font-family: inherit;
-        }
-        
-        .filter-item input:focus,
-        .filter-item select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
-        }
-        
-        .filter-buttons {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .btn-filter {
-            background: #667eea;
-            color: white;
-        }
-        
-        .btn-filter:hover {
-            background: #764ba2;
-        }
-        
-        .btn-reset {
-            background: #ddd;
-            color: #333;
-        }
-        
-        .btn-reset:hover {
-            background: #ccc;
-        }
-        
-        /* Sorting */
-        .sorting {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .sort-btn {
-            padding: 8px 15px;
-            background: #f0f0f0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 13px;
-            transition: all 0.3s;
-        }
-        
-        .sort-btn:hover,
-        .sort-btn.active {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
-        }
-        
-        /* Phones Grid */
-        #phones-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .phone-card {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .phone-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-        
-        .phone-card h3 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-        
-        .price {
-            color: #667eea;
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .stores {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-        
-        .stores-list {
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-        }
-        
-        .store {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 14px;
-        }
-        
-        .store-name {
-            color: #333;
-            font-weight: 500;
-        }
-        
-        .store-price {
-            color: #764ba2;
-            font-weight: bold;
-        }
-        
-        .store:last-child {
-            border-bottom: none;
-        }
-        
-        .no-results {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 40px;
-            color: white;
-            font-size: 18px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        header h1 { color: #333; margin-bottom: 10px; }
+        .count { color: #667eea; font-weight: bold; font-size: 18px; }
+        .header-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+        .btn-header { padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; border: none; cursor: pointer; font-size: 14px; }
+        .btn-analytics { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
+        .btn-analytics:hover { transform: translateY(-2px); }
+        .filters { background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .filters h2 { color: #333; margin-bottom: 15px; }
+        .filter-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 20px; }
+        .filter-item { display: flex; flex-direction: column; }
+        .filter-item label { color: #333; font-weight: 500; margin-bottom: 8px; font-size: 14px; }
+        .filter-item input, .filter-item select { padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px; font-family: inherit; }
+        .filter-item input:focus, .filter-item select:focus { outline: none; border-color: #667eea; box-shadow: 0 0 5px rgba(102, 126, 234, 0.3); }
+        .filter-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+        button { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: 500; transition: all 0.3s; }
+        .btn-filter { background: #667eea; color: white; }
+        .btn-filter:hover { background: #764ba2; }
+        .btn-reset { background: #ddd; color: #333; }
+        .btn-reset:hover { background: #ccc; }
+        .sorting { display: flex; gap: 10px; flex-wrap: wrap; }
+        .sort-btn { padding: 8px 15px; background: #f0f0f0; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; font-size: 13px; }
+        .sort-btn:hover, .sort-btn.active { background: #667eea; color: white; border-color: #667eea; }
+        #phones-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .phone-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+        .phone-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .phone-card h3 { color: #333; margin-bottom: 15px; font-size: 18px; }
+        .price { color: #667eea; font-size: 20px; font-weight: bold; margin-bottom: 10px; }
+        .stores { color: #666; font-size: 14px; margin-bottom: 15px; }
+        .stores-list { border-top: 1px solid #eee; padding-top: 15px; }
+        .store { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+        .store-name { color: #333; font-weight: 500; }
+        .store-price { color: #764ba2; font-weight: bold; }
+        .store:last-child { border-bottom: none; }
+        .no-results { grid-column: 1 / -1; text-align: center; padding: 40px; color: white; font-size: 18px; }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-        <div>
-            <h1>🇪🇬 أسعار الموبايلات في مصر</h1>
-            <p class="count">عدد الهواتف: <span id="count">جاري التحميل...</span></p>
-        </div>
-        <a href="analytics.html" style="
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        " 
-        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.4)';"
-        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.3)';">
-            📊 الإحصائيات والتحليل
-        </a>
-    </div>
-</header>
-
+            <div class="header-content">
+                <div>
+                    <h1>🇪🇬 أسعار الموبايلات في مصر</h1>
+                    <p class="count">عدد الهواتف: <span id="count">جاري التحميل...</span></p>
+                </div>
+                <div class="header-buttons">
+                    <a href="analytics.html" class="btn-header btn-analytics">📊 الإحصائيات</a>
+                </div>
+            </div>
+        </header>
         
-        <!-- Filters -->
         <div class="filters">
             <h2>🔍 البحث والفلترة</h2>
             
@@ -300,7 +106,6 @@
             </div>
         </div>
         
-        <!-- Phones -->
         <div id="phones-container">
             <p style="color: white;">جاري تحميل البيانات...</p>
         </div>
@@ -318,12 +123,10 @@
                 console.log('Phones loaded:', phones);
                 
                 if (!phones || phones.length === 0) {
-                    document.getElementById('phones-container').innerHTML = 
-                        '<p style="color: white;">لا توجد بيانات</p>';
+                    document.getElementById('phones-container').innerHTML = '<p style="color: white;">لا توجد بيانات</p>';
                     return;
                 }
                 
-                // Group phones by name
                 const phonesByName = {};
                 phones.forEach(phone => {
                     if (!phonesByName[phone.name]) {
@@ -339,8 +142,7 @@
                 
             } catch (error) {
                 console.error('Error:', error);
-                document.getElementById('phones-container').innerHTML = 
-                    `<p style="color: red;">خطأ: ${error.message}</p>`;
+                document.getElementById('phones-container').innerHTML = `<p style="color: red;">خطأ: ${error.message}</p>`;
             }
         }
         
@@ -375,10 +177,7 @@
                     `;
                 });
                 
-                html += `
-                        </div>
-                    </div>
-                `;
+                html += `</div></div>`;
             });
             
             container.innerHTML = html;
@@ -393,26 +192,15 @@
             let filtered = {};
             
             Object.entries(allPhones).forEach(([name, stores]) => {
-                // Search filter
-                if (searchText && !name.toLowerCase().includes(searchText)) {
-                    return;
-                }
+                if (searchText && !name.toLowerCase().includes(searchText)) return;
                 
-                // Store filter
                 let storesFiltered = stores;
-                if (store) {
-                    storesFiltered = stores.filter(s => s.store === store);
-                }
+                if (store) storesFiltered = stores.filter(s => s.store === store);
                 
-                if (storesFiltered.length === 0) {
-                    return;
-                }
+                if (storesFiltered.length === 0) return;
                 
-                // Price filter
                 const minStorePrice = Math.min(...storesFiltered.map(s => s.price));
-                if (minStorePrice < minPrice || minStorePrice > maxPrice) {
-                    return;
-                }
+                if (minStorePrice < minPrice || minStorePrice > maxPrice) return;
                 
                 filtered[name] = storesFiltered;
             });
@@ -426,16 +214,12 @@
             document.getElementById('minPrice').value = '';
             document.getElementById('maxPrice').value = '';
             currentSort = 'name';
-            
             document.querySelectorAll('.sort-btn').forEach(btn => btn.classList.remove('active'));
-            
             displayPhones(allPhones);
         }
         
         function sortPhones(sortType) {
             currentSort = sortType;
-            
-            // Update active button
             document.querySelectorAll('.sort-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
             
@@ -449,16 +233,11 @@
                     const storesB = b[1].length;
                     
                     switch(sortType) {
-                        case 'name':
-                            return nameA.localeCompare(nameB, 'ar');
-                        case 'priceAsc':
-                            return priceA - priceB;
-                        case 'priceDesc':
-                            return priceB - priceA;
-                        case 'stores':
-                            return storesB - storesA;
-                        default:
-                            return 0;
+                        case 'name': return nameA.localeCompare(nameB, 'ar');
+                        case 'priceAsc': return priceA - priceB;
+                        case 'priceDesc': return priceB - priceA;
+                        case 'stores': return storesB - storesA;
+                        default: return 0;
                     }
                 })
             );
@@ -466,13 +245,11 @@
             displayPhones(sorted);
         }
         
-        // Add event listeners for real-time search
         document.getElementById('searchInput').addEventListener('input', applyFilters);
         document.getElementById('storeFilter').addEventListener('change', applyFilters);
         document.getElementById('minPrice').addEventListener('input', applyFilters);
         document.getElementById('maxPrice').addEventListener('input', applyFilters);
         
-        // Load on page load
         document.addEventListener('DOMContentLoaded', loadPhonePrices);
     </script>
 </body>

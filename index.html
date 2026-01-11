@@ -27,7 +27,7 @@
             background: white;
             padding: 20px;
             border-radius: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
@@ -42,6 +42,114 @@
             font-size: 18px;
         }
         
+        /* Filters Section */
+        .filters {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .filters h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .filter-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .filter-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .filter-item label {
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .filter-item input,
+        .filter-item select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        
+        .filter-item input:focus,
+        .filter-item select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-filter {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-filter:hover {
+            background: #764ba2;
+        }
+        
+        .btn-reset {
+            background: #ddd;
+            color: #333;
+        }
+        
+        .btn-reset:hover {
+            background: #ccc;
+        }
+        
+        /* Sorting */
+        .sorting {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .sort-btn {
+            padding: 8px 15px;
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+        
+        .sort-btn:hover,
+        .sort-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        /* Phones Grid */
         #phones-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -106,21 +214,102 @@
         .store:last-child {
             border-bottom: none;
         }
+        
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            color: white;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+        <div>
             <h1>🇪🇬 أسعار الموبايلات في مصر</h1>
             <p class="count">عدد الهواتف: <span id="count">جاري التحميل...</span></p>
-        </header>
+        </div>
+        <a href="analytics.html" style="
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        " 
+        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.4)';"
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.3)';">
+            📊 الإحصائيات والتحليل
+        </a>
+    </div>
+</header>
+
         
+        <!-- Filters -->
+        <div class="filters">
+            <h2>🔍 البحث والفلترة</h2>
+            
+            <div class="filter-group">
+                <div class="filter-item">
+                    <label>البحث حسب الاسم:</label>
+                    <input type="text" id="searchInput" placeholder="أكتب اسم الهاتف...">
+                </div>
+                
+                <div class="filter-item">
+                    <label>اختر المتجر:</label>
+                    <select id="storeFilter">
+                        <option value="">جميع المتاجر</option>
+                        <option value="Jumia">Jumia</option>
+                        <option value="ElAhly">ElAhly</option>
+                        <option value="Carrefour">Carrefour</option>
+                    </select>
+                </div>
+                
+                <div class="filter-item">
+                    <label>نطاق السعر (من - إلى):</label>
+                    <input type="number" id="minPrice" placeholder="الحد الأدنى" min="0">
+                </div>
+                
+                <div class="filter-item">
+                    <label>إلى:</label>
+                    <input type="number" id="maxPrice" placeholder="الحد الأقصى" min="0">
+                </div>
+            </div>
+            
+            <div class="filter-buttons">
+                <button class="btn-filter" onclick="applyFilters()">🔎 بحث</button>
+                <button class="btn-reset" onclick="resetFilters()">↺ إعادة تعيين</button>
+            </div>
+            
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
+                <h3 style="color: #333; margin-bottom: 10px;">📊 الترتيب:</h3>
+                <div class="sorting">
+                    <button class="sort-btn" onclick="sortPhones('name')">أ-ي (أبجدي)</button>
+                    <button class="sort-btn" onclick="sortPhones('priceAsc')">💰 من الأرخص</button>
+                    <button class="sort-btn" onclick="sortPhones('priceDesc')">💸 من الأغلى</button>
+                    <button class="sort-btn" onclick="sortPhones('stores')">🏪 عدد المتاجر</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Phones -->
         <div id="phones-container">
             <p style="color: white;">جاري تحميل البيانات...</p>
         </div>
     </div>
 
     <script>
+        let allPhones = {};
+        let currentSort = 'name';
+        
         async function loadPhonePrices() {
             try {
                 const response = await fetch('phones_data.json');
@@ -128,15 +317,14 @@
                 
                 console.log('Phones loaded:', phones);
                 
-                const container = document.getElementById('phones-container');
-                
                 if (!phones || phones.length === 0) {
-                    container.innerHTML = '<p style="color: white;">لا توجد بيانات</p>';
+                    document.getElementById('phones-container').innerHTML = 
+                        '<p style="color: white;">لا توجد بيانات</p>';
                     return;
                 }
                 
+                // Group phones by name
                 const phonesByName = {};
-                
                 phones.forEach(phone => {
                     if (!phonesByName[phone.name]) {
                         phonesByName[phone.name] = [];
@@ -144,37 +332,10 @@
                     phonesByName[phone.name].push(phone);
                 });
                 
-                let html = '';
-                
-                Object.entries(phonesByName).forEach(([name, stores]) => {
-                    const minPrice = Math.min(...stores.map(s => s.price));
-                    const storeCount = stores.length;
-                    
-                    html += `
-                        <div class="phone-card">
-                            <h3>${name}</h3>
-                            <p class="price">السعر: ${minPrice.toLocaleString('ar-EG')} ج.م</p>
-                            <p class="stores">عدد المتاجر: ${storeCount}</p>
-                            <div class="stores-list">
-                    `;
-                    
-                    stores.forEach(store => {
-                        html += `
-                            <div class="store">
-                                <span class="store-name">${store.store}</span>
-                                <span class="store-price">${store.price.toLocaleString('ar-EG')} ج.م</span>
-                            </div>
-                        `;
-                    });
-                    
-                    html += `
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                container.innerHTML = html;
+                allPhones = phonesByName;
                 document.getElementById('count').textContent = Object.keys(phonesByName).length;
+                
+                displayPhones(phonesByName);
                 
             } catch (error) {
                 console.error('Error:', error);
@@ -183,6 +344,135 @@
             }
         }
         
+        function displayPhones(phonesByName) {
+            const container = document.getElementById('phones-container');
+            
+            if (Object.keys(phonesByName).length === 0) {
+                container.innerHTML = '<div class="no-results">لا توجد نتائج</div>';
+                return;
+            }
+            
+            let html = '';
+            
+            Object.entries(phonesByName).forEach(([name, stores]) => {
+                const minPrice = Math.min(...stores.map(s => s.price));
+                const storeCount = stores.length;
+                
+                html += `
+                    <div class="phone-card" data-name="${name}" data-price="${minPrice}" data-stores="${storeCount}">
+                        <h3>${name}</h3>
+                        <p class="price">السعر: ${minPrice.toLocaleString('ar-EG')} ج.م</p>
+                        <p class="stores">عدد المتاجر: ${storeCount}</p>
+                        <div class="stores-list">
+                `;
+                
+                stores.forEach(store => {
+                    html += `
+                        <div class="store">
+                            <span class="store-name">${store.store}</span>
+                            <span class="store-price">${store.price.toLocaleString('ar-EG')} ج.م</span>
+                        </div>
+                    `;
+                });
+                
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+        
+        function applyFilters() {
+            const searchText = document.getElementById('searchInput').value.toLowerCase();
+            const store = document.getElementById('storeFilter').value;
+            const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
+            const maxPrice = parseInt(document.getElementById('maxPrice').value) || Infinity;
+            
+            let filtered = {};
+            
+            Object.entries(allPhones).forEach(([name, stores]) => {
+                // Search filter
+                if (searchText && !name.toLowerCase().includes(searchText)) {
+                    return;
+                }
+                
+                // Store filter
+                let storesFiltered = stores;
+                if (store) {
+                    storesFiltered = stores.filter(s => s.store === store);
+                }
+                
+                if (storesFiltered.length === 0) {
+                    return;
+                }
+                
+                // Price filter
+                const minStorePrice = Math.min(...storesFiltered.map(s => s.price));
+                if (minStorePrice < minPrice || minStorePrice > maxPrice) {
+                    return;
+                }
+                
+                filtered[name] = storesFiltered;
+            });
+            
+            displayPhones(filtered);
+        }
+        
+        function resetFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('storeFilter').value = '';
+            document.getElementById('minPrice').value = '';
+            document.getElementById('maxPrice').value = '';
+            currentSort = 'name';
+            
+            document.querySelectorAll('.sort-btn').forEach(btn => btn.classList.remove('active'));
+            
+            displayPhones(allPhones);
+        }
+        
+        function sortPhones(sortType) {
+            currentSort = sortType;
+            
+            // Update active button
+            document.querySelectorAll('.sort-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const sorted = Object.fromEntries(
+                Object.entries(allPhones).sort((a, b) => {
+                    const nameA = a[0];
+                    const nameB = b[0];
+                    const priceA = Math.min(...a[1].map(s => s.price));
+                    const priceB = Math.min(...b[1].map(s => s.price));
+                    const storesA = a[1].length;
+                    const storesB = b[1].length;
+                    
+                    switch(sortType) {
+                        case 'name':
+                            return nameA.localeCompare(nameB, 'ar');
+                        case 'priceAsc':
+                            return priceA - priceB;
+                        case 'priceDesc':
+                            return priceB - priceA;
+                        case 'stores':
+                            return storesB - storesA;
+                        default:
+                            return 0;
+                    }
+                })
+            );
+            
+            displayPhones(sorted);
+        }
+        
+        // Add event listeners for real-time search
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+        document.getElementById('storeFilter').addEventListener('change', applyFilters);
+        document.getElementById('minPrice').addEventListener('input', applyFilters);
+        document.getElementById('maxPrice').addEventListener('input', applyFilters);
+        
+        // Load on page load
         document.addEventListener('DOMContentLoaded', loadPhonePrices);
     </script>
 </body>

@@ -1,0 +1,105 @@
+[
+  {
+    "timestamp": "20260111_143343",
+    "phones": [
+      {
+        "name": "iPhone 15 Pro Max",
+        "store": "Jumia",
+        "price": 48500,
+        "url": "https://www.jumia.com.eg/mobile-phones/",
+        "timestamp": "2026-01-11T14:33:39.989331"
+      },
+      {
+        "name": "Samsung Galaxy S24 Ultra",
+        "store": "Jumia",
+        "price": 42000,
+        "url": "https://www.jumia.com.eg/mobile-phones/",
+        "timestamp": "2026-01-11T14:33:39.989331"
+      },
+      {
+        "name": "Google Pixel 8 Pro",
+        "store": "Jumia",
+        "price": 38000,
+        "url": "https://www.jumia.com.eg/mobile-phones/",
+        "timestamp": "2026-01-11T14:33:39.989331"
+      },
+      {
+        "name": "iPhone 15",
+        "store": "Jumia",
+        "price": 32000,
+        "url": "https://www.jumia.com.eg/mobile-phones/",
+        "timestamp": "2026-01-11T14:33:39.989331"
+      },
+      {
+        "name": "Samsung Galaxy S24",
+        "store": "Jumia",
+        "price": 28000,
+        "url": "https://www.jumia.com.eg/mobile-phones/",
+        "timestamp": "2026-01-11T14:33:39.989331"
+      },
+      {
+        "name": "Oppo A17",
+        "store": "Jumia",
+        "price": 8500,
+        "url": "https://www.jumia.com.eg/mobile-phones/",
+        "timestamp": "2026-01-11T14:33:39.989331"
+      },
+      {
+        "name": "Xiaomi Redmi Note 13",
+        "store": "Jumia",
+        "price": 7500,
+        "url": "https://www.jumia.com.eg/mobile-phones/",
+        "timestamp": "2026-01-11T14:33:39.989331"
+      },
+      {
+        "name": "OnePlus 12",
+        "store": "Jumia",
+        "price": 25000,
+        "url": "https://www.jumia.com.eg/mobile-phones/",
+        "timestamp": "2026-01-11T14:33:39.989331"
+      },
+      {
+        "name": "iPhone 15 Pro",
+        "store": "ElAhly",
+        "price": 45000,
+        "url": "https://www.elahly.com",
+        "timestamp": "2026-01-11T14:33:39.989331"
+      },
+      {
+        "name": "Samsung S24 Ultra",
+        "store": "ElAhly",
+        "price": 38000,
+        "url": "https://www.elahly.com",
+        "timestamp": "2026-01-11T14:33:39.989331"
+      },
+      {
+        "name": "iPhone 15",
+        "store": "ElAhly",
+        "price": 31000,
+        "url": "https://www.elahly.com",
+        "timestamp": "2026-01-11T14:33:39.989331"
+      },
+      {
+        "name": "Samsung S24",
+        "store": "ElAhly",
+        "price": 27000,
+        "url": "https://www.elahly.com",
+        "timestamp": "2026-01-11T14:33:39.989331"
+      },
+      {
+        "name": "iPhone 15",
+        "store": "Carrefour",
+        "price": 33000,
+        "url": "https://www.carrefour.com.eg",
+        "timestamp": "2026-01-11T14:33:39.989331"
+      },
+      {
+        "name": "Samsung Galaxy S24",
+        "store": "Carrefour",
+        "price": 29000,
+        "url": "https://www.carrefour.com.eg",
+        "timestamp": "2026-01-11T14:33:39.989331"
+      }
+    ]
+  }
+]

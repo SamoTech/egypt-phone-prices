@@ -29,10 +29,9 @@ class PhoneScraper:
             
             for phone in sample_phones:
                 self.phones.append({
-                    'timestamp': self.timestamp,
+                    'name': phone['name'],
                     'store': 'Jumia',
-                    'model': phone['name'],
-                    'price_egp': phone['price'],
+                    'price': phone['price'],
                     'url': url
                 })
                 logger.info(f"✓ {phone['name']} - {phone['price']} EGP")
@@ -51,10 +50,9 @@ class PhoneScraper:
             
             for phone in sample_phones:
                 self.phones.append({
-                    'timestamp': self.timestamp,
+                    'name': phone['name'],
                     'store': 'ElAhly',
-                    'model': phone['name'],
-                    'price_egp': phone['price'],
+                    'price': phone['price'],
                     'url': 'https://www.elahly.com'
                 })
                 logger.info(f"✓ {phone['name']} - {phone['price']} EGP")

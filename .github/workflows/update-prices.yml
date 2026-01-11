@@ -8,6 +8,10 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -20,43 +24,17 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4
+          pip install requests beautifulsoup4 lxml
 
-      - name: Run Selenium Scraper
+      - name: Run scraper
         run: python scraper.py
 
-      - name: Generate JSON for frontend
-        run: |
-          python - << "EOF"
-          import csv, json, pathlib
-          phones_csv = pathlib.Path("data/phones.csv")
-          out_json = pathlib.Path("docs/phones.json")
-          out_json.parent.mkdir(parents=True, exist_ok=True)
-          with phones_csv.open(encoding="utf-8") as f:
-              reader = csv.DictReader(f)
-              data = list(reader)
-          with out_json.open("w", encoding="utf-8") as f:
-              json.dump(data, f, ensure_ascii=False)
-          EOF
-
-      - name: Copy stores.json for frontend
+      - name: Update website data
         run: |
           mkdir -p docs
-          cp data/stores.json docs/stores.json
-- name: Update website data
-  run: |
-    mkdir -p docs
-    cp data/phones_data.json docs/phones_data.json
-    cp docs/price_report.md docs/report.md 2>/dev/null || true
+          cp data/phones_data.json docs/phones_data.json || true
 
       - name: Commit changes
-      - name: Deploy to GitHub Pages
-  uses: peaceiris/actions-gh-pages@v3
-  with:
-    github_token: ${{ secrets.GITHUB_TOKEN }}
-    publish_dir: ./docs
-    branch: gh-pages
-
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
@@ -65,3 +43,10 @@ jobs:
             git commit -m "Update prices [skip ci]"
             git push
           fi
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          branch: gh-pages

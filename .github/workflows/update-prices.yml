@@ -2,8 +2,8 @@ name: Update Prices
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # Run every 6 hours
-  workflow_dispatch:  # Allow manual trigger
+    - cron: '0 */6 * * *'  # Every 6 hours
+  workflow_dispatch:
 
 jobs:
   scrape-and-deploy:
@@ -18,14 +18,10 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install Chrome
+      - name: Install Chrome and dependencies
         run: |
           apt-get update
           apt-get install -y chromium-browser chromium-chromedriver
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
           pip install requests beautifulsoup4 selenium webdriver-manager
 
       - name: Run scraper
@@ -35,6 +31,60 @@ jobs:
         run: |
           mkdir -p docs
           cp data/phones_data.json docs/phones_data.json
+
+      - name: Archive historical data
+        run: |
+          mkdir -p data/history
+          cp data/phones_data.json data/history/prices_$(date +%Y%m%d_%H%M%S).json
+          python -c "
+          import json
+          import glob
+          from datetime import datetime
+          
+          # Load all historical files
+          history = []
+          for file in sorted(glob.glob('data/history/*.json')):
+              try:
+                  with open(file, 'r', encoding='utf-8') as f:
+                      data = json.load(f)
+                      history.append({
+                          'timestamp': file.split('_')[-1].replace('.json', ''),
+                          'phones': data
+                      })
+              except:
+                  pass
+          
+          # Keep only last 30 days
+          history = history[-720:]  # 30 days * 24 hours / 6 hours
+          
+          # Save history
+          with open('docs/price_history.json', 'w', encoding='utf-8') as f:
+              json.dump(history, f, ensure_ascii=False, indent=2)
+          "
+
+      - name: Generate historical chart data
+        run: |
+          python -c "
+          import json
+          import os
+          
+          if os.path.exists('docs/price_history.json'):
+              with open('docs/price_history.json', 'r', encoding='utf-8') as f:
+                  history = json.load(f)
+              
+              # Generate chart data
+              chart_data = {}
+              for entry in history:
+                  for phone in entry.get('phones', []):
+                      name = phone.get('name', 'Unknown')
+                      if name not in chart_data:
+                          chart_data[name] = {'timestamps': [], 'prices': []}
+                      chart_data[name]['timestamps'].append(entry['timestamp'])
+                      chart_data[name]['prices'].append(phone.get('price', 0))
+              
+              with open('docs/chart_data.json', 'w', encoding='utf-8') as f:
+                  json.dump(chart_data, f, ensure_ascii=False, indent=2)
+          "
 
       - name: Commit changes
         run: |

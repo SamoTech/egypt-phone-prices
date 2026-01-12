@@ -992,5 +992,202 @@
         "timestamp": "2026-01-12T06:29:10.627555"
       }
     ]
+  },
+  {
+    "timestamp": "20260112_123744",
+    "phones": [
+      {
+        "name": "iPhone 15 Pro Max",
+        "store": "Jumia",
+        "price": 48500,
+        "url": "https://www.jumia.com.eg/search/?q=iPhone+15+Pro+Max",
+        "store_url": "https://www.jumia.com.eg",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "Samsung Galaxy S24 Ultra",
+        "store": "Jumia",
+        "price": 42000,
+        "url": "https://www.jumia.com.eg/search/?q=Samsung+Galaxy+S24+Ultra",
+        "store_url": "https://www.jumia.com.eg",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "Google Pixel 8 Pro",
+        "store": "Jumia",
+        "price": 38000,
+        "url": "https://www.jumia.com.eg/search/?q=Google+Pixel+8+Pro",
+        "store_url": "https://www.jumia.com.eg",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "iPhone 15",
+        "store": "Jumia",
+        "price": 32000,
+        "url": "https://www.jumia.com.eg/search/?q=iPhone+15",
+        "store_url": "https://www.jumia.com.eg",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "Samsung Galaxy S24",
+        "store": "Jumia",
+        "price": 28000,
+        "url": "https://www.jumia.com.eg/search/?q=Samsung+Galaxy+S24",
+        "store_url": "https://www.jumia.com.eg",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "OnePlus 12",
+        "store": "Jumia",
+        "price": 25000,
+        "url": "https://www.jumia.com.eg/search/?q=OnePlus+12",
+        "store_url": "https://www.jumia.com.eg",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "Oppo A17",
+        "store": "Jumia",
+        "price": 8500,
+        "url": "https://www.jumia.com.eg/search/?q=Oppo+A17",
+        "store_url": "https://www.jumia.com.eg",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "Xiaomi Redmi Note 13",
+        "store": "Jumia",
+        "price": 7500,
+        "url": "https://www.jumia.com.eg/search/?q=Xiaomi+Redmi+Note+13",
+        "store_url": "https://www.jumia.com.eg",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "Motorola Edge 50",
+        "store": "Jumia",
+        "price": 18000,
+        "url": "https://www.jumia.com.eg/search/?q=Motorola+Edge+50",
+        "store_url": "https://www.jumia.com.eg",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "Tecno Camon 20",
+        "store": "Jumia",
+        "price": 9500,
+        "url": "https://www.jumia.com.eg/search/?q=Tecno+Camon+20",
+        "store_url": "https://www.jumia.com.eg",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "iPhone 15 Pro",
+        "store": "ElAhly",
+        "price": 45000,
+        "url": "https://www.elahly.com/search?q=iPhone+15+Pro",
+        "store_url": "https://www.elahly.com",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "Samsung S24 Ultra",
+        "store": "ElAhly",
+        "price": 38000,
+        "url": "https://www.elahly.com/search?q=Samsung+S24+Ultra",
+        "store_url": "https://www.elahly.com",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "iPhone 15",
+        "store": "ElAhly",
+        "price": 31000,
+        "url": "https://www.elahly.com/search?q=iPhone+15",
+        "store_url": "https://www.elahly.com",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "Samsung S24",
+        "store": "ElAhly",
+        "price": 27000,
+        "url": "https://www.elahly.com/search?q=Samsung+S24",
+        "store_url": "https://www.elahly.com",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "Google Pixel 8",
+        "store": "ElAhly",
+        "price": 28000,
+        "url": "https://www.elahly.com/search?q=Google+Pixel+8",
+        "store_url": "https://www.elahly.com",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "iPhone 15",
+        "store": "Carrefour",
+        "price": 33000,
+        "url": "https://www.carrefour.com.eg/search?q=iPhone+15",
+        "store_url": "https://www.carrefour.com.eg",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "Samsung Galaxy S24",
+        "store": "Carrefour",
+        "price": 29000,
+        "url": "https://www.carrefour.com.eg/search?q=Samsung+Galaxy+S24",
+        "store_url": "https://www.carrefour.com.eg",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "OnePlus 12",
+        "store": "Carrefour",
+        "price": 26000,
+        "url": "https://www.carrefour.com.eg/search?q=OnePlus+12",
+        "store_url": "https://www.carrefour.com.eg",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "iPhone 15 Pro Max",
+        "store": "Noon",
+        "price": 47500,
+        "url": "https://www.noon.com/egypt/search?q=iPhone+15+Pro+Max",
+        "store_url": "https://www.noon.com/egypt",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "Samsung Galaxy S24 Ultra",
+        "store": "Noon",
+        "price": 41000,
+        "url": "https://www.noon.com/egypt/search?q=Samsung+Galaxy+S24+Ultra",
+        "store_url": "https://www.noon.com/egypt",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "OnePlus 12",
+        "store": "Noon",
+        "price": 24500,
+        "url": "https://www.noon.com/egypt/search?q=OnePlus+12",
+        "store_url": "https://www.noon.com/egypt",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "iPhone 15",
+        "store": "Amazon",
+        "price": 34000,
+        "url": "https://www.amazon.eg/s?k=iPhone+15",
+        "store_url": "https://www.amazon.eg",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "Samsung Galaxy S24",
+        "store": "Amazon",
+        "price": 30000,
+        "url": "https://www.amazon.eg/s?k=Samsung+Galaxy+S24",
+        "store_url": "https://www.amazon.eg",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      },
+      {
+        "name": "Google Pixel 8",
+        "store": "Amazon",
+        "price": 27500,
+        "url": "https://www.amazon.eg/s?k=Google+Pixel+8",
+        "store_url": "https://www.amazon.eg",
+        "timestamp": "2026-01-12T12:37:39.259214"
+      }
+    ]
   }
 ]

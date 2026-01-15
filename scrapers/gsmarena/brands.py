@@ -16,23 +16,22 @@ MAKERS_URL = f"{BASE_URL}/makers.php3"
 
 # Top 15 most popular smartphone brands globally (especially for Egyptian market)
 PRIORITY_BRANDS = [
-    "Samsung",      # Market leader
-    "Apple",        # Premium segment
-    "Xiaomi",       # Best value
-    "Oppo",         # Strong presence
-    "Vivo",         # Expanding market
-    "Realme",       # Growing fast
-    "OnePlus",      # Mid-premium segment
-    "Huawei",       # Still has presence
-    "Motorola",     # USA brand
-    "Google",       # Pixel phones
-    "Nokia",        # Classic brand
-    "Infinix",      # Very popular budget brand in Egypt
-    "Tecno",        # Popular budget brand in Egypt
-    "Honor",        # Spin-off from Huawei
-    "Nothing",      # New innovative brand
+    "Samsung",      # #1 Market leader globally
+    "Apple",        # #2 Premium segment leader
+    "Xiaomi",       # #3 Best value, huge in Egypt
+    "Oppo",         # #4 Strong presence in Egypt
+    "Vivo",         # #5 Expanding rapidly
+    "Realme",       # #6 Growing fast, great value
+    "OnePlus",      # #7 Premium flagship killer
+    "Huawei",       # #8 Still has strong presence
+    "Honor",        # #9 Spin-off from Huawei, growing
+    "Motorola",     # #10 Trusted brand
+    "Google",       # #11 Pixel phones, pure Android
+    "Nokia",        # #12 Classic brand, reliable
+    "Infinix",      # #13 Very popular budget brand in Egypt
+    "Tecno",        # #14 Popular budget brand in Egypt/Africa
+    "Nothing",      # #15 New innovative brand
 ]
-
 
 def get_all_brands(priority_only: bool = False) -> List[Dict[str, str]]:
     """
@@ -52,12 +51,12 @@ def get_all_brands(priority_only: bool = False) -> List[Dict[str, str]]:
         'Samsung'
     """
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
     }
     
     try:
         logger.info(f"Fetching brands from {MAKERS_URL}")
-        response = requests.get(MAKERS_URL, headers=headers, timeout=10)
+        response = requests.get(MAKERS_URL, headers=headers, timeout=15)
         response.raise_for_status()
         
         soup = BeautifulSoup(response.content, 'html.parser')
@@ -98,8 +97,8 @@ def get_all_brands(priority_only: bool = False) -> List[Dict[str, str]]:
             brands.sort(key=lambda x: (
                 x['name'] not in PRIORITY_BRANDS,
                 PRIORITY_BRANDS.index(x['name']) if x['name'] in PRIORITY_BRANDS else 999,
-                x['name'
-            ]))
+                x['name']
+            ))
         else:
             # Sort by priority order
             brands.sort(key=lambda x: PRIORITY_BRANDS.index(x['name']) if x['name'] in PRIORITY_BRANDS else 999)

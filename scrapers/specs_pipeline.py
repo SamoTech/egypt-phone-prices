@@ -1,102 +1,70 @@
 """
-Orchestration pipeline to scrape phone specifications from GSMArena, validate them with Pydantic validators,
-and write output to data/specs.json and docs/specs.json. Designed to be used by CI (weekly job).
+Lightweight specs pipeline orchestrator.
+- Runs GSMArena scraper
+- Validates using Pydantic validators (utils.validators)
+- Writes data/specs.json and returns PipelineStatus as dict
 """
 
-from datetime import datetime
+from typing import List, Dict, Any
 import json
-import os
 import uuid
 import logging
-from typing import List
+from datetime import datetime
 
-from scrapers.gsmarena_scraper import GSMArenaScrapers
-from utils.validators import PhoneSpecsDatabase, PhoneSpecsBatch, PipelineStatus, ScraperErrorLog
+from scrapers.gsmarena_scraper import GSMArenaScraper
+from utils.validators import PhoneSpecsDatabase, PipelineStatus, ScraperErrorLog
 from utils.logger import pipeline_logger
 
 logger = logging.getLogger(__name__)
 
-def run_specs_pipeline(batch_id: str = None) -> PipelineStatus:
-    pipeline_id = batch_id or f"specs_{uuid.uuid4().hex[:8]}"
-    started_at = datetime.utcnow().isoformat()
+DATA_PATH = "data/specs.json"
 
+def run_specs_pipeline(save: bool = True) -> Dict[str, Any]:
+    run_id = f"specs_{datetime.utcnow().strftime('%Y%m%dT%H%M%SZ')}_{uuid.uuid4().hex[:6]}"
     status = PipelineStatus(
-        execution_id=pipeline_id,
+        execution_id=run_id,
         pipeline_type="specs",
         status="running",
-        specs_scraped=0,
-        prices_scraped=0,
-        items_updated=0,
-        errors=[],
-        started_at=started_at
+        timestamp=datetime.utcnow().isoformat(),
+        started_at=datetime.utcnow().isoformat(),
     )
 
+    pipeline_logger.log_scrape_start("GSMArena", "gsmarena.com")
+
+    scraper = GSMArenaScraper()
     try:
-        scraper = GSMArenaScrapers()
-        phones = []
+        phones = scraper.scrape()
 
-        pipeline_logger.info("Starting GSMArena specs scraper", extra_data={"execution_id": pipeline_id})
-
-        # Scrape popular brands (scraper internally iterates whitelist)
-        scraped = scraper.scrape()
-
-        for p in scraped:
+        validated_phones = []
+        errors: List[ScraperErrorLog] = []
+        for phone in phones:
             try:
-                # Validate using Pydantic model
-                model = PhoneSpecsDatabase(**{
-                    "brand": p.get("brand"),
-                    "model": p.get("model"),
-                    "release_year": p.get("release_year") or 2023,
-                    "release_date": p.get("release_date"),
-                    "specs": p.get("specs"),
-                    "gsmarena_url": p.get("gsmarena_url"),
-                    "last_updated": p.get("last_updated") or datetime.utcnow().isoformat()
-                })
-
-                phones.append(model.dict_for_storage())
-                status.specs_scraped += 1
-
+                db_item = PhoneSpecsDatabase(**phone)
+                validated_phones.append(db_item.dict_for_storage())
             except Exception as e:
-                logger.warning(f"Validation failed for phone: {p.get('model')} - {e}")
-                status.errors.append(ScraperErrorLog(
-                    source="GSMArena",
-                    error_type=type(e).__name__,
-                    error_message=str(e),
-                    url=p.get("gsmarena_url")
-                ).dict())
+                logger.warning(f"Validation failed for {phone.get('model', 'unknown')}: {e}")
+                errors.append(ScraperErrorLog(source="GSMArena", error_type=type(e).__name__, error_message=str(e), url=phone.get('gsmarena_url')))
 
-        # Persist data
-        os.makedirs('data', exist_ok=True)
-        with open('data/specs.json', 'w', encoding='utf-8') as f:
-            json.dump({"phones": phones, "generated_at": datetime.utcnow().isoformat()}, f, ensure_ascii=False, indent=2)
+        status.specs_scraped = len(validated_phones)
+        status.errors = [err for err in errors]
+        status.status = "success" if not errors else "partial_failure"
 
-        # Also write to docs so GitHub Pages can read it
-        os.makedirs('docs', exist_ok=True)
-        with open('docs/specs.json', 'w', encoding='utf-8') as f:
-            json.dump({"phones": phones, "generated_at": datetime.utcnow().isoformat()}, f, ensure_ascii=False, indent=2)
+        if save:
+            payload = {"phones": validated_phones, "generated_at": datetime.utcnow().isoformat()}
+            with open(DATA_PATH, 'w', encoding='utf-8') as f:
+                json.dump(payload, f, ensure_ascii=False, indent=2)
 
-        status.status = "success"
-        status.items_updated = len(phones)
+        pipeline_logger.log_scrape_end("GSMArena", items_scraped=len(validated_phones), duration_seconds=0)
 
     except Exception as e:
-        logger.exception(f"Specs pipeline failed: {e}")
+        logger.exception("Specs pipeline failed")
         status.status = "failure"
-        status.errors.append(ScraperErrorLog(
-            source="GSMArena",
-            error_type=type(e).__name__,
-            error_message=str(e)
-        ).dict())
+        status.errors.append(ScraperErrorLog(source="GSMArena", error_type=type(e).__name__, error_message=str(e)))
 
     finally:
+        try:
+            scraper.close()
+        except Exception:
+            pass
         status.completed_at = datetime.utcnow().isoformat()
-        status.duration_seconds = (datetime.fromisoformat(status.completed_at) - datetime.fromisoformat(status.started_at)).total_seconds() if status.started_at and status.completed_at else None
-
-        # Persist pipeline status to data
-        with open('data/specs_pipeline_status.json', 'w', encoding='utf-8') as f:
-            json.dump(status.dict(), f, ensure_ascii=False, indent=2)
-
-    return status
-
-
-if __name__ == '__main__':
-    run_specs_pipeline()
+        return status.dict()

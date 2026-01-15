@@ -7,68 +7,14 @@
     "ram": "12GB",
     "storage": "256GB",
     "variant": "12GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Samsung Galaxy S24 Ultra 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Samsung Galaxy S24 Ultra 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:07:44Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Samsung Galaxy S24 Ultra - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Samsung Galaxy S24 Ultra - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:07:44Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:07:44.800084Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:53:23.725933Z"
   },
   "samsung_galaxy_s24_ultra_12_512": {
     "variant_id": "samsung_galaxy_s24_ultra_12_512",
@@ -78,43 +24,14 @@
     "ram": "12GB",
     "storage": "512GB",
     "variant": "12GB/512GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Samsung Galaxy S24 Ultra 512GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Samsung Galaxy S24 Ultra 512GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "512GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:07:45Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:07:45.800611Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:53:30.990554Z"
   },
   "samsung_galaxy_s24_ultra_12_1t": {
     "variant_id": "samsung_galaxy_s24_ultra_12_1t",
@@ -124,43 +41,14 @@
     "ram": "12GB",
     "storage": "1TB",
     "variant": "12GB/1TB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Samsung Galaxy S24 Ultra 1TB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Samsung Galaxy S24 Ultra 1TB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "1TB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:07:46Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:07:46.801195Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:53:38.250872Z"
   },
   "samsung_galaxy_s24_8_128": {
     "variant_id": "samsung_galaxy_s24_8_128",
@@ -170,43 +58,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Samsung Galaxy S24 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Samsung Galaxy S24 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:07:47Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:07:47.801688Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:53:45.569596Z"
   },
   "samsung_galaxy_s24_8_256": {
     "variant_id": "samsung_galaxy_s24_8_256",
@@ -216,68 +75,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Samsung Galaxy S24 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Samsung Galaxy S24 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:07:48Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Samsung Galaxy S24 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Samsung Galaxy S24 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:07:48Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:07:48.802229Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:53:52.838265Z"
   },
   "samsung_galaxy_s24_plus_8_128": {
     "variant_id": "samsung_galaxy_s24_plus_8_128",
@@ -287,43 +92,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Samsung Galaxy S24 Plus 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Samsung Galaxy S24 Plus 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:07:49Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:07:49.802742Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:54:00.282593Z"
   },
   "samsung_galaxy_s24_plus_8_256": {
     "variant_id": "samsung_galaxy_s24_plus_8_256",
@@ -333,68 +109,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Samsung Galaxy S24 Plus 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Samsung Galaxy S24 Plus 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:07:50Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Samsung Galaxy S24 Plus - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Samsung Galaxy S24 Plus - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:07:50Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:07:50.803424Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:54:07.662061Z"
   },
   "samsung_galaxy_s23_8_128": {
     "variant_id": "samsung_galaxy_s23_8_128",
@@ -404,43 +126,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Samsung Galaxy S23 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Samsung Galaxy S23 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:07:51Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:07:51.803874Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:54:15.063321Z"
   },
   "samsung_galaxy_s23_8_256": {
     "variant_id": "samsung_galaxy_s23_8_256",
@@ -450,68 +143,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Samsung Galaxy S23 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Samsung Galaxy S23 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:07:52Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Samsung Galaxy S23 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Samsung Galaxy S23 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:07:52Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:07:52.804509Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:54:22.389746Z"
   },
   "samsung_galaxy_a54_6_128": {
     "variant_id": "samsung_galaxy_a54_6_128",
@@ -521,43 +160,14 @@
     "ram": "6GB",
     "storage": "128GB",
     "variant": "6GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Samsung Galaxy A54 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Samsung Galaxy A54 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:07:53Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:07:53.804960Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:54:29.649722Z"
   },
   "samsung_galaxy_a54_6_256": {
     "variant_id": "samsung_galaxy_a54_6_256",
@@ -567,68 +177,14 @@
     "ram": "6GB",
     "storage": "256GB",
     "variant": "6GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Samsung Galaxy A54 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Samsung Galaxy A54 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:07:54Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Samsung Galaxy A54 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Samsung Galaxy A54 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:07:54Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:07:54.805600Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:54:36.888524Z"
   },
   "samsung_galaxy_a54_8_128": {
     "variant_id": "samsung_galaxy_a54_8_128",
@@ -638,43 +194,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Samsung Galaxy A54 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Samsung Galaxy A54 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:07:55Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:07:55.806049Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:54:44.205161Z"
   },
   "samsung_galaxy_a54_8_256": {
     "variant_id": "samsung_galaxy_a54_8_256",
@@ -684,68 +211,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Samsung Galaxy A54 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Samsung Galaxy A54 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:07:56Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Samsung Galaxy A54 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Samsung Galaxy A54 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:07:56Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:07:56.806696Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:54:51.459250Z"
   },
   "samsung_galaxy_a34_6_128": {
     "variant_id": "samsung_galaxy_a34_6_128",
@@ -755,43 +228,14 @@
     "ram": "6GB",
     "storage": "128GB",
     "variant": "6GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Samsung Galaxy A34 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Samsung Galaxy A34 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:07:57Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:07:57.807133Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:54:58.774680Z"
   },
   "samsung_galaxy_a34_6_256": {
     "variant_id": "samsung_galaxy_a34_6_256",
@@ -801,68 +245,14 @@
     "ram": "6GB",
     "storage": "256GB",
     "variant": "6GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Samsung Galaxy A34 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Samsung Galaxy A34 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:07:58Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Samsung Galaxy A34 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Samsung Galaxy A34 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:07:58Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:07:58.807779Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:55:06.042787Z"
   },
   "samsung_galaxy_a34_8_128": {
     "variant_id": "samsung_galaxy_a34_8_128",
@@ -872,43 +262,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Samsung Galaxy A34 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Samsung Galaxy A34 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:07:59Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:07:59.808243Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:55:13.286272Z"
   },
   "samsung_galaxy_a34_8_256": {
     "variant_id": "samsung_galaxy_a34_8_256",
@@ -918,68 +279,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Samsung Galaxy A34 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Samsung Galaxy A34 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:00Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Samsung Galaxy A34 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Samsung Galaxy A34 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:00Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:00.808874Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:55:20.584747Z"
   },
   "apple_iphone_15_pro_max_8_128": {
     "variant_id": "apple_iphone_15_pro_max_8_128",
@@ -989,43 +296,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Apple iPhone 15 Pro Max 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Apple iPhone 15 Pro Max 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:01Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:01.809320Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:55:27.791639Z"
   },
   "apple_iphone_15_pro_max_8_256": {
     "variant_id": "apple_iphone_15_pro_max_8_256",
@@ -1035,68 +313,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Apple iPhone 15 Pro Max 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Apple iPhone 15 Pro Max 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:02Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Apple iPhone 15 Pro Max - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Apple iPhone 15 Pro Max - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:02Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:02.810022Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:55:35.130403Z"
   },
   "apple_iphone_15_pro_max_8_512": {
     "variant_id": "apple_iphone_15_pro_max_8_512",
@@ -1106,43 +330,14 @@
     "ram": "8GB",
     "storage": "512GB",
     "variant": "8GB/512GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Apple iPhone 15 Pro Max 512GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Apple iPhone 15 Pro Max 512GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "512GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:03Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:03.810503Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:55:42.538587Z"
   },
   "apple_iphone_15_pro_max_8_1t": {
     "variant_id": "apple_iphone_15_pro_max_8_1t",
@@ -1152,43 +347,14 @@
     "ram": "8GB",
     "storage": "1TB",
     "variant": "8GB/1TB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Apple iPhone 15 Pro Max 1TB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Apple iPhone 15 Pro Max 1TB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "1TB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:04Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:04.810955Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:55:49.748601Z"
   },
   "apple_iphone_15_pro_8_128": {
     "variant_id": "apple_iphone_15_pro_8_128",
@@ -1198,43 +364,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Apple iPhone 15 Pro 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Apple iPhone 15 Pro 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:05Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:05.811431Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:55:56.955824Z"
   },
   "apple_iphone_15_pro_8_256": {
     "variant_id": "apple_iphone_15_pro_8_256",
@@ -1244,68 +381,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Apple iPhone 15 Pro 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Apple iPhone 15 Pro 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:06Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Apple iPhone 15 Pro - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Apple iPhone 15 Pro - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:06Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:06.811978Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:56:04.205495Z"
   },
   "apple_iphone_15_pro_8_512": {
     "variant_id": "apple_iphone_15_pro_8_512",
@@ -1315,43 +398,14 @@
     "ram": "8GB",
     "storage": "512GB",
     "variant": "8GB/512GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Apple iPhone 15 Pro 512GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Apple iPhone 15 Pro 512GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "512GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:07Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:07.812450Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:56:11.422138Z"
   },
   "apple_iphone_15_pro_8_1t": {
     "variant_id": "apple_iphone_15_pro_8_1t",
@@ -1361,43 +415,14 @@
     "ram": "8GB",
     "storage": "1TB",
     "variant": "8GB/1TB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Apple iPhone 15 Pro 1TB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Apple iPhone 15 Pro 1TB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "1TB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:08Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:08.813416Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:56:18.653790Z"
   },
   "apple_iphone_15_6_128": {
     "variant_id": "apple_iphone_15_6_128",
@@ -1407,43 +432,14 @@
     "ram": "6GB",
     "storage": "128GB",
     "variant": "6GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Apple iPhone 15 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Apple iPhone 15 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:09Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:09.813845Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:56:25.907801Z"
   },
   "apple_iphone_15_6_256": {
     "variant_id": "apple_iphone_15_6_256",
@@ -1453,68 +449,14 @@
     "ram": "6GB",
     "storage": "256GB",
     "variant": "6GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Apple iPhone 15 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Apple iPhone 15 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:10Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Apple iPhone 15 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Apple iPhone 15 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:10Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:10.814502Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:56:33.105080Z"
   },
   "apple_iphone_15_6_512": {
     "variant_id": "apple_iphone_15_6_512",
@@ -1524,43 +466,14 @@
     "ram": "6GB",
     "storage": "512GB",
     "variant": "6GB/512GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Apple iPhone 15 512GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Apple iPhone 15 512GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "512GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:11Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:11.815002Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:56:40.375126Z"
   },
   "apple_iphone_14_6_128": {
     "variant_id": "apple_iphone_14_6_128",
@@ -1570,43 +483,14 @@
     "ram": "6GB",
     "storage": "128GB",
     "variant": "6GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Apple iPhone 14 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Apple iPhone 14 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:12Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:12.815494Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:56:47.613811Z"
   },
   "apple_iphone_14_6_256": {
     "variant_id": "apple_iphone_14_6_256",
@@ -1616,68 +500,14 @@
     "ram": "6GB",
     "storage": "256GB",
     "variant": "6GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Apple iPhone 14 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Apple iPhone 14 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:13Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Apple iPhone 14 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Apple iPhone 14 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:13Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:13.816031Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:56:54.856942Z"
   },
   "apple_iphone_14_6_512": {
     "variant_id": "apple_iphone_14_6_512",
@@ -1687,43 +517,14 @@
     "ram": "6GB",
     "storage": "512GB",
     "variant": "6GB/512GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Apple iPhone 14 512GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Apple iPhone 14 512GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "512GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:14Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:14.816518Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:57:02.092130Z"
   },
   "xiaomi_14_8_128": {
     "variant_id": "xiaomi_14_8_128",
@@ -1733,43 +534,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Xiaomi 14 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Xiaomi 14 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:15Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:15.816970Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:57:09.331304Z"
   },
   "xiaomi_14_8_256": {
     "variant_id": "xiaomi_14_8_256",
@@ -1779,68 +551,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Xiaomi 14 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Xiaomi 14 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:16Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Xiaomi 14 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Xiaomi 14 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:16Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:16.817616Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:57:16.533964Z"
   },
   "xiaomi_13t_pro_8_128": {
     "variant_id": "xiaomi_13t_pro_8_128",
@@ -1850,43 +568,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Xiaomi 13T Pro 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Xiaomi 13T Pro 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:17Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:17.818076Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:57:23.757035Z"
   },
   "xiaomi_13t_pro_8_256": {
     "variant_id": "xiaomi_13t_pro_8_256",
@@ -1896,68 +585,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Xiaomi 13T Pro 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Xiaomi 13T Pro 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:18Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Xiaomi 13T Pro - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Xiaomi 13T Pro - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:18Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:18.818748Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:57:30.962525Z"
   },
   "xiaomi_redmi_note_13_pro_6_128": {
     "variant_id": "xiaomi_redmi_note_13_pro_6_128",
@@ -1967,43 +602,14 @@
     "ram": "6GB",
     "storage": "128GB",
     "variant": "6GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Xiaomi Redmi Note 13 Pro 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Xiaomi Redmi Note 13 Pro 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:19Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:19.819225Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:57:38.184710Z"
   },
   "xiaomi_redmi_note_13_pro_6_256": {
     "variant_id": "xiaomi_redmi_note_13_pro_6_256",
@@ -2013,68 +619,14 @@
     "ram": "6GB",
     "storage": "256GB",
     "variant": "6GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Xiaomi Redmi Note 13 Pro 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Xiaomi Redmi Note 13 Pro 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:20Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Xiaomi Redmi Note 13 Pro - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Xiaomi Redmi Note 13 Pro - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:20Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:20.819901Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:57:45.389999Z"
   },
   "xiaomi_redmi_note_13_pro_8_128": {
     "variant_id": "xiaomi_redmi_note_13_pro_8_128",
@@ -2084,43 +636,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Xiaomi Redmi Note 13 Pro 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Xiaomi Redmi Note 13 Pro 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:21Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:21.820392Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:57:52.591993Z"
   },
   "xiaomi_redmi_note_13_pro_8_256": {
     "variant_id": "xiaomi_redmi_note_13_pro_8_256",
@@ -2130,68 +653,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Xiaomi Redmi Note 13 Pro 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Xiaomi Redmi Note 13 Pro 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:22Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Xiaomi Redmi Note 13 Pro - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Xiaomi Redmi Note 13 Pro - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:22Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:22.821006Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:57:59.866020Z"
   },
   "oppo_reno_11_8_128": {
     "variant_id": "oppo_reno_11_8_128",
@@ -2201,43 +670,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Oppo Reno 11 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Oppo Reno 11 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:23Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:23.821435Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:58:07.129097Z"
   },
   "oppo_reno_11_8_256": {
     "variant_id": "oppo_reno_11_8_256",
@@ -2247,68 +687,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Oppo Reno 11 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Oppo Reno 11 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:24Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Oppo Reno 11 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Oppo Reno 11 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:24Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:24.822041Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:58:34.202909Z"
   },
   "oppo_find_x6_8_128": {
     "variant_id": "oppo_find_x6_8_128",
@@ -2318,43 +704,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Oppo Find X6 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Oppo Find X6 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:25Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:25.822504Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:59:11.210437Z"
   },
   "oppo_find_x6_8_256": {
     "variant_id": "oppo_find_x6_8_256",
@@ -2364,68 +721,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Oppo Find X6 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Oppo Find X6 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:26Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Oppo Find X6 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Oppo Find X6 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:26Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:26.823108Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T19:59:48.218100Z"
   },
   "realme_12_pro_8_128": {
     "variant_id": "realme_12_pro_8_128",
@@ -2435,43 +738,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Realme 12 Pro 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Realme 12 Pro 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:27Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:27.823578Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:00:25.226843Z"
   },
   "realme_12_pro_8_256": {
     "variant_id": "realme_12_pro_8_256",
@@ -2481,68 +755,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Realme 12 Pro 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Realme 12 Pro 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:28Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Realme 12 Pro - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Realme 12 Pro - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:28Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:28.824572Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:01:02.235970Z"
   },
   "realme_11_pro_8_128": {
     "variant_id": "realme_11_pro_8_128",
@@ -2552,43 +772,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Realme 11 Pro 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Realme 11 Pro 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:29Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:29.824996Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:01:39.244701Z"
   },
   "realme_11_pro_8_256": {
     "variant_id": "realme_11_pro_8_256",
@@ -2598,68 +789,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Realme 11 Pro 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Realme 11 Pro 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:30Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Realme 11 Pro - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Realme 11 Pro - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:30Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:30.825637Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:02:16.251964Z"
   },
   "oneplus_12_8_128": {
     "variant_id": "oneplus_12_8_128",
@@ -2669,43 +806,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy OnePlus 12 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy OnePlus 12 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:31Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:31.826092Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:02:53.259993Z"
   },
   "oneplus_12_8_256": {
     "variant_id": "oneplus_12_8_256",
@@ -2715,68 +823,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy OnePlus 12 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy OnePlus 12 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:32Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "OnePlus 12 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "OnePlus 12 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:32Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:32.826733Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:03:30.268599Z"
   },
   "oneplus_11_8_128": {
     "variant_id": "oneplus_11_8_128",
@@ -2786,43 +840,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy OnePlus 11 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy OnePlus 11 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:33Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:33.827181Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:04:07.276848Z"
   },
   "oneplus_11_8_256": {
     "variant_id": "oneplus_11_8_256",
@@ -2832,68 +857,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy OnePlus 11 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy OnePlus 11 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:34Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "OnePlus 11 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "OnePlus 11 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:34Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:34.827997Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:04:44.286734Z"
   },
   "google_pixel_8_pro_8_128": {
     "variant_id": "google_pixel_8_pro_8_128",
@@ -2903,43 +874,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Google Pixel 8 Pro 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Google Pixel 8 Pro 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:35Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:35.828458Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:05:21.294983Z"
   },
   "google_pixel_8_pro_8_256": {
     "variant_id": "google_pixel_8_pro_8_256",
@@ -2949,68 +891,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Google Pixel 8 Pro 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Google Pixel 8 Pro 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:36Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Google Pixel 8 Pro - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Google Pixel 8 Pro - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:36Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:36.829063Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:05:58.302446Z"
   },
   "google_pixel_8_8_128": {
     "variant_id": "google_pixel_8_8_128",
@@ -3020,43 +908,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Google Pixel 8 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Google Pixel 8 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:37Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:37.829526Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:06:35.311003Z"
   },
   "google_pixel_8_8_256": {
     "variant_id": "google_pixel_8_8_256",
@@ -3066,68 +925,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Google Pixel 8 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Google Pixel 8 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:38Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Google Pixel 8 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Google Pixel 8 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:38Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:38.830131Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:07:12.319667Z"
   },
   "motorola_edge_40_pro_8_128": {
     "variant_id": "motorola_edge_40_pro_8_128",
@@ -3137,43 +942,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Motorola Edge 40 Pro 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Motorola Edge 40 Pro 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:39Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:39.830606Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:07:49.328148Z"
   },
   "motorola_edge_40_pro_8_256": {
     "variant_id": "motorola_edge_40_pro_8_256",
@@ -3183,68 +959,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Motorola Edge 40 Pro 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Motorola Edge 40 Pro 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:40Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Motorola Edge 40 Pro - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Motorola Edge 40 Pro - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:40Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:40.831238Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:08:26.336903Z"
   },
   "nokia_g42_8_128": {
     "variant_id": "nokia_g42_8_128",
@@ -3254,43 +976,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Nokia G42 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Nokia G42 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:41Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:41.831747Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:09:03.344280Z"
   },
   "nokia_g42_8_256": {
     "variant_id": "nokia_g42_8_256",
@@ -3300,68 +993,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Nokia G42 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Nokia G42 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:42Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Nokia G42 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Nokia G42 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:42Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:42.832336Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:09:40.357258Z"
   },
   "vivo_v29_8_128": {
     "variant_id": "vivo_v29_8_128",
@@ -3371,43 +1010,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Vivo V29 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Vivo V29 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:43Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:43.832826Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:10:17.368294Z"
   },
   "vivo_v29_8_256": {
     "variant_id": "vivo_v29_8_256",
@@ -3417,68 +1027,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Vivo V29 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Vivo V29 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:44Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Vivo V29 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Vivo V29 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:44Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:44.833794Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:10:54.379646Z"
   },
   "infinix_note_30_8_128": {
     "variant_id": "infinix_note_30_8_128",
@@ -3488,43 +1044,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Infinix Note 30 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Infinix Note 30 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:45Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:45.834282Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:11:31.390297Z"
   },
   "infinix_note_30_8_256": {
     "variant_id": "infinix_note_30_8_256",
@@ -3534,68 +1061,14 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Infinix Note 30 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Infinix Note 30 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:46Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Infinix Note 30 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Infinix Note 30 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:46Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:46.834892Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:12:08.401946Z"
   },
   "tecno_camon_20_8_128": {
     "variant_id": "tecno_camon_20_8_128",
@@ -3605,43 +1078,14 @@
     "ram": "8GB",
     "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Tecno Camon 20 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Tecno Camon 20 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "128GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:47Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      }
-    ],
-    "best_price": 33499.0,
-    "best_store": "Noon",
-    "avg_price": 33499.0,
-    "price_range": {
-      "min": 33499.0,
-      "max": 33499.0,
-      "avg": 33499.0
-    },
-    "offer_count": 1,
-    "high_confidence_count": 1,
-    "last_updated": "2026-01-15T19:08:47.835365Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:12:45.415800Z"
   },
   "tecno_camon_20_8_256": {
     "variant_id": "tecno_camon_20_8_256",
@@ -3651,67 +1095,13 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "Noon",
-        "title": "Buy Tecno Camon 20 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "price": 33499.0,
-        "currency": "EGP",
-        "url": "https://www.noon.com/...",
-        "source_text": "Buy Tecno Camon 20 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": false
-        },
-        "timestamp": "2026-01-15T19:08:48Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly"
-        ]
-      },
-      {
-        "store": "Jumia",
-        "title": "Tecno Camon 20 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "price": 33200.0,
-        "currency": "EGP",
-        "url": "https://www.jumia.com.eg/...",
-        "source_text": "Tecno Camon 20 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-        "extracted_storage": "256GB",
-        "extracted_ram": null,
-        "conditions": {
-          "is_new": false,
-          "has_warranty": false,
-          "is_refurbished": false,
-          "is_used": false,
-          "is_official": true
-        },
-        "timestamp": "2026-01-15T19:08:48Z",
-        "confidence": 1.0,
-        "confidence_level": "high",
-        "scoring_rules": [
-          "+0.4: Trusted store found",
-          "+0.3: Storage variant matches exactly",
-          "+0.1: Official or warranty mentioned"
-        ]
-      }
-    ],
-    "best_price": 33200.0,
-    "best_store": "Jumia",
-    "avg_price": 33349.5,
-    "price_range": {
-      "min": 33200.0,
-      "max": 33499.0,
-      "avg": 33349.5
-    },
-    "offer_count": 2,
-    "high_confidence_count": 2,
-    "last_updated": "2026-01-15T19:08:48.835974Z"
+    "offers": [],
+    "best_price": null,
+    "best_store": null,
+    "avg_price": null,
+    "price_range": null,
+    "offer_count": 0,
+    "high_confidence_count": 0,
+    "last_updated": "2026-01-15T20:13:22.427811Z"
   }
 }

@@ -17,3 +17,16 @@ fuzzywuzzy==0.18.0
 python-Levenshtein==0.23.0
 tenacity==8.2.3
 fake-useragent==1.4.0
+
+# Testing dependencies
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+pytest-asyncio==0.21.1
+
+# Code quality dependencies
+pylint==3.0.3
+mypy==1.7.1
+flake8==6.1.0
+bandit==1.7.6
+black==23.12.1

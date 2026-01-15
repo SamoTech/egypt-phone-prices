@@ -46,6 +46,9 @@ playwright-report/
 # Test coverage
 .coverage
 htmlcov/
+coverage.xml
+.pytest_cache/
+.hypothesis/
 
 # Local development
 .env

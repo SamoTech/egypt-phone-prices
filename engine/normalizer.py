@@ -158,10 +158,10 @@ def normalize_storage(storage: str) -> Optional[str]:
     # Handle various formats
     if "TB" in storage_clean:
         # Already has TB
-        return storage_clean.replace("T", "TB").replace("TBTB", "TB")
+        return re.sub(r'(\d+).*TB.*', r'\1TB', storage_clean)
     elif "GB" in storage_clean:
         # Already has GB
-        return storage_clean.replace("G", "GB").replace("GBGB", "GB")
+        return re.sub(r'(\d+).*GB.*', r'\1GB', storage_clean)
     elif "G" in storage_clean:
         # Just "G" without "B"
         return storage_clean.replace("G", "GB")
@@ -197,7 +197,7 @@ def normalize_ram(ram: str) -> Optional[str]:
     
     # Handle various formats
     if "GB" in ram_clean:
-        return ram_clean.replace("G", "GB").replace("GBGB", "GB")
+        return re.sub(r'(\d+).*GB.*', r'\1GB', ram_clean)
     elif "G" in ram_clean:
         return ram_clean.replace("G", "GB")
     

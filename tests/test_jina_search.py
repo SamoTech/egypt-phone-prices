@@ -2,7 +2,6 @@
 Tests for Jina AI Search Engine
 """
 
-import os
 import requests
 from engine.discovery.jina_search_engine import JinaSearchEngine
 
@@ -44,43 +43,30 @@ def test_jina_search_engine_with_env_api_key(monkeypatch):
     assert engine.session.headers["Authorization"] == f"Bearer {api_key}"
 
 
-def test_jina_search_engine_no_api_key():
+def test_jina_search_engine_no_api_key(monkeypatch):
     """Test JinaSearchEngine works without API key (backward compatibility)."""
-    # Clear any environment variable
-    old_env = os.environ.pop("JINA_API_KEY", None)
+    # Clear any environment variable using monkeypatch
+    monkeypatch.delenv("JINA_API_KEY", raising=False)
 
-    try:
-        engine = JinaSearchEngine()
+    engine = JinaSearchEngine()
 
-        assert engine.api_key is None
-        assert "Authorization" not in engine.session.headers
-    finally:
-        # Restore environment variable if it existed
-        if old_env:
-            os.environ["JINA_API_KEY"] = old_env
+    assert engine.api_key is None
+    assert "Authorization" not in engine.session.headers
 
 
-def test_jina_search_engine_api_key_priority():
+def test_jina_search_engine_api_key_priority(monkeypatch):
     """Test that explicit API key takes priority over environment variable."""
     explicit_key = "explicit_key"
     env_key = "env_key"
 
-    # Set environment variable
-    old_env = os.environ.get("JINA_API_KEY")
-    os.environ["JINA_API_KEY"] = env_key
+    # Set environment variable using monkeypatch
+    monkeypatch.setenv("JINA_API_KEY", env_key)
 
-    try:
-        engine = JinaSearchEngine(api_key=explicit_key)
+    engine = JinaSearchEngine(api_key=explicit_key)
 
-        # Explicit key should take priority
-        assert engine.api_key == explicit_key
-        assert engine.session.headers["Authorization"] == f"Bearer {explicit_key}"
-    finally:
-        # Restore environment variable
-        if old_env:
-            os.environ["JINA_API_KEY"] = old_env
-        else:
-            os.environ.pop("JINA_API_KEY", None)
+    # Explicit key should take priority
+    assert engine.api_key == explicit_key
+    assert engine.session.headers["Authorization"] == f"Bearer {explicit_key}"
 
 
 def test_jina_search_basic(monkeypatch):

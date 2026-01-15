@@ -11,20 +11,46 @@ This system behaves like a **search + intelligence engine**, not a crawler.
 
 ---
 
+## 🆕 What's New in This Version
+
+### Real Search Integration
+- ✅ **DuckDuckGo Search API** - Free search without API keys or rate limits
+- ✅ **Multi-store discovery** - Amazon, Noon, Jumia, B.TECH, 2B
+- ✅ **Intelligent parsing** - Regex-based price extraction from search snippets
+- ✅ **No more simulated data** - Real search results from actual queries
+
+### Link Validation
+- ✅ **Automated validation** - Weekly checks for dead links via GitHub Actions
+- ✅ **404 removal** - Automatically removes broken product URLs
+- ✅ **Quality assurance** - Only shows valid, working links with timestamps
+
+### Advanced Filters
+- ✅ **Comprehensive search** - Filter by brand, price, storage, confidence
+- ✅ **Smart sorting** - Price, confidence, brand alphabetically
+- ✅ **Instant results** - Client-side filtering for speed
+- ✅ **Extensible architecture** - Easy to add new filter types
+
+---
+
 ## 🏗️ Architecture
 
 ### System Components
 
 ```
 engine/
-  search_intents.py    # Generates search queries for price discovery
-  extractor.py         # Text-based extraction (regex, keywords, heuristics)
-  matcher.py           # Semantic + fuzzy matching (RapidFuzz)
-  validator.py         # Reject false positives (accessories, refurbs)
-  scorer.py            # Confidence scoring (rule-based, no LLM)
-  normalizer.py        # Brand/model normalization
-  specs_discovery.py   # Specs inference pipeline
-  price_discovery.py   # Price discovery pipeline
+  discovery/                # NEW: Real search integration
+    search_engine.py        # DuckDuckGo search wrapper (free, no API keys)
+    result_parser.py        # Extract prices from search results
+  pipelines/                # NEW: Validation pipelines
+    validation_pipeline.py  # Link validation and 404 removal
+  search_intents.py         # Generates search queries for price discovery
+  extractor.py              # Text-based extraction (regex, keywords, heuristics)
+  matcher.py                # Semantic + fuzzy matching (RapidFuzz)
+  validator.py              # Reject false positives (accessories, refurbs)
+  scorer.py                 # Confidence scoring (rule-based, no LLM)
+  normalizer.py             # Brand/model normalization
+  specs_discovery.py        # Specs inference pipeline
+  price_discovery.py        # Price discovery pipeline (now with real search!)
 ```
 
 ---
@@ -93,6 +119,7 @@ All price data includes transparent confidence scores:
 
 - **Specs Update:** Weekly (Sundays 2 AM UTC)
 - **Price Update:** Every 6 hours
+- **Link Validation:** Weekly (Sundays 3 AM UTC) - **NEW!**
 - **Deployment:** Automatic to GitHub Pages
 - **Fault Tolerance:** Keeps last valid data on failures
 
@@ -184,13 +211,17 @@ rapidfuzz>=3.6.0
 tenacity==8.2.3
 python-dateutil==2.8.2
 pydantic==2.5.0
+duckduckgo-search==4.4.0  # NEW: Free search API
 ```
 
 **What's NOT included:**
-- ❌ beautifulsoup4 (no DOM parsing)
-- ❌ selenium (no browser automation)
-- ❌ playwright (no browser automation)
+- ❌ beautifulsoup4 (REMOVED - no DOM parsing)
+- ❌ selenium (REMOVED - no browser automation)
+- ❌ playwright (REMOVED - no browser automation)
 - ❌ openai / anthropic (no LLM APIs)
+
+**What's NEW:**
+- ✅ duckduckgo-search (free search API, no keys required)
 
 ---
 

@@ -43,7 +43,7 @@ class JinaSearchEngine:
         self.session.headers.update(
             {"Accept": "application/json", "User-Agent": "Egypt-Phone-Prices/1.0"}
         )
-        
+
         # Add Authorization header if API key is provided
         if self.api_key:
             self.session.headers.update({

@@ -13,8 +13,14 @@ This system behaves like a **search + intelligence engine**, not a crawler.
 
 ## 🆕 What's New in This Version
 
+### Jina AI Search Integration
+- ✅ **Jina AI Search API** - Free, unlimited searches without API keys
+- ✅ **Better reliability** - No more DuckDuckGo failures
+- ✅ **Clean content extraction** - Markdown format for better parsing
+- ✅ **Retry logic** - Exponential backoff for transient errors
+- ✅ **DuckDuckGo fallback** - Kept as backup option
+
 ### Real Search Integration
-- ✅ **DuckDuckGo Search API** - Free search without API keys or rate limits
 - ✅ **Multi-store discovery** - Amazon, Noon, Jumia, B.TECH, 2B
 - ✅ **Intelligent parsing** - Regex-based price extraction from search snippets
 - ✅ **No more simulated data** - Real search results from actual queries
@@ -39,7 +45,8 @@ This system behaves like a **search + intelligence engine**, not a crawler.
 ```
 engine/
   discovery/                # NEW: Real search integration
-    search_engine.py        # DuckDuckGo search wrapper (free, no API keys)
+    jina_search_engine.py   # Jina AI search wrapper (free, no API keys)
+    search_engine.py        # DuckDuckGo search wrapper (fallback)
     result_parser.py        # Extract prices from search results
   pipelines/                # NEW: Validation pipelines
     validation_pipeline.py  # Link validation and 404 removal
@@ -211,7 +218,7 @@ rapidfuzz>=3.6.0
 tenacity==8.2.3
 python-dateutil==2.8.2
 pydantic==2.5.0
-duckduckgo-search==4.4.0  # NEW: Free search API
+# No external search libraries - uses Jina AI API directly
 ```
 
 **What's NOT included:**
@@ -219,9 +226,11 @@ duckduckgo-search==4.4.0  # NEW: Free search API
 - ❌ selenium (REMOVED - no browser automation)
 - ❌ playwright (REMOVED - no browser automation)
 - ❌ openai / anthropic (no LLM APIs)
+- ❌ duckduckgo-search (moved to optional fallback)
 
 **What's NEW:**
-- ✅ duckduckgo-search (free search API, no keys required)
+- ✅ Jina AI Search (free API via requests, no dedicated library needed)
+- ✅ Retry logic with tenacity
 
 ---
 

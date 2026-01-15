@@ -1,9 +1,17 @@
 """
-Search-Based Discovery Module
-Uses free search APIs to discover phones and prices
+Discovery module - Search and price discovery engines
 """
 
-from .search_engine import FreeSearchEngine
+from .jina_search_engine import JinaSearchEngine
+from .search_engine import DuckDuckGoSearchEngine
 from .result_parser import SearchResultParser
 
-__all__ = ["FreeSearchEngine", "SearchResultParser"]
+# Use Jina as default (DuckDuckGo kept as fallback)
+FreeSearchEngine = JinaSearchEngine
+
+__all__ = [
+    'JinaSearchEngine',
+    'DuckDuckGoSearchEngine',
+    'FreeSearchEngine',
+    'SearchResultParser'
+]

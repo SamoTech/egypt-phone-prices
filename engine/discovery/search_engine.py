@@ -1,6 +1,9 @@
 """
-Free Search Engine Integration
+DuckDuckGo Search Engine Integration (Fallback)
 Uses DuckDuckGo Search (no API keys, no rate limits, no cost)
+
+NOTE: This is kept as fallback only.
+Primary search engine is JinaSearchEngine.
 """
 
 import logging
@@ -10,10 +13,13 @@ from duckduckgo_search import DDGS
 logger = logging.getLogger(__name__)
 
 
-class FreeSearchEngine:
+class DuckDuckGoSearchEngine:
     """
-    Free web search integration using DuckDuckGo.
-
+    Fallback search engine using DuckDuckGo.
+    
+    NOTE: This is kept as fallback only.
+    Primary search engine is JinaSearchEngine.
+    
     NO API keys required.
     NO rate limits.
     NO cost.

@@ -78,16 +78,19 @@ class JinaSearchEngine:
 
             # Convert to standard format
             for idx, item in enumerate(search_results[:max_results]):
+                # Safely get snippet, ensuring it's a string
+                description = item.get("description") or item.get("content") or ""
+                snippet = str(description)[:500] if description else ""
+
                 results.append(
                     {
                         "title": item.get("title", ""),
-                        "snippet": item.get("description", item.get("content", ""))[
-                            :500
-                        ],
+                        "snippet": snippet,
                         "url": item.get("url", ""),
                         "position": idx + 1,
                     }
                 )
+
 
             logger.info(f"Jina AI found {len(results)} results for query: {query}")
 

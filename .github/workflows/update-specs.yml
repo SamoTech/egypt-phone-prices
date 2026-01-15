@@ -2,13 +2,13 @@ name: Update Phone Specs
 
 on:
   schedule:
-    - cron: '0 3 * * 0'  # Every Sunday at 3 AM UTC
+    - cron: '0 2 * * 0'  # Every Sunday at 2 AM UTC (Weekly)
   workflow_dispatch:
 
 jobs:
-  scrape-specs:
+  discover-specs:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 60
     permissions:
       contents: write  # Needed to commit and push changes
     
@@ -27,39 +27,27 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
       
-      - name: Run GSMArena specs scraper
+      - name: Run AI-assisted specs discovery
         run: |
-          python -m scrapers.specs_pipeline_new --min-year 2023
-        timeout-minutes: 90
+          python -m engine.specs_discovery --min-year 2023
+        timeout-minutes: 45
         continue-on-error: true
       
       - name: Validate output files
         run: |
-          python -c "import json; json.load(open('data/phones_specs.json'))" || echo "Warning: phones_specs.json validation failed"
-          python -c "import json; json.load(open('data/phone_variants.json'))" || echo "Warning: phone_variants.json validation failed"
+          python -c "import json; data=json.load(open('data/phones_specs.json')); print(f'✓ Loaded {len(data)} phone specs')" || echo "⚠ Warning: phones_specs.json validation failed"
+          python -c "import json; data=json.load(open('data/phone_variants.json')); print(f'✓ Loaded {len(data)} variants')" || echo "⚠ Warning: phone_variants.json validation failed"
       
       - name: Display stats
         run: |
           if [ -f data/phones_specs.json ]; then
-            PHONE_COUNT=$(python -c "import json; print(len(json.load(open('data/phones_specs.json'))))")
-            echo "✓ Scraped $PHONE_COUNT phones"
+            PHONE_COUNT=$(python -c "import json; print(len(json.load(open('data/phones_specs.json'))))" 2>/dev/null || echo "0")
+            echo "✓ Generated specs for $PHONE_COUNT phones"
           fi
           if [ -f data/phone_variants.json ]; then
-            VARIANT_COUNT=$(python -c "import json; print(len(json.load(open('data/phone_variants.json'))))")
+            VARIANT_COUNT=$(python -c "import json; print(len(json.load(open('data/phone_variants.json'))))" 2>/dev/null || echo "0")
             echo "✓ Generated $VARIANT_COUNT variants"
           fi
-          if [ -f data/scrape_errors.json ]; then
-            ERROR_COUNT=$(python -c "import json; print(len(json.load(open('data/scrape_errors.json'))))" || echo "0")
-            echo "⚠ $ERROR_COUNT errors logged"
-          fi
-      
-      - name: Upload error logs as artifact
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: specs-errors
-          path: data/scrape_errors.json
-          if-no-files-found: ignore
       
       - name: Commit and push changes
         run: |
@@ -69,5 +57,4 @@ jobs:
           [ -f data/phones_specs.json ] && git add data/phones_specs.json
           [ -f data/phone_variants.json ] && git add data/phone_variants.json
           [ -f docs/specs.json ] && git add docs/specs.json
-          [ -f data/scrape_errors.json ] && git add data/scrape_errors.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update phone specs - 2026-01-15 16:30:41 UTC" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update phone specs (AI-assisted discovery) - $(date -u +'%Y-%m-%d %H:%M UTC')" && git push)

@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  scrape-prices:
+  discover-prices:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 60
     permissions:
       contents: write  # Needed to commit and push changes
 
@@ -22,21 +22,15 @@ jobs:
           python-version: '3.11'
           cache: 'pip'
 
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser
-
       - name: Install Python dependencies
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
-          playwright install chromium
 
-      - name: Run price scraper pipeline
+      - name: Run AI-assisted price discovery
         run: |
-          python -m scrapers.price_pipeline
-        timeout-minutes: 60
+          python -m engine.price_discovery
+        timeout-minutes: 45
         continue-on-error: true
 
       - name: Generate history snapshot
@@ -49,7 +43,7 @@ jobs:
           fi
           
           # Keep only last 30 days of history
-          find data/history -name "prices_*.json" -mtime +30 -delete
+          find data/history -name "prices_*.json" -mtime +30 -delete 2>/dev/null || true
           
           # Count remaining history files
           HISTORY_COUNT=$(ls -1 data/history/prices_*.json 2>/dev/null | wc -l)
@@ -58,25 +52,17 @@ jobs:
       - name: Display stats
         run: |
           if [ -f data/prices.json ]; then
-            VARIANT_COUNT=$(python -c "import json; print(len(json.load(open('data/prices.json'))))" || echo "0")
+            VARIANT_COUNT=$(python -c "import json; print(len(json.load(open('data/prices.json'))))" 2>/dev/null || echo "0")
+            OFFERS_COUNT=$(python -c "import json; data=json.load(open('data/prices.json')); print(sum(v.get('offer_count', 0) for v in data.values()))" 2>/dev/null || echo "0")
+            HIGH_CONF_COUNT=$(python -c "import json; data=json.load(open('data/prices.json')); print(sum(v.get('high_confidence_count', 0) for v in data.values()))" 2>/dev/null || echo "0")
             echo "✓ Processed $VARIANT_COUNT variants"
+            echo "✓ Found $OFFERS_COUNT total offers"
+            echo "✓ High confidence offers: $HIGH_CONF_COUNT"
           fi
-          if [ -f data/scrape_errors.json ]; then
-            ERROR_COUNT=$(python -c "import json; print(len(json.load(open('data/scrape_errors.json'))))" || echo "0")
-            echo "⚠ $ERROR_COUNT errors logged"
-          fi
-
-      - name: Upload error logs as artifact
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: price-errors
-          path: data/scrape_errors.json
-          if-no-files-found: ignore
 
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add data/prices.json docs/prices.json data/history/ data/scrape_errors.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update prices - $(date -u +'%Y-%m-%d %H:%M UTC')" && git push)
+          git add data/prices.json docs/prices.json data/history/ 2>/dev/null || true
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update prices (AI-assisted discovery) - $(date -u +'%Y-%m-%d %H:%M UTC')" && git push)

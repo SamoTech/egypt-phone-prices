@@ -48,6 +48,12 @@
         .store:last-child { border-bottom: none; }
         .no-results { grid-column: 1 / -1; text-align: center; padding: 40px; color: white; font-size: 18px; }
         .update-info { background: #fff3cd; padding: 15px; border-radius: 8px; margin-bottom: 20px; color: #856404; font-size: 14px; border-left: 4px solid #ffc107; }
+        .confidence-badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; margin-left: 5px; }
+        .conf-high { background: #d4edda; color: #155724; }
+        .conf-medium { background: #fff3cd; color: #856404; }
+        .conf-low { background: #f8d7da; color: #721c24; }
+        .price-label { font-size: 12px; color: #666; font-weight: normal; margin-bottom: 5px; }
+        .last-verified { font-size: 11px; color: #999; margin-top: 5px; }
     </style>
 </head>
 <body>
@@ -65,7 +71,8 @@
         </header>
         
         <div class="update-info">
-            ⏰ آخر تحديث: <span id="lastUpdate">-</span> | 🔄 التحديثات تلقائية كل 6 ساعات
+            ⚠️ <strong>Market Intelligence Estimates</strong> | ⏰ Last update: <span id="lastUpdate">-</span> | 🔄 Auto-updates every 6 hours
+            <br><small>Prices are estimated based on market data and may not reflect real-time availability. Always verify with stores before purchase.</small>
         </div>
         
         <div class="filters">
@@ -104,12 +111,13 @@
             </div>
             
             <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
-                <h3 style="color: #333; margin-bottom: 10px;">📊 الترتيب:</h3>
+                <h3 style="color: #333; margin-bottom: 10px;">📊 Sort By:</h3>
                 <div class="sorting">
-                    <button class="sort-btn" onclick="sortPhones('name')">أ-ي</button>
-                    <button class="sort-btn" onclick="sortPhones('priceAsc')">💰 أرخص</button>
-                    <button class="sort-btn" onclick="sortPhones('priceDesc')">💸 أغلى</button>
-                    <button class="sort-btn" onclick="sortPhones('stores')">🏪 متاجر</button>
+                    <button class="sort-btn" onclick="sortPhones('name')">A-Z</button>
+                    <button class="sort-btn" onclick="sortPhones('priceAsc')">💰 Lowest Price</button>
+                    <button class="sort-btn" onclick="sortPhones('priceDesc')">💸 Highest Price</button>
+                    <button class="sort-btn" onclick="sortPhones('confidence')">🟢 Best Confidence</button>
+                    <button class="sort-btn" onclick="sortPhones('stores')">🏪 Most Stores</button>
                 </div>
             </div>
         </div>
@@ -246,9 +254,10 @@
                 }
                 
                 if (minPrice) {
-                    html += `<p class="price">أفضل سعر: ${minPrice.toLocaleString('ar-EG')} ج.م</p>`;
+                    html += `<div class="price-label">Estimated Market Price Range</div>`;
+                    html += `<p class="price">${minPrice.toLocaleString('ar-EG')} - ${Math.max(...allOffers.map(o => o.price)).toLocaleString('ar-EG')} EGP</p>`;
                 } else {
-                    html += `<p class="price" style="color: #999;">غير متوفر</p>`;
+                    html += `<p class="price" style="color: #999;">Not Available</p>`;
                 }
                 
                 html += `<p class="stores">عدد الإصدارات: ${phone.variants.length}</p>`;
@@ -261,16 +270,41 @@
                         <div style="font-weight: 600; color: #333; margin-bottom: 8px;">📦 ${variant.variant}</div>`;
                     
                     if (variant.offers && variant.offers.length > 0) {
+                        // Add last updated timestamp for variant
+                        const lastUpdate = variant.last_updated || variant.offers[0].timestamp || '';
+                        if (lastUpdate) {
+                            const updateDate = new Date(lastUpdate);
+                            const hoursAgo = Math.floor((Date.now() - updateDate.getTime()) / (1000 * 60 * 60));
+                            html += `<div class="last-verified">Last verified: ${hoursAgo} hours ago</div>`;
+                        }
+                        
                         variant.offers.forEach(offer => {
                             const storeName = storeNames[offer.store] || offer.store;
-                            const confidence = offer.confidence ? ` (${(offer.confidence * 100).toFixed(0)}%)` : '';
+                            
+                            // Confidence indicator
+                            let confBadge = '';
+                            let confEmoji = '';
+                            if (offer.confidence !== undefined) {
+                                const conf = offer.confidence;
+                                if (conf >= 0.75) {
+                                    confBadge = `<span class="confidence-badge conf-high">🟢 ${(conf * 100).toFixed(0)}%</span>`;
+                                    confEmoji = '🟢';
+                                } else if (conf >= 0.50) {
+                                    confBadge = `<span class="confidence-badge conf-medium">🟡 ${(conf * 100).toFixed(0)}%</span>`;
+                                    confEmoji = '🟡';
+                                } else {
+                                    confBadge = `<span class="confidence-badge conf-low">🔴 ${(conf * 100).toFixed(0)}%</span>`;
+                                    confEmoji = '🔴';
+                                }
+                            }
+                            
                             const availability = offer.availability === 'in_stock' ? '✓ متوفر' : '✗ غير متوفر';
                             
                             html += `<div class="store">
                                 <div class="store-info">
-                                    <span class="store-name">${storeName}${confidence}</span>
+                                    <span class="store-name">${storeName} ${confBadge}</span>
                                     <span style="font-size: 11px; color: #999;">${availability}</span>
-                                    <span class="store-price">${offer.price.toLocaleString('ar-EG')} ج.م</span>
+                                    <span class="store-price">${offer.price.toLocaleString('ar-EG')} EGP</span>
                                 </div>
                                 <a href="${offer.url}" target="_blank" class="btn-buy">اشتري</a>
                             </div>`;
@@ -351,11 +385,15 @@
                 const priceA = allOffersA.length > 0 ? Math.min(...allOffersA.map(o => o.price)) : Infinity;
                 const priceB = allOffersB.length > 0 ? Math.min(...allOffersB.map(o => o.price)) : Infinity;
                 
+                const confA = allOffersA.length > 0 ? Math.max(...allOffersA.map(o => o.confidence || 0)) : 0;
+                const confB = allOffersB.length > 0 ? Math.max(...allOffersB.map(o => o.confidence || 0)) : 0;
+                
                 switch(sortType) {
                     case 'name': return a[1].name.localeCompare(b[1].name, 'ar');
                     case 'priceAsc': return priceA - priceB;
                     case 'priceDesc': return priceB - priceA;
                     case 'stores': return allOffersB.length - allOffersA.length;
+                    case 'confidence': return confB - confA;
                 }
             }));
             

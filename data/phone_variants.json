@@ -1,58 +1,119 @@
 [
   {
+    "variant_id": "samsung_galaxy_s24_ultra_12_256",
     "phone_slug": "samsung_galaxy_s24_ultra",
-    "variant_slug": "samsung_galaxy_s24_ultra_12_256",
+    "brand": "Samsung",
+    "model": "Galaxy S24 Ultra",
+    "ram": "12GB",
     "storage": "256GB",
-    "ram": "12GB",
-    "display_name": "Samsung Galaxy S24 Ultra (12GB/256GB)"
+    "variant_label": "12GB/256GB"
   },
   {
+    "variant_id": "samsung_galaxy_s24_ultra_12_512",
     "phone_slug": "samsung_galaxy_s24_ultra",
-    "variant_slug": "samsung_galaxy_s24_ultra_12_512",
+    "brand": "Samsung",
+    "model": "Galaxy S24 Ultra",
+    "ram": "12GB",
     "storage": "512GB",
-    "ram": "12GB",
-    "display_name": "Samsung Galaxy S24 Ultra (12GB/512GB)"
+    "variant_label": "12GB/512GB"
   },
   {
+    "variant_id": "samsung_galaxy_s24_ultra_12_1t",
     "phone_slug": "samsung_galaxy_s24_ultra",
-    "variant_slug": "samsung_galaxy_s24_ultra_12_1t",
-    "storage": "1TB",
+    "brand": "Samsung",
+    "model": "Galaxy S24 Ultra",
     "ram": "12GB",
-    "display_name": "Samsung Galaxy S24 Ultra (12GB/1TB)"
+    "storage": "1TB",
+    "variant_label": "12GB/1TB"
   },
   {
+    "variant_id": "samsung_galaxy_s24_8_128",
     "phone_slug": "samsung_galaxy_s24",
-    "variant_slug": "samsung_galaxy_s24_8_128",
+    "brand": "Samsung",
+    "model": "Galaxy S24",
+    "ram": "8GB",
     "storage": "128GB",
-    "ram": "8GB",
-    "display_name": "Samsung Galaxy S24 (8GB/128GB)"
+    "variant_label": "8GB/128GB"
   },
   {
+    "variant_id": "samsung_galaxy_s24_8_256",
     "phone_slug": "samsung_galaxy_s24",
-    "variant_slug": "samsung_galaxy_s24_8_256",
+    "brand": "Samsung",
+    "model": "Galaxy S24",
+    "ram": "8GB",
     "storage": "256GB",
-    "ram": "8GB",
-    "display_name": "Samsung Galaxy S24 (8GB/256GB)"
+    "variant_label": "8GB/256GB"
   },
   {
-    "phone_slug": "iphone_15_pro_max",
-    "variant_slug": "iphone_15_pro_max_8_256",
+    "variant_id": "samsung_galaxy_s24_plus_8_128",
+    "phone_slug": "samsung_galaxy_s24_plus",
+    "brand": "Samsung",
+    "model": "Galaxy S24 Plus",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "samsung_galaxy_s24_plus_8_256",
+    "phone_slug": "samsung_galaxy_s24_plus",
+    "brand": "Samsung",
+    "model": "Galaxy S24 Plus",
+    "ram": "8GB",
     "storage": "256GB",
-    "ram": "8GB",
-    "display_name": "Apple iPhone 15 Pro Max (8GB/256GB)"
+    "variant_label": "8GB/256GB"
   },
   {
-    "phone_slug": "iphone_15_pro_max",
-    "variant_slug": "iphone_15_pro_max_8_512",
-    "storage": "512GB",
+    "variant_id": "samsung_galaxy_s23_8_128",
+    "phone_slug": "samsung_galaxy_s23",
+    "brand": "Samsung",
+    "model": "Galaxy S23",
     "ram": "8GB",
-    "display_name": "Apple iPhone 15 Pro Max (8GB/512GB)"
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
   },
   {
-    "phone_slug": "iphone_15_pro_max",
-    "variant_slug": "iphone_15_pro_max_8_1t",
-    "storage": "1TB",
+    "variant_id": "samsung_galaxy_s23_8_256",
+    "phone_slug": "samsung_galaxy_s23",
+    "brand": "Samsung",
+    "model": "Galaxy S23",
     "ram": "8GB",
-    "display_name": "Apple iPhone 15 Pro Max (8GB/1TB)"
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "samsung_galaxy_a54_6_128",
+    "phone_slug": "samsung_galaxy_a54",
+    "brand": "Samsung",
+    "model": "Galaxy A54",
+    "ram": "6GB",
+    "storage": "128GB",
+    "variant_label": "6GB/128GB"
+  },
+  {
+    "variant_id": "samsung_galaxy_a54_6_256",
+    "phone_slug": "samsung_galaxy_a54",
+    "brand": "Samsung",
+    "model": "Galaxy A54",
+    "ram": "6GB",
+    "storage": "256GB",
+    "variant_label": "6GB/256GB"
+  },
+  {
+    "variant_id": "samsung_galaxy_a54_8_128",
+    "phone_slug": "samsung_galaxy_a54",
+    "brand": "Samsung",
+    "model": "Galaxy A54",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "samsung_galaxy_a54_8_256",
+    "phone_slug": "samsung_galaxy_a54",
+    "brand": "Samsung",
+    "model": "Galaxy A54",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
   }
 ]

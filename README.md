@@ -1,224 +1,345 @@
-# Egyptian Phone Price & Specs Comparison Platform
+# Egyptian Phone Price & Specs Intelligence Platform
 
-**Fully automated system** that discovers phones from GSMArena and tracks Egyptian market prices across multiple retailers.
+**AI-assisted search intelligence engine** that discovers phones and tracks Egyptian market prices using pattern extraction and heuristic analysis.
 
-## 🚀 Features
+## 🚀 Core Philosophy
 
-- ✅ **Automatic phone discovery** - No manual data entry required
-- ✅ **Weekly specs updates** - Always up-to-date phone specifications from GSMArena
-- ✅ **6-hour price updates** - Fresh pricing from Amazon.eg, Jumia, Noon
-- ✅ **Intelligent matching** - Fuzzy matching with confidence scores (0.7-1.0)
-- ✅ **Variant support** - Tracks different RAM/storage combinations
-- ✅ **Historical tracking** - 30-day price history snapshots
-- ✅ **GitHub Pages deployment** - Free static hosting, no server required
-- ✅ **Production-grade** - Error handling, rate limiting, retry logic
+**🚫 NO traditional web scraping** (no BeautifulSoup, Selenium, Playwright)  
+**✅ AI-assisted search + text extraction + confidence scoring**
+
+This system behaves like a **search + intelligence engine**, not a crawler.
+
+---
 
 ## 🏗️ Architecture
 
-### Automated Pipelines
-
-1. **Specs Pipeline** (Weekly - Sundays 3 AM UTC)
-   - Scrapes GSMArena for new phones released 2023+
-   - Extracts detailed specifications (display, chipset, camera, battery, etc.)
-   - Generates `data/phones_specs.json` and `data/phone_variants.json`
-
-2. **Price Pipeline** (Every 6 hours)
-   - Scrapes Egyptian retailers (Amazon.eg, Jumia, Noon)
-   - Uses Playwright for JavaScript-heavy sites
-   - Validates matches using fuzzy logic and confidence scoring
-   - Generates `data/prices.json` with best prices
-
-### Data Flow
+### System Components
 
 ```
-GSMArena → specs_pipeline → phones_specs.json + phone_variants.json
-                                         ↓
-Egyptian Stores → price_pipeline → prices.json → GitHub Pages
+engine/
+  search_intents.py    # Generates search queries for price discovery
+  extractor.py         # Text-based extraction (regex, keywords, heuristics)
+  matcher.py           # Semantic + fuzzy matching (RapidFuzz)
+  validator.py         # Reject false positives (accessories, refurbs)
+  scorer.py            # Confidence scoring (rule-based, no LLM)
+  normalizer.py        # Brand/model normalization
+  specs_discovery.py   # Specs inference pipeline
+  price_discovery.py   # Price discovery pipeline
 ```
 
-### Technology Stack
+---
 
-- **Specs Scraping**: BeautifulSoup + Requests (GSMArena)
-- **Price Scraping**: Playwright (headless Chromium)
-- **Matching Engine**: FuzzyWuzzy (Levenshtein distance)
-- **Validation**: Custom rules (accessory detection, price outliers, variant matching)
-- **Automation**: GitHub Actions (scheduled workflows)
-- **Frontend**: Vanilla HTML/CSS/JavaScript
+## 📊 How It Works
 
-## 📊 Data Files
+### Specs Discovery (Weekly - Sundays 2 AM UTC)
 
-- `data/phones_specs.json` - Complete phone specifications database
-- `data/phone_variants.json` - RAM/storage variant combinations
-- `data/prices.json` - Latest market prices with confidence scores
-- `data/scrape_errors.json` - Error logs for debugging
-- `data/history/` - 30-day price history snapshots (auto-cleanup)
-- `docs/specs.json` - Copy of specs for GitHub Pages
-- `docs/prices.json` - Copy of prices for GitHub Pages
+- Uses curated seed list of popular phones in Egyptian market
+- Applies heuristic rules and brand-specific patterns
+- Generates normalized specs: brand, model, year, chipset, display, battery
+- Creates storage/RAM variant combinations
+- **Output:** `phones_specs.json`, `phone_variants.json`
 
-## 🛠️ Development
+### Price Discovery (Every 6 Hours)
+
+**Flow for each phone variant:**
+
+1. **Generate search intents**
+   - "Samsung Galaxy S23 256GB price Egypt"
+   - "Galaxy S23 سعر مصر"
+
+2. **Extract from text** using regex patterns:
+   - Prices (e.g., `\d{4,6}\s*EGP`)
+   - Storage/RAM capacities
+   - Store names
+   - Product conditions
+
+3. **Validate data:**
+   - Reject accessories (cases, chargers)
+   - Reject refurbished/used items
+   - Validate variant matches
+   - Check price reasonableness
+
+4. **Calculate confidence scores:**
+   ```
+   +0.4 if trusted store (Amazon, Noon, Jumia)
+   +0.3 if storage variant matches exactly
+   +0.2 if price from multiple sources
+   +0.1 if "official" or "warranty"
+   -0.5 if accessory detected
+   -0.3 if refurbished/used
+   -0.4 if price outlier
+   ```
+
+5. **Output with transparency:**
+   - All offers include confidence scores
+   - Timestamps for last verification
+   - Price ranges, not absolute values
+
+---
+
+## 🎯 Confidence Scoring
+
+All price data includes transparent confidence scores:
+
+- **🟢 High (0.75-1.0):** Trusted store, exact match, multiple sources
+- **🟡 Medium (0.50-0.74):** Good match, single source, some uncertainty
+- **🔴 Low (0.0-0.49):** Weak match, outlier price, questionable source
+
+**Scoring is rule-based and transparent** - no black-box AI models.
+
+---
+
+## 🚀 Automated Workflows
+
+- **Specs Update:** Weekly (Sundays 2 AM UTC)
+- **Price Update:** Every 6 hours
+- **Deployment:** Automatic to GitHub Pages
+- **Fault Tolerance:** Keeps last valid data on failures
+
+---
+
+## 📈 Static Frontend
+
+Live at: `https://[username].github.io/egypt-phone-prices/`
+
+**Features:**
+- ✅ Confidence indicators (🟢🟡🔴)
+- ✅ "Estimated Market Price" labeling
+- ✅ Last verification timestamps
+- ✅ Price ranges with transparency
+- ✅ Filter by brand, price, store
+- ✅ Sort by price, confidence, availability
+- ✅ Mobile-responsive, vanilla JS
+
+**UI Principles:**
+- Manages user expectations honestly
+- Shows data limitations clearly
+- Encourages store verification
+
+---
+
+## 🛠️ Local Development
 
 ### Prerequisites
 
 ```bash
 Python 3.11+
 pip install -r requirements.txt
-playwright install chromium  # For price scraping
 ```
 
-### Run Specs Scraper Locally
+### Run Specs Discovery
 
 ```bash
-# Test mode (2 brands, 3 phones each)
-python -m scrapers.specs_pipeline_new --test
-
-# Full run (all priority brands, phones from 2023+)
-python -m scrapers.specs_pipeline_new
-
-# Custom options
-python -m scrapers.specs_pipeline_new --min-year 2024 --all-brands --max-phones 10
-```
-
-### Run Price Scraper Locally
-
-```bash
-# Test mode (5 phones only)
-python -m scrapers.price_pipeline --test
+# Test mode (limited phones)
+python -m engine.specs_discovery --test
 
 # Full run
-python -m scrapers.price_pipeline
-
-# Specific stores
-python -m scrapers.price_pipeline --stores amazon_eg jumia_eg
+python -m engine.specs_discovery --min-year 2023
 ```
 
-### Test Matching Engine
+### Run Price Discovery
 
 ```bash
-python3 << 'EOF'
-from engine.matcher import fuzzy_match_phone
-from engine.validator import validate_offer, is_accessory
-from engine.normalizer import normalize_brand, create_slug
+# Test mode (5 variants)
+python -m engine.price_discovery --test
 
-# Test fuzzy matching
-result = {"title": "Samsung Galaxy S24 Ultra 256GB", "description": ""}
-phone = {"brand": "Samsung", "model": "Galaxy S24 Ultra", "storage": "256GB"}
-score = fuzzy_match_phone(result, phone)
-print(f"Confidence: {score:.2f}")
-
-# Test normalization
-print(normalize_brand("SAMSUNG"))  # → "Samsung"
-print(create_slug("Samsung", "Galaxy S24 Ultra"))  # → "samsung_galaxy_s24_ultra"
-EOF
+# Full run
+python -m engine.price_discovery
 ```
 
-## 🔧 Configuration
+### Test Engine Modules
 
-### Supported Brands (Priority)
-Samsung, Apple, Xiaomi, Oppo, Realme, OnePlus, Google, Motorola, Nokia, Vivo, Infinix, Tecno
+```python
+from engine import (
+    generate_search_queries,
+    extract_prices_from_text,
+    fuzzy_match_phone,
+    calculate_confidence_score
+)
 
-### Supported Stores
-- Amazon Egypt (amazon.eg)
-- Jumia Egypt (jumia.com.eg)
-- Noon Egypt (noon.com/egypt-en)
+# Generate search queries
+queries = generate_search_queries("Samsung", "Galaxy S23", "256GB")
+print(queries)
 
-### Scraping Parameters
+# Extract prices
+text = "Samsung Galaxy S23 256GB costs 32,999 EGP"
+prices = extract_prices_from_text(text)
+print(prices)
 
-| Parameter | Specs Pipeline | Price Pipeline |
-|-----------|---------------|----------------|
-| Rate Limiting | 2-3 seconds | 1.5-4 seconds |
-| Timeout | 15 seconds | 30 seconds |
-| Confidence Threshold | N/A | 0.70 |
-| Min Release Year | 2023 | N/A |
+# Fuzzy matching
+result = {"title": "Samsung Galaxy S23 256GB", "description": ""}
+phone = {"brand": "Samsung", "model": "Galaxy S23", "storage": "256GB"}
+score = fuzzy_match_phone(result, phone)
+print(f"Match confidence: {score:.2f}")
+```
 
-## 📈 Reliability & Error Handling
+---
 
-- **Fault-tolerant**: Pipeline continues if one phone/store fails
-- **Rate limiting**: Respects delays to avoid blocking
-- **Error logging**: All failures logged to `data/scrape_errors.json`
-- **Last known good**: Retains previous prices if scrape fails
-- **Retry logic**: Built-in retry for transient errors
-- **Validation**: Rejects accessories, refurbished phones, wrong variants
+## 📦 Dependencies
+
+```txt
+# Core (minimal)
+requests>=2.31.0
+rapidfuzz>=3.6.0
+tenacity==8.2.3
+python-dateutil==2.8.2
+pydantic==2.5.0
+```
+
+**What's NOT included:**
+- ❌ beautifulsoup4 (no DOM parsing)
+- ❌ selenium (no browser automation)
+- ❌ playwright (no browser automation)
+- ❌ openai / anthropic (no LLM APIs)
+
+---
 
 ## 🚫 Constraints & Design Decisions
 
-- ❌ No paid APIs - Uses free web scraping only
-- ❌ No manual phone entry - 100% automated discovery
-- ❌ No external databases - All data in Git repository
-- ✅ 100% GitHub infrastructure (Actions + Pages)
-- ✅ Defensive coding - Handles site changes gracefully
-- ✅ Privacy-first - No user tracking, no analytics
+### Forbidden:
+- Traditional web scraping with DOM parsers
+- Browser automation tools
+- Paid APIs or LLM services
+- CAPTCHA bypassing
+
+### Allowed:
+- `requests` library for text fetching
+- Regex and keyword extraction
+- RapidFuzz for fuzzy matching
+- Local heuristic rules
+- GitHub Actions + Pages only
+
+### Why This Approach?
+
+✅ **More resilient** than brittle scrapers  
+✅ **More legal** (no ToS violations)  
+✅ **More scalable** on free infrastructure  
+✅ **More maintainable** (rules over selectors)  
+✅ **More honest** (confidence scores)
+
+---
+
+## ⚠️ Limitations & Honest Disclosure
+
+### What This System Does:
+- ✅ Provides market intelligence estimates
+- ✅ Shows price ranges and trends
+- ✅ Offers confidence-scored data
+- ✅ Updates automatically
+
+### What This System Does NOT Do:
+- ❌ Guarantee real-time accuracy
+- ❌ Verify stock availability
+- ❌ Confirm seller legitimacy
+- ❌ Replace direct verification
+
+**Always verify prices with stores before purchasing.**
+
+---
+
+## 🚀 Deployment
+
+1. Fork this repository
+2. Enable GitHub Actions
+3. Enable GitHub Pages (Settings → Pages → /docs folder)
+4. Trigger workflows manually or wait for schedule
+5. Access at `https://[username].github.io/egypt-phone-prices/`
+
+---
+
+## 🔧 Configuration
+
+### Add New Phone
+
+Edit `engine/specs_discovery.py`:
+
+```python
+seed_phones = [
+    {"brand": "Samsung", "model": "Galaxy S25", "year": 2025},
+]
+```
+
+### Adjust Scoring
+
+Edit `engine/scorer.py` to modify confidence rules.
+
+### Change Frequency
+
+Edit `.github/workflows/update-prices.yml`:
+
+```yaml
+schedule:
+  - cron: '0 */12 * * *'  # Every 12 hours
+```
+
+---
 
 ## 📝 Project Structure
 
 ```
 egypt-phone-prices/
-├── .github/workflows/
-│   ├── update-specs.yml       # Weekly specs scraper
-│   └── update-prices.yml      # 6-hourly price scraper
-├── scrapers/
-│   ├── gsmarena/              # GSMArena specs scrapers
-│   │   ├── brands.py          # Brand discovery
-│   │   ├── phones.py          # Phone listing
-│   │   └── specs.py           # Detailed specs extraction
-│   ├── prices/                # Marketplace price scrapers
-│   │   ├── base.py            # Base Playwright scraper
-│   │   ├── amazon.py          # Amazon.eg scraper
-│   │   ├── jumia.py           # Jumia scraper
-│   │   └── noon.py            # Noon scraper
-│   ├── specs_pipeline_new.py  # Specs orchestrator
-│   └── price_pipeline.py      # Price orchestrator
-├── engine/
-│   ├── matcher.py             # Fuzzy matching logic
-│   ├── validator.py           # Validation rules
-│   └── normalizer.py          # Brand/model normalization
-├── data/
-│   ├── phones_specs.json      # Generated specs
-│   ├── phone_variants.json    # Generated variants
-│   ├── prices.json            # Latest prices
-│   ├── scrape_errors.json     # Error logs
-│   └── history/               # Price history
-├── docs/
-│   ├── index.html             # Frontend
-│   ├── specs.json             # Public specs API
-│   └── prices.json            # Public prices API
-└── requirements.txt           # Python dependencies
+├── engine/               # AI-assisted search intelligence
+│   ├── search_intents.py
+│   ├── extractor.py
+│   ├── matcher.py
+│   ├── validator.py
+│   ├── scorer.py
+│   ├── normalizer.py
+│   ├── specs_discovery.py
+│   └── price_discovery.py
+├── data/                 # Generated data files
+├── docs/                 # GitHub Pages frontend
+└── .github/workflows/    # Automated pipelines
 ```
 
-## 🚀 Deployment
+---
 
-1. **Fork this repository**
-2. **Enable GitHub Actions** (Settings → Actions → Allow all actions)
-3. **Enable GitHub Pages** (Settings → Pages → Source: Deploy from branch → Branch: main → Folder: /docs)
-4. **Wait for workflows to run** (or trigger manually: Actions → Run workflow)
-5. **Access your site** at `https://[username].github.io/egypt-phone-prices/`
+## 🤝 Contributing
 
-### Manual Workflow Triggers
+Contributions welcome! Please:
+1. Follow AI-assisted architecture (no scraping)
+2. Add confidence scoring for new sources
+3. Document limitations honestly
 
-- Go to **Actions** tab
-- Select **Update Phone Specs** or **Update Prices**
-- Click **Run workflow**
-- Choose branch: `main`
-- Click **Run workflow**
+---
 
 ## 📜 License
 
 MIT License
 
-## 🤝 Contributing
-
-Contributions welcome! Please:
-
-1. Test changes locally before submitting PR
-2. Follow existing code style
-3. Add error handling for new scrapers
-4. Update documentation for new features
+---
 
 ## ⚠️ Disclaimer
 
-This project is for educational purposes. Please respect:
-- Website Terms of Service
-- robots.txt files
-- Rate limiting policies
-- Copyright and intellectual property laws
+This project is for **educational purposes**.
 
-The authors are not responsible for misuse of this software.
+**Data Accuracy:**
+- Prices are estimates based on market intelligence
+- Confidence scores indicate reliability
+- Always verify with stores before purchase
+
+**Ethical Use:**
+- Respects website Terms of Service
+- Uses only text-based extraction
+- No aggressive scraping
+- Rate limiting built-in
+
+Authors not responsible for pricing errors or misuse.
+
+---
+
+## 🎓 Methodology
+
+This is a **search engineer's solution**, not a scraper's hack.
+
+**Built with:**
+- Pattern extraction and heuristics
+- Fuzzy matching algorithms
+- Rule-based validation
+- Probabilistic confidence scoring
+
+**Result:** Resilient, maintainable, honest, and free.
+
+---
+
+**Questions?** Open an issue or PR!

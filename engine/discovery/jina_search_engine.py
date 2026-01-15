@@ -1,11 +1,12 @@
 """
 Jina AI Search Engine Integration
-Uses Jina AI Search API (free, unlimited, no API keys)
+Uses Jina AI Search API with optional authentication
 """
 
 import logging
+import os
 import requests
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from urllib.parse import quote_plus
 from tenacity import retry, stop_after_attempt, wait_exponential
 
@@ -14,11 +15,11 @@ logger = logging.getLogger(__name__)
 
 class JinaSearchEngine:
     """
-    Free web search using Jina AI.
+    Web search using Jina AI with optional authentication.
 
     Features:
-    - Unlimited free tier
-    - No API keys required
+    - Free tier available (no API key required)
+    - Optional API key for better quality results
     - Clean content extraction
     - Markdown output
     """
@@ -26,12 +27,29 @@ class JinaSearchEngine:
     BASE_SEARCH_URL = "https://s.jina.ai/"
     BASE_READER_URL = "https://r.jina.ai/"
 
-    def __init__(self, timeout: int = 15):
+    def __init__(self, timeout: int = 15, api_key: Optional[str] = None):
+        """
+        Initialize Jina Search Engine.
+
+        Args:
+            timeout: Request timeout in seconds
+            api_key: Optional Jina AI API key. If not provided, falls back to
+                    JINA_API_KEY environment variable. Works without API key
+                    for free tier.
+        """
         self.timeout = timeout
+        self.api_key = api_key or os.getenv("JINA_API_KEY")
         self.session = requests.Session()
         self.session.headers.update(
             {"Accept": "application/json", "User-Agent": "Egypt-Phone-Prices/1.0"}
         )
+
+        # Add Authorization header if API key is provided
+        if self.api_key:
+            self.session.headers.update({
+                "Authorization": f"Bearer {self.api_key}"
+            })
+            logger.info("Jina AI API key configured for authenticated requests")
 
     @retry(
         stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10)

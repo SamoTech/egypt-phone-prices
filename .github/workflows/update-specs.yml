@@ -32,6 +32,8 @@ jobs:
           python -m engine.specs_discovery --min-year 2023
         timeout-minutes: 45
         continue-on-error: true
+        env:
+          JINA_API_KEY: ${{ secrets.JINA_API_KEY }}
       
       - name: Validate output files
         run: |

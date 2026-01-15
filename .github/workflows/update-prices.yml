@@ -32,6 +32,8 @@ jobs:
           python -m engine.price_discovery
         timeout-minutes: 45
         continue-on-error: true
+        env:
+          JINA_API_KEY: ${{ secrets.JINA_API_KEY }}
 
       - name: Generate history snapshot
         run: |

@@ -21,6 +21,54 @@ def test_jina_search_engine_custom_timeout():
     assert engine.timeout == 30
 
 
+def test_jina_search_engine_with_api_key():
+    """Test JinaSearchEngine initialization with API key."""
+    api_key = "test_api_key_123"
+    engine = JinaSearchEngine(api_key=api_key)
+
+    assert engine.api_key == api_key
+    assert "Authorization" in engine.session.headers
+    assert engine.session.headers["Authorization"] == f"Bearer {api_key}"
+
+
+def test_jina_search_engine_with_env_api_key(monkeypatch):
+    """Test JinaSearchEngine reads API key from environment variable."""
+    api_key = "env_api_key_456"
+    monkeypatch.setenv("JINA_API_KEY", api_key)
+
+    engine = JinaSearchEngine()
+
+    assert engine.api_key == api_key
+    assert "Authorization" in engine.session.headers
+    assert engine.session.headers["Authorization"] == f"Bearer {api_key}"
+
+
+def test_jina_search_engine_no_api_key(monkeypatch):
+    """Test JinaSearchEngine works without API key (backward compatibility)."""
+    # Clear any environment variable using monkeypatch
+    monkeypatch.delenv("JINA_API_KEY", raising=False)
+
+    engine = JinaSearchEngine()
+
+    assert engine.api_key is None
+    assert "Authorization" not in engine.session.headers
+
+
+def test_jina_search_engine_api_key_priority(monkeypatch):
+    """Test that explicit API key takes priority over environment variable."""
+    explicit_key = "explicit_key"
+    env_key = "env_key"
+
+    # Set environment variable using monkeypatch
+    monkeypatch.setenv("JINA_API_KEY", env_key)
+
+    engine = JinaSearchEngine(api_key=explicit_key)
+
+    # Explicit key should take priority
+    assert engine.api_key == explicit_key
+    assert engine.session.headers["Authorization"] == f"Bearer {explicit_key}"
+
+
 def test_jina_search_basic(monkeypatch):
     """Test basic search functionality."""
     engine = JinaSearchEngine()

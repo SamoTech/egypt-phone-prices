@@ -17,8 +17,19 @@ ACCESSORY_KEYWORDS = [
     "power bank", "battery pack", "car charger", "wall charger",
     "usb", "otg", "stylus", "pen", "grip", "ring",
     "skin", "sticker", "protector", "film", "guard",
-    # Arabic keywords
-    "جراب", "كفر", "واقي", "شاحن", "كابل", "سماعة"
+    "pouch", "sleeve", "bumper", "shell", "wallet",
+    "armband", "lanyard", "strap", "kickstand",
+    "speaker", "mic", "microphone", "selfie stick",
+    "tripod", "lens", "camera lens", "memory card", "sd card",
+    "sim tray", "tool kit", "kit", "bundle pack",
+    "wireless charger", "charging pad", "charging dock",
+    "car mount", "desk mount", "magnetic",
+    "privacy screen", "anti-spy", "blue light",
+    # Arabic keywords (expanded)
+    "جراب", "كفر", "واقي", "شاحن", "كابل", "سماعة",
+    "حامل", "حافظة", "غطاء", "محفظة", "بطارية خارجية",
+    "سلك", "وصلة", "محول", "ستاند", "ذراع",
+    "زجاج", "فيلم", "طبقة حماية", "ملحقات", "اكسسوار"
 ]
 
 # Keywords for refurbished/used detection
@@ -99,6 +110,14 @@ def validate_offer(
             return False, f"Price too low ({price} EGP) - likely not a phone"
         if price > 100000:
             return False, f"Price too high ({price} EGP) - likely an error"
+        
+        # Check for suspiciously low prices that might indicate wrong product
+        # If variant has expected price info, compare against it
+        expected_price = variant.get('expected_price')
+        if expected_price and expected_price > 0:
+            price_ratio = price / expected_price
+            if price_ratio < 0.10:  # Less than 10% of expected
+                return False, f"Price too low ({price} EGP) compared to expected ({expected_price} EGP) - likely wrong product"
     else:
         return False, "No valid price found"
     

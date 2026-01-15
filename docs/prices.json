@@ -1,0 +1,124 @@
+{
+  "samsung_galaxy_s24_ultra_12_256": {
+    "phone_slug": "samsung_galaxy_s24_ultra",
+    "variant": "12GB/256GB",
+    "offers": [
+      {
+        "store": "amazon_eg",
+        "title": "Samsung Galaxy S24 Ultra 12GB RAM 256GB Storage",
+        "price": 32999,
+        "currency": "EGP",
+        "url": "https://www.amazon.eg/dp/SAMPLE123",
+        "seller": "Amazon.eg",
+        "availability": "in_stock",
+        "confidence": 0.95,
+        "scraped_at": "2026-01-15T15:30:00.000Z"
+      },
+      {
+        "store": "jumia_eg",
+        "title": "Samsung Galaxy S24 Ultra 256GB 12GB RAM",
+        "price": 33500,
+        "currency": "EGP",
+        "url": "https://www.jumia.com.eg/sample-product",
+        "seller": "Jumia",
+        "availability": "in_stock",
+        "confidence": 0.92,
+        "scraped_at": "2026-01-15T15:30:00.000Z"
+      }
+    ],
+    "best_price": 32999,
+    "best_store": "amazon_eg",
+    "price_range": {
+      "min": 32999,
+      "max": 33500,
+      "avg": 33249.5
+    },
+    "last_updated": "2026-01-15T15:30:00.000Z"
+  },
+  "samsung_galaxy_s24_ultra_12_512": {
+    "phone_slug": "samsung_galaxy_s24_ultra",
+    "variant": "12GB/512GB",
+    "offers": []
+  },
+  "samsung_galaxy_s24_ultra_12_1t": {
+    "phone_slug": "samsung_galaxy_s24_ultra",
+    "variant": "12GB/1TB",
+    "offers": []
+  },
+  "samsung_galaxy_s24_8_128": {
+    "phone_slug": "samsung_galaxy_s24",
+    "variant": "8GB/128GB",
+    "offers": []
+  },
+  "samsung_galaxy_s24_8_256": {
+    "phone_slug": "samsung_galaxy_s24",
+    "variant": "8GB/256GB",
+    "offers": [
+      {
+        "store": "noon_eg",
+        "title": "Samsung Galaxy S24 8GB 256GB",
+        "price": 28500,
+        "currency": "EGP",
+        "url": "https://www.noon.com/egypt-en/sample",
+        "seller": "Noon",
+        "availability": "in_stock",
+        "confidence": 0.88,
+        "scraped_at": "2026-01-15T15:30:00.000Z"
+      }
+    ],
+    "best_price": 28500,
+    "best_store": "noon_eg",
+    "price_range": {
+      "min": 28500,
+      "max": 28500,
+      "avg": 28500
+    },
+    "last_updated": "2026-01-15T15:30:00.000Z"
+  },
+  "iphone_15_pro_max_8_256": {
+    "phone_slug": "iphone_15_pro_max",
+    "variant": "8GB/256GB",
+    "offers": [
+      {
+        "store": "amazon_eg",
+        "title": "Apple iPhone 15 Pro Max 256GB",
+        "price": 48500,
+        "currency": "EGP",
+        "url": "https://www.amazon.eg/dp/SAMPLEIPHONE",
+        "seller": "Amazon.eg",
+        "availability": "in_stock",
+        "confidence": 0.9,
+        "scraped_at": "2026-01-15T15:30:00.000Z"
+      },
+      {
+        "store": "jumia_eg",
+        "title": "iPhone 15 Pro Max 256GB",
+        "price": 49000,
+        "currency": "EGP",
+        "url": "https://www.jumia.com.eg/sample-iphone",
+        "seller": "Jumia",
+        "availability": "in_stock",
+        "confidence": 0.87,
+        "scraped_at": "2026-01-15T15:30:00.000Z"
+      }
+    ],
+    "best_price": 48500,
+    "best_store": "amazon_eg",
+    "price_range": {
+      "min": 48500,
+      "max": 49000,
+      "avg": 48750
+    },
+    "last_updated": "2026-01-15T15:30:00.000Z"
+  },
+  "iphone_15_pro_max_8_512": {
+    "phone_slug": "iphone_15_pro_max",
+    "variant": "8GB/512GB",
+    "offers": []
+  },
+  "iphone_15_pro_max_8_1t": {
+    "phone_slug": "iphone_15_pro_max",
+    "variant": "8GB/1TB",
+    "offers": []
+  }
+}

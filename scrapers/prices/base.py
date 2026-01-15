@@ -168,12 +168,23 @@ class BasePriceScraper(ABC):
         cleaned = cleaned.replace('جنيه', '').replace('ج.م', '')
         cleaned = cleaned.strip()
         
-        # Find numbers with optional comma separators
-        match = re.search(r'(\d{1,3}(?:,\d{3})*(?:\.\d{2})?)', cleaned)
+        # Fix malformed prices like "16199..00" -> "16199.00"
+        cleaned = re.sub(r'\.\.+', '.', cleaned)
+        
+        # Remove spaces between digits
+        cleaned = re.sub(r'(\d)\s+(\d)', r'\1\2', cleaned)
+        
+        # Find numbers with optional comma separators and decimal point
+        # Match patterns like: 32,999 or 32999 or 32,999.50 or 16199.00
+        # Allow numbers from 1-6 digits with optional commas and decimal
+        match = re.search(r'(\d{1,6}(?:,\d{3})*(?:\.\d{1,2})?)', cleaned)
         if match:
             price_str = match.group(1).replace(',', '')
             try:
-                return float(price_str)
+                price = float(price_str)
+                # Validate price is reasonable for a phone (2,000 - 100,000 EGP)
+                if 2000 <= price <= 100000:
+                    return price
             except ValueError:
                 pass
         

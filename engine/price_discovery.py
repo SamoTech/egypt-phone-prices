@@ -38,12 +38,14 @@ def search_for_phone(
     """
     Generate search results for a phone variant.
     
-    In a real implementation, this would:
-    1. Generate search queries
-    2. Fetch search result pages as text
-    3. Extract price information from text
+    NOTE: This is a demonstration/prototype implementation that returns
+    simulated search results. In a production system, this would:
+    1. Use actual search APIs or fetch search result pages
+    2. Extract data from real search results
+    3. Apply rate limiting and error handling
     
-    For now, returns simulated search results for demonstration.
+    For the current implementation, it generates realistic sample data
+    that demonstrates the confidence scoring and validation pipeline.
     
     Args:
         brand: Phone brand
@@ -52,15 +54,19 @@ def search_for_phone(
         ram: RAM capacity
         
     Returns:
-        List of search result snippets
+        List of simulated search result snippets
     """
-    # Generate search queries
+    # Generate search queries (this part is real)
     queries = generate_search_queries(brand, model, storage, ram, country="Egypt")
     
     print(f"  Generated {len(queries)} search queries")
     
-    # In production, this would fetch actual search results
-    # For now, return simulated results
+    # NOTE: SIMULATION - In production, replace with actual search API calls
+    # Example production implementation:
+    # for query in queries:
+    #     response = requests.get(f"https://search-api.com/?q={query}")
+    #     results.extend(parse_search_results(response.text))
+    
     simulated_results = []
     
     # Simulate Amazon result

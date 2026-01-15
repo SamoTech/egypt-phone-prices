@@ -141,7 +141,7 @@ def extract_storage_capacity(text: str) -> Optional[str]:
         return f"{tb_match.group(1)}TB"
     
     # Pattern for GB (more common)
-    gb_match = re.search(r'(\d+)\s*GB?\b', text)
+    gb_match = re.search(r'(\d+)\s*GB\b', text)
     if gb_match:
         capacity = int(gb_match.group(1))
         # Filter out likely RAM values

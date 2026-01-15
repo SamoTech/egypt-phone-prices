@@ -1,35 +1,33 @@
 import requests
 from bs4 import BeautifulSoup
-from base_price_scraper import BasePriceScraper
 
-class BtechEgPriceScraper(BasePriceScraper):
-    def __init__(self, url):
-        super().__init__()
-        self.url = url
+class BTechPriceScraper:
+    def __init__(self):
+        self.base_url = 'https://www.btech.com'
+        self.headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
 
-    def fetch_data(self):
-        response = requests.get(self.url)
-        if response.status_code == 200:
-            return response.text
-        else:
-            return None
+    def fetch_product_page(self, product_id):
+        url = f'{self.base_url}/product/{product_id}'
+        response = requests.get(url, headers=self.headers)
+        response.raise_for_status()  # Raise an error for bad responses
+        return response.text
 
-    def parse_data(self, html_content):
-        soup = BeautifulSoup(html_content, 'html.parser')
-        prices = []
-        for item in soup.select('.price-item'):
-            price = item.get_text(strip=True)
-            prices.append(price)
-        return prices
+    def parse_product_data(self, html):
+        soup = BeautifulSoup(html, 'html.parser')
+        product_name = soup.find('h1', class_='product-title').text.strip()
+        product_price = soup.find('span', class_='price').text.strip()
+        return {
+            'name': product_name,
+            'price': product_price
+        }
 
-    def scrape(self):
-        html_content = self.fetch_data()
-        if html_content:
-            return self.parse_data(html_content)
-        else:
-            return []
+    def get_price(self, product_id):
+        html = self.fetch_product_page(product_id)
+        return self.parse_product_data(html)
 
 # Example usage
-if __name__ == "__main__":
-    scraper = BtechEgPriceScraper("http://example.com/btech-prices")
-    print(scraper.scrape())
+if __name__ == '__main__':
+    scraper = BTechPriceScraper()
+    product_data = scraper.get_price('example-product-id')
+    print(product_data)

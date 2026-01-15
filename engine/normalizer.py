@@ -14,7 +14,6 @@ BRAND_MAP = {
     "xiaomi": "Xiaomi",
     "oppo": "Oppo",
     "realme": "Realme",
-    "realme": "Realme",
     "oneplus": "OnePlus",
     "one plus": "OnePlus",
     "google": "Google",

@@ -5,7 +5,7 @@ Scrapes phone lists for each brand with year filtering.
 
 import requests
 from bs4 import BeautifulSoup
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any
 import logging
 import time
 import re
@@ -20,7 +20,7 @@ def get_phones_for_brand(
     brand_url: str,
     min_year: int = 2023,
     delay: float = 2.0
-) -> List[Dict[str, any]]:
+) -> List[Dict[str, Any]]:
     """
     Fetch all phones for a given brand, filtered by release year.
     
@@ -154,9 +154,9 @@ def get_phones_for_brand(
 
 
 def filter_phones_by_year(
-    phones: List[Dict[str, any]],
+    phones: List[Dict[str, Any]],
     min_year: int = 2023
-) -> List[Dict[str, any]]:
+) -> List[Dict[str, Any]]:
     """
     Filter phones by minimum release year.
     

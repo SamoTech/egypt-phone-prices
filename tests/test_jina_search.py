@@ -2,6 +2,7 @@
 Tests for Jina AI Search Engine
 """
 
+import requests
 from engine.discovery.jina_search_engine import JinaSearchEngine
 
 
@@ -127,8 +128,6 @@ def test_jina_search_timeout(monkeypatch):
     """Test search timeout handling."""
     engine = JinaSearchEngine()
 
-    import requests
-
     def mock_get(*args, **kwargs):
         raise requests.exceptions.Timeout("Request timed out")
 
@@ -143,8 +142,6 @@ def test_jina_search_timeout(monkeypatch):
 def test_jina_search_request_exception(monkeypatch):
     """Test search request exception handling."""
     engine = JinaSearchEngine()
-
-    import requests
 
     def mock_get(*args, **kwargs):
         raise requests.exceptions.RequestException("Connection error")
@@ -259,8 +256,6 @@ def test_jina_read_url(monkeypatch):
 def test_jina_read_url_error(monkeypatch):
     """Test Jina Reader error handling."""
     engine = JinaSearchEngine()
-
-    import requests
 
     def mock_get(*args, **kwargs):
         raise requests.exceptions.RequestException("Error")

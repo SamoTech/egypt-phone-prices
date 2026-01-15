@@ -36,16 +36,10 @@ def search_for_phone(
     ram: str = None
 ) -> List[Dict[str, Any]]:
     """
-    Generate search results for a phone variant.
+    Search for phone using free search APIs.
     
-    NOTE: This is a demonstration/prototype implementation that returns
-    simulated search results. In a production system, this would:
-    1. Use actual search APIs or fetch search result pages
-    2. Extract data from real search results
-    3. Apply rate limiting and error handling
-    
-    For the current implementation, it generates realistic sample data
-    that demonstrates the confidence scoring and validation pipeline.
+    This is NOW a real implementation using DuckDuckGo.
+    No more simulated data!
     
     Args:
         brand: Phone brand
@@ -54,50 +48,55 @@ def search_for_phone(
         ram: RAM capacity
         
     Returns:
-        List of simulated search result snippets
+        List of search result dictionaries with offers
     """
-    # Generate search queries (this part is real)
+    from engine.discovery import FreeSearchEngine, SearchResultParser
+    
+    search_engine = FreeSearchEngine()
+    parser = SearchResultParser()
+    
+    # Generate search queries
     queries = generate_search_queries(brand, model, storage, ram, country="Egypt")
     
     print(f"  Generated {len(queries)} search queries")
     
-    # NOTE: SIMULATION - In production, replace with actual search API calls
-    # Example production implementation:
-    # for query in queries:
-    #     response = requests.get(f"https://search-api.com/?q={query}")
-    #     results.extend(parse_search_results(response.text))
+    all_results = []
     
-    simulated_results = []
+    # Execute searches for top 3 queries
+    for query in queries[:3]:
+        try:
+            results = search_engine.search(query, max_results=5)
+            all_results.extend(results)
+            
+            # Rate limiting - be respectful
+            time.sleep(2)
+        except Exception as e:
+            print(f"  ⚠️  Search failed for '{query}': {e}")
+            continue
     
-    # Simulate Amazon result
-    simulated_results.append({
-        "source": "search_result",
-        "store_hint": "amazon",
-        "text": f"{brand} {model} {storage or ''} {ram or ''} Official warranty - EGP 32999 at Amazon Egypt. In stock. Free delivery.",
-        "url": "https://www.amazon.eg/...",
-        "confidence": 0.8
-    })
+    # Parse results to extract offers
+    target_phone = {
+        'brand': brand,
+        'model': model,
+        'storage': storage,
+        'ram': ram
+    }
+    offers = parser.parse_results(all_results, target_phone)
     
-    # Simulate Noon result
-    simulated_results.append({
-        "source": "search_result",
-        "store_hint": "noon",
-        "text": f"Buy {brand} {model} {storage or ''} online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
-        "url": "https://www.noon.com/...",
-        "confidence": 0.75
-    })
+    print(f"  Found {len(offers)} offers after parsing")
     
-    # Simulate Jumia result (maybe with different variant)
-    if storage == "256GB":
-        simulated_results.append({
+    # Convert offers to the expected format for the pipeline
+    formatted_results = []
+    for offer in offers:
+        formatted_results.append({
             "source": "search_result",
-            "store_hint": "jumia",
-            "text": f"{brand} {model} - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
-            "url": "https://www.jumia.com.eg/...",
-            "confidence": 0.7
+            "store_hint": offer['store'].lower(),
+            "text": f"{offer['title']} - {offer['snippet']}",
+            "url": offer['url'],
+            "confidence": offer['confidence']
         })
     
-    return simulated_results
+    return formatted_results
 
 
 def process_search_results(

@@ -6,6 +6,7 @@ Uses Jina AI Search API (free, unlimited, no API keys)
 import logging
 import requests
 from typing import List, Dict, Any
+from urllib.parse import quote_plus
 from tenacity import retry, stop_after_attempt, wait_exponential
 
 logger = logging.getLogger(__name__)
@@ -52,8 +53,9 @@ class JinaSearchEngine:
         results = []
 
         try:
-            # Jina search API endpoint
-            url = f"{self.BASE_SEARCH_URL}{query}"
+            # Jina search API endpoint - properly encode query for URL safety
+            encoded_query = quote_plus(query)
+            url = f"{self.BASE_SEARCH_URL}{encoded_query}"
 
             response = self.session.get(
                 url,

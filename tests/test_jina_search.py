@@ -197,12 +197,13 @@ def test_jina_store_specific_search(monkeypatch):
 
     engine.search_store_specific("Samsung", "Galaxy S24", "256GB", "noon.com")
 
-    # Verify query includes site: parameter
+    # Verify query includes site: parameter (will be URL-encoded)
     assert len(captured_url) > 0
     assert "Samsung" in captured_url[0]
     assert "Galaxy" in captured_url[0]
     assert "256GB" in captured_url[0]
-    assert "site:noon.com" in captured_url[0]
+    # site:noon.com will be encoded as site%3Anoon.com
+    assert ("site:noon.com" in captured_url[0] or "site%3Anoon.com" in captured_url[0])
 
 
 def test_jina_store_specific_search_no_storage(monkeypatch):
@@ -226,11 +227,11 @@ def test_jina_store_specific_search_no_storage(monkeypatch):
 
     engine.search_store_specific("Apple", "iPhone 15", store_domain="amazon.eg")
 
-    # Verify query
+    # Verify query (site:amazon.eg will be encoded as site%3Aamazon.eg)
     assert len(captured_url) > 0
     assert "Apple" in captured_url[0]
     assert "iPhone" in captured_url[0]
-    assert "site:amazon.eg" in captured_url[0]
+    assert ("site:amazon.eg" in captured_url[0] or "site%3Aamazon.eg" in captured_url[0])
 
 
 def test_jina_read_url(monkeypatch):

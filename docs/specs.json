@@ -90,5 +90,391 @@
     "camera": "50 MP + 12 MP",
     "battery": "5000 mAh",
     "os": "Android 13"
+  },
+  {
+    "slug": "samsung_galaxy_a34",
+    "brand": "Samsung",
+    "model": "Galaxy A34",
+    "release_year": 2023,
+    "display": "6.5 inches, AMOLED",
+    "chipset": "Exynos 1380",
+    "ram_options": [
+      "6GB",
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 12 MP",
+    "battery": "5000 mAh",
+    "os": "Android 13"
+  },
+  {
+    "slug": "apple_iphone_15_pro_max",
+    "brand": "Apple",
+    "model": "iPhone 15 Pro Max",
+    "release_year": 2023,
+    "display": "6.7 inches, LTPO Super Retina XDR OLED",
+    "chipset": "Apple A17 Pro",
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB",
+      "512GB",
+      "1TB"
+    ],
+    "camera": "48 MP + 12 MP + 12 MP",
+    "battery": "4441 mAh",
+    "os": "iOS 17"
+  },
+  {
+    "slug": "apple_iphone_15_pro",
+    "brand": "Apple",
+    "model": "iPhone 15 Pro",
+    "release_year": 2023,
+    "display": "6.1 inches, Super Retina XDR OLED",
+    "chipset": "Apple A17 Pro",
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB",
+      "512GB",
+      "1TB"
+    ],
+    "camera": "48 MP + 12 MP + 12 MP",
+    "battery": "3349 mAh",
+    "os": "iOS 17"
+  },
+  {
+    "slug": "apple_iphone_15",
+    "brand": "Apple",
+    "model": "iPhone 15",
+    "release_year": 2023,
+    "display": "6.1 inches, Super Retina XDR OLED",
+    "chipset": "Apple A17",
+    "ram_options": [
+      "6GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB",
+      "512GB"
+    ],
+    "camera": "48 MP + 12 MP + 12 MP",
+    "battery": "3349 mAh",
+    "os": "iOS 17"
+  },
+  {
+    "slug": "apple_iphone_14",
+    "brand": "Apple",
+    "model": "iPhone 14",
+    "release_year": 2023,
+    "display": "6.1 inches, Super Retina XDR OLED",
+    "chipset": "Apple A17",
+    "ram_options": [
+      "6GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB",
+      "512GB"
+    ],
+    "camera": "48 MP + 12 MP + 12 MP",
+    "battery": "3349 mAh",
+    "os": "iOS 17"
+  },
+  {
+    "slug": "xiaomi_14",
+    "brand": "Xiaomi",
+    "model": "14",
+    "release_year": 2024,
+    "display": "6.5 inches, AMOLED",
+    "chipset": "Snapdragon 8 Gen 2",
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 12 MP",
+    "battery": "4500 mAh",
+    "os": "Android 14"
+  },
+  {
+    "slug": "xiaomi_13t_pro",
+    "brand": "Xiaomi",
+    "model": "13T Pro",
+    "release_year": 2023,
+    "display": "6.5 inches, AMOLED",
+    "chipset": "Snapdragon 8 Gen 2",
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 12 MP",
+    "battery": "4500 mAh",
+    "os": "Android 13"
+  },
+  {
+    "slug": "xiaomi_redmi_note_13_pro",
+    "brand": "Xiaomi",
+    "model": "Redmi Note 13 Pro",
+    "release_year": 2024,
+    "display": "6.5 inches, AMOLED",
+    "chipset": "Snapdragon 8 Gen 2",
+    "ram_options": [
+      "6GB",
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 12 MP",
+    "battery": "4500 mAh",
+    "os": "Android 14"
+  },
+  {
+    "slug": "oppo_reno_11",
+    "brand": "Oppo",
+    "model": "Reno 11",
+    "release_year": 2024,
+    "display": "6.5 inches, AMOLED",
+    "chipset": null,
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 12 MP",
+    "battery": "4500 mAh",
+    "os": "Android 14"
+  },
+  {
+    "slug": "oppo_find_x6",
+    "brand": "Oppo",
+    "model": "Find X6",
+    "release_year": 2023,
+    "display": "6.5 inches, AMOLED",
+    "chipset": null,
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 12 MP",
+    "battery": "4500 mAh",
+    "os": "Android 13"
+  },
+  {
+    "slug": "realme_12_pro",
+    "brand": "Realme",
+    "model": "12 Pro",
+    "release_year": 2024,
+    "display": "6.5 inches, AMOLED",
+    "chipset": null,
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 12 MP",
+    "battery": "4500 mAh",
+    "os": "Android 14"
+  },
+  {
+    "slug": "realme_11_pro",
+    "brand": "Realme",
+    "model": "11 Pro",
+    "release_year": 2023,
+    "display": "6.5 inches, AMOLED",
+    "chipset": null,
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 12 MP",
+    "battery": "4500 mAh",
+    "os": "Android 13"
+  },
+  {
+    "slug": "oneplus_12",
+    "brand": "OnePlus",
+    "model": "12",
+    "release_year": 2024,
+    "display": "6.5 inches, AMOLED",
+    "chipset": null,
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 12 MP",
+    "battery": "4500 mAh",
+    "os": "Android 14"
+  },
+  {
+    "slug": "oneplus_11",
+    "brand": "OnePlus",
+    "model": "11",
+    "release_year": 2023,
+    "display": "6.5 inches, AMOLED",
+    "chipset": null,
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 12 MP",
+    "battery": "4500 mAh",
+    "os": "Android 13"
+  },
+  {
+    "slug": "google_pixel_8_pro",
+    "brand": "Google",
+    "model": "Pixel 8 Pro",
+    "release_year": 2023,
+    "display": "6.5 inches, AMOLED",
+    "chipset": null,
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 12 MP",
+    "battery": "4500 mAh",
+    "os": "Android 13"
+  },
+  {
+    "slug": "google_pixel_8",
+    "brand": "Google",
+    "model": "Pixel 8",
+    "release_year": 2023,
+    "display": "6.5 inches, AMOLED",
+    "chipset": null,
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 12 MP",
+    "battery": "4500 mAh",
+    "os": "Android 13"
+  },
+  {
+    "slug": "motorola_edge_40_pro",
+    "brand": "Motorola",
+    "model": "Edge 40 Pro",
+    "release_year": 2023,
+    "display": "6.5 inches, AMOLED",
+    "chipset": null,
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 12 MP",
+    "battery": "4500 mAh",
+    "os": "Android 13"
+  },
+  {
+    "slug": "nokia_g42",
+    "brand": "Nokia",
+    "model": "G42",
+    "release_year": 2023,
+    "display": "6.5 inches, AMOLED",
+    "chipset": null,
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 12 MP",
+    "battery": "4500 mAh",
+    "os": "Android 13"
+  },
+  {
+    "slug": "vivo_v29",
+    "brand": "Vivo",
+    "model": "V29",
+    "release_year": 2023,
+    "display": "6.5 inches, AMOLED",
+    "chipset": null,
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 12 MP",
+    "battery": "4500 mAh",
+    "os": "Android 13"
+  },
+  {
+    "slug": "infinix_note_30",
+    "brand": "Infinix",
+    "model": "Note 30",
+    "release_year": 2023,
+    "display": "6.5 inches, AMOLED",
+    "chipset": null,
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 12 MP",
+    "battery": "4500 mAh",
+    "os": "Android 13"
+  },
+  {
+    "slug": "tecno_camon_20",
+    "brand": "Tecno",
+    "model": "Camon 20",
+    "release_year": 2023,
+    "display": "6.5 inches, AMOLED",
+    "chipset": null,
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 12 MP",
+    "battery": "4500 mAh",
+    "os": "Android 13"
   }
 ]

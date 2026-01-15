@@ -115,5 +115,473 @@
     "ram": "8GB",
     "storage": "256GB",
     "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "samsung_galaxy_a34_6_128",
+    "phone_slug": "samsung_galaxy_a34",
+    "brand": "Samsung",
+    "model": "Galaxy A34",
+    "ram": "6GB",
+    "storage": "128GB",
+    "variant_label": "6GB/128GB"
+  },
+  {
+    "variant_id": "samsung_galaxy_a34_6_256",
+    "phone_slug": "samsung_galaxy_a34",
+    "brand": "Samsung",
+    "model": "Galaxy A34",
+    "ram": "6GB",
+    "storage": "256GB",
+    "variant_label": "6GB/256GB"
+  },
+  {
+    "variant_id": "samsung_galaxy_a34_8_128",
+    "phone_slug": "samsung_galaxy_a34",
+    "brand": "Samsung",
+    "model": "Galaxy A34",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "samsung_galaxy_a34_8_256",
+    "phone_slug": "samsung_galaxy_a34",
+    "brand": "Samsung",
+    "model": "Galaxy A34",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "apple_iphone_15_pro_max_8_128",
+    "phone_slug": "apple_iphone_15_pro_max",
+    "brand": "Apple",
+    "model": "iPhone 15 Pro Max",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "apple_iphone_15_pro_max_8_256",
+    "phone_slug": "apple_iphone_15_pro_max",
+    "brand": "Apple",
+    "model": "iPhone 15 Pro Max",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "apple_iphone_15_pro_max_8_512",
+    "phone_slug": "apple_iphone_15_pro_max",
+    "brand": "Apple",
+    "model": "iPhone 15 Pro Max",
+    "ram": "8GB",
+    "storage": "512GB",
+    "variant_label": "8GB/512GB"
+  },
+  {
+    "variant_id": "apple_iphone_15_pro_max_8_1t",
+    "phone_slug": "apple_iphone_15_pro_max",
+    "brand": "Apple",
+    "model": "iPhone 15 Pro Max",
+    "ram": "8GB",
+    "storage": "1TB",
+    "variant_label": "8GB/1TB"
+  },
+  {
+    "variant_id": "apple_iphone_15_pro_8_128",
+    "phone_slug": "apple_iphone_15_pro",
+    "brand": "Apple",
+    "model": "iPhone 15 Pro",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "apple_iphone_15_pro_8_256",
+    "phone_slug": "apple_iphone_15_pro",
+    "brand": "Apple",
+    "model": "iPhone 15 Pro",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "apple_iphone_15_pro_8_512",
+    "phone_slug": "apple_iphone_15_pro",
+    "brand": "Apple",
+    "model": "iPhone 15 Pro",
+    "ram": "8GB",
+    "storage": "512GB",
+    "variant_label": "8GB/512GB"
+  },
+  {
+    "variant_id": "apple_iphone_15_pro_8_1t",
+    "phone_slug": "apple_iphone_15_pro",
+    "brand": "Apple",
+    "model": "iPhone 15 Pro",
+    "ram": "8GB",
+    "storage": "1TB",
+    "variant_label": "8GB/1TB"
+  },
+  {
+    "variant_id": "apple_iphone_15_6_128",
+    "phone_slug": "apple_iphone_15",
+    "brand": "Apple",
+    "model": "iPhone 15",
+    "ram": "6GB",
+    "storage": "128GB",
+    "variant_label": "6GB/128GB"
+  },
+  {
+    "variant_id": "apple_iphone_15_6_256",
+    "phone_slug": "apple_iphone_15",
+    "brand": "Apple",
+    "model": "iPhone 15",
+    "ram": "6GB",
+    "storage": "256GB",
+    "variant_label": "6GB/256GB"
+  },
+  {
+    "variant_id": "apple_iphone_15_6_512",
+    "phone_slug": "apple_iphone_15",
+    "brand": "Apple",
+    "model": "iPhone 15",
+    "ram": "6GB",
+    "storage": "512GB",
+    "variant_label": "6GB/512GB"
+  },
+  {
+    "variant_id": "apple_iphone_14_6_128",
+    "phone_slug": "apple_iphone_14",
+    "brand": "Apple",
+    "model": "iPhone 14",
+    "ram": "6GB",
+    "storage": "128GB",
+    "variant_label": "6GB/128GB"
+  },
+  {
+    "variant_id": "apple_iphone_14_6_256",
+    "phone_slug": "apple_iphone_14",
+    "brand": "Apple",
+    "model": "iPhone 14",
+    "ram": "6GB",
+    "storage": "256GB",
+    "variant_label": "6GB/256GB"
+  },
+  {
+    "variant_id": "apple_iphone_14_6_512",
+    "phone_slug": "apple_iphone_14",
+    "brand": "Apple",
+    "model": "iPhone 14",
+    "ram": "6GB",
+    "storage": "512GB",
+    "variant_label": "6GB/512GB"
+  },
+  {
+    "variant_id": "xiaomi_14_8_128",
+    "phone_slug": "xiaomi_14",
+    "brand": "Xiaomi",
+    "model": "14",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "xiaomi_14_8_256",
+    "phone_slug": "xiaomi_14",
+    "brand": "Xiaomi",
+    "model": "14",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "xiaomi_13t_pro_8_128",
+    "phone_slug": "xiaomi_13t_pro",
+    "brand": "Xiaomi",
+    "model": "13T Pro",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "xiaomi_13t_pro_8_256",
+    "phone_slug": "xiaomi_13t_pro",
+    "brand": "Xiaomi",
+    "model": "13T Pro",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "xiaomi_redmi_note_13_pro_6_128",
+    "phone_slug": "xiaomi_redmi_note_13_pro",
+    "brand": "Xiaomi",
+    "model": "Redmi Note 13 Pro",
+    "ram": "6GB",
+    "storage": "128GB",
+    "variant_label": "6GB/128GB"
+  },
+  {
+    "variant_id": "xiaomi_redmi_note_13_pro_6_256",
+    "phone_slug": "xiaomi_redmi_note_13_pro",
+    "brand": "Xiaomi",
+    "model": "Redmi Note 13 Pro",
+    "ram": "6GB",
+    "storage": "256GB",
+    "variant_label": "6GB/256GB"
+  },
+  {
+    "variant_id": "xiaomi_redmi_note_13_pro_8_128",
+    "phone_slug": "xiaomi_redmi_note_13_pro",
+    "brand": "Xiaomi",
+    "model": "Redmi Note 13 Pro",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "xiaomi_redmi_note_13_pro_8_256",
+    "phone_slug": "xiaomi_redmi_note_13_pro",
+    "brand": "Xiaomi",
+    "model": "Redmi Note 13 Pro",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "oppo_reno_11_8_128",
+    "phone_slug": "oppo_reno_11",
+    "brand": "Oppo",
+    "model": "Reno 11",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "oppo_reno_11_8_256",
+    "phone_slug": "oppo_reno_11",
+    "brand": "Oppo",
+    "model": "Reno 11",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "oppo_find_x6_8_128",
+    "phone_slug": "oppo_find_x6",
+    "brand": "Oppo",
+    "model": "Find X6",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "oppo_find_x6_8_256",
+    "phone_slug": "oppo_find_x6",
+    "brand": "Oppo",
+    "model": "Find X6",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "realme_12_pro_8_128",
+    "phone_slug": "realme_12_pro",
+    "brand": "Realme",
+    "model": "12 Pro",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "realme_12_pro_8_256",
+    "phone_slug": "realme_12_pro",
+    "brand": "Realme",
+    "model": "12 Pro",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "realme_11_pro_8_128",
+    "phone_slug": "realme_11_pro",
+    "brand": "Realme",
+    "model": "11 Pro",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "realme_11_pro_8_256",
+    "phone_slug": "realme_11_pro",
+    "brand": "Realme",
+    "model": "11 Pro",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "oneplus_12_8_128",
+    "phone_slug": "oneplus_12",
+    "brand": "OnePlus",
+    "model": "12",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "oneplus_12_8_256",
+    "phone_slug": "oneplus_12",
+    "brand": "OnePlus",
+    "model": "12",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "oneplus_11_8_128",
+    "phone_slug": "oneplus_11",
+    "brand": "OnePlus",
+    "model": "11",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "oneplus_11_8_256",
+    "phone_slug": "oneplus_11",
+    "brand": "OnePlus",
+    "model": "11",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "google_pixel_8_pro_8_128",
+    "phone_slug": "google_pixel_8_pro",
+    "brand": "Google",
+    "model": "Pixel 8 Pro",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "google_pixel_8_pro_8_256",
+    "phone_slug": "google_pixel_8_pro",
+    "brand": "Google",
+    "model": "Pixel 8 Pro",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "google_pixel_8_8_128",
+    "phone_slug": "google_pixel_8",
+    "brand": "Google",
+    "model": "Pixel 8",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "google_pixel_8_8_256",
+    "phone_slug": "google_pixel_8",
+    "brand": "Google",
+    "model": "Pixel 8",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "motorola_edge_40_pro_8_128",
+    "phone_slug": "motorola_edge_40_pro",
+    "brand": "Motorola",
+    "model": "Edge 40 Pro",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "motorola_edge_40_pro_8_256",
+    "phone_slug": "motorola_edge_40_pro",
+    "brand": "Motorola",
+    "model": "Edge 40 Pro",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "nokia_g42_8_128",
+    "phone_slug": "nokia_g42",
+    "brand": "Nokia",
+    "model": "G42",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "nokia_g42_8_256",
+    "phone_slug": "nokia_g42",
+    "brand": "Nokia",
+    "model": "G42",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "vivo_v29_8_128",
+    "phone_slug": "vivo_v29",
+    "brand": "Vivo",
+    "model": "V29",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "vivo_v29_8_256",
+    "phone_slug": "vivo_v29",
+    "brand": "Vivo",
+    "model": "V29",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "infinix_note_30_8_128",
+    "phone_slug": "infinix_note_30",
+    "brand": "Infinix",
+    "model": "Note 30",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "infinix_note_30_8_256",
+    "phone_slug": "infinix_note_30",
+    "brand": "Infinix",
+    "model": "Note 30",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
+  },
+  {
+    "variant_id": "tecno_camon_20_8_128",
+    "phone_slug": "tecno_camon_20",
+    "brand": "Tecno",
+    "model": "Camon 20",
+    "ram": "8GB",
+    "storage": "128GB",
+    "variant_label": "8GB/128GB"
+  },
+  {
+    "variant_id": "tecno_camon_20_8_256",
+    "phone_slug": "tecno_camon_20",
+    "brand": "Tecno",
+    "model": "Camon 20",
+    "ram": "8GB",
+    "storage": "256GB",
+    "variant_label": "8GB/256GB"
   }
 ]

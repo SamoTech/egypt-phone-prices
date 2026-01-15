@@ -65,5 +65,9 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add data/phones_specs.json data/phone_variants.json docs/specs.json data/scrape_errors.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update phone specs - $(date -u +'%Y-%m-%d %H:%M UTC')" && git push)
+          # Add files only if they exist
+          [ -f data/phones_specs.json ] && git add data/phones_specs.json
+          [ -f data/phone_variants.json ] && git add data/phone_variants.json
+          [ -f docs/specs.json ] && git add docs/specs.json
+          [ -f data/scrape_errors.json ] && git add data/scrape_errors.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update phone specs - 2026-01-15 16:30:41 UTC" && git push)

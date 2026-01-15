@@ -4,6 +4,7 @@ Noon Egypt Price Scraper
 
 import logging
 from typing import List, Dict, Optional, Any
+from urllib.parse import quote_plus
 from playwright.sync_api import Page, TimeoutError as PlaywrightTimeout
 
 from .base import BasePriceScraper
@@ -42,7 +43,7 @@ class NoonEgPriceScraper(BasePriceScraper):
         try:
             # Build search query
             query = self.build_search_query(brand, model, variant)
-            search_url = f"https://www.noon.com/egypt-en/search?q={query}"
+            search_url = f"https://www.noon.com/egypt-en/search?q={quote_plus(query)}"
             
             logger.info(f"Searching Noon EG: {search_url}")
             

@@ -4,6 +4,7 @@ Amazon Egypt Price Scraper
 
 import logging
 from typing import List, Dict, Optional, Any
+from urllib.parse import quote_plus
 from playwright.sync_api import Page, TimeoutError as PlaywrightTimeout
 
 from .base import BasePriceScraper
@@ -42,7 +43,7 @@ class AmazonEgPriceScraper(BasePriceScraper):
         try:
             # Build search query
             query = self.build_search_query(brand, model, variant)
-            search_url = f"https://www.amazon.eg/s?k={query}"
+            search_url = f"https://www.amazon.eg/s?k={quote_plus(query)}"
             
             logger.info(f"Searching Amazon EG: {search_url}")
             

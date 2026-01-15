@@ -4,28 +4,44 @@ Uses DuckDuckGo Search (no API keys, no rate limits, no cost)
 
 NOTE: This is kept as fallback only.
 Primary search engine is JinaSearchEngine.
+Requires: pip install duckduckgo-search==4.4.0
 """
 
 import logging
 from typing import List, Dict, Any
-from duckduckgo_search import DDGS
 
 logger = logging.getLogger(__name__)
+
+try:
+    from duckduckgo_search import DDGS
+    DUCKDUCKGO_AVAILABLE = True
+except ImportError:
+    DUCKDUCKGO_AVAILABLE = False
+    logger.warning(
+        "duckduckgo-search package not installed. "
+        "DuckDuckGoSearchEngine will not be available. "
+        "Install with: pip install duckduckgo-search==4.4.0"
+    )
 
 
 class DuckDuckGoSearchEngine:
     """
     Fallback search engine using DuckDuckGo.
-    
+
     NOTE: This is kept as fallback only.
     Primary search engine is JinaSearchEngine.
-    
+
     NO API keys required.
     NO rate limits.
     NO cost.
     """
 
     def __init__(self):
+        if not DUCKDUCKGO_AVAILABLE:
+            raise ImportError(
+                "duckduckgo-search package is not installed. "
+                "Install with: pip install duckduckgo-search==4.4.0"
+            )
         self.ddgs = DDGS()
 
     def search(self, query: str, max_results: int = 10, region: str = "eg-en") -> List[Dict[str, Any]]:

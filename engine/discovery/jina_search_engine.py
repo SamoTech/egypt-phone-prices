@@ -91,7 +91,6 @@ class JinaSearchEngine:
                     }
                 )
 
-
             logger.info(f"Jina AI found {len(results)} results for query: {query}")
 
         except requests.exceptions.Timeout:

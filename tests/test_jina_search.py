@@ -2,7 +2,6 @@
 Tests for Jina AI Search Engine
 """
 
-import pytest
 from engine.discovery.jina_search_engine import JinaSearchEngine
 
 
@@ -24,110 +23,119 @@ def test_jina_search_engine_custom_timeout():
 def test_jina_search_basic(monkeypatch):
     """Test basic search functionality."""
     engine = JinaSearchEngine()
-    
+
     # Mock response
     mock_response_data = {
-        'data': [
+        "data": [
             {
-                'title': 'iPhone 15 Pro Max - Amazon Egypt',
-                'description': 'Buy iPhone 15 Pro Max 256GB for EGP 45,999',
-                'url': 'https://amazon.eg/iphone-15-pro-max'
+                "title": "iPhone 15 Pro Max - Amazon Egypt",
+                "description": "Buy iPhone 15 Pro Max 256GB for EGP 45,999",
+                "url": "https://amazon.eg/iphone-15-pro-max",
             }
         ]
     }
-    
+
     class MockResponse:
         def json(self):
             return mock_response_data
+
         def raise_for_status(self):
             pass
-    
+
     def mock_get(*args, **kwargs):
         return MockResponse()
-    
-    monkeypatch.setattr(engine.session, 'get', mock_get)
-    
-    results = engine.search('iPhone 15 Pro Max Egypt')
-    
+
+    monkeypatch.setattr(engine.session, "get", mock_get)
+
+    results = engine.search("iPhone 15 Pro Max Egypt")
+
     assert len(results) > 0
-    assert 'title' in results[0]
-    assert 'url' in results[0]
-    assert 'snippet' in results[0]
-    assert 'position' in results[0]
-    assert results[0]['title'] == 'iPhone 15 Pro Max - Amazon Egypt'
-    assert results[0]['url'] == 'https://amazon.eg/iphone-15-pro-max'
+    assert "title" in results[0]
+    assert "url" in results[0]
+    assert "snippet" in results[0]
+    assert "position" in results[0]
+    assert results[0]["title"] == "iPhone 15 Pro Max - Amazon Egypt"
+    assert results[0]["url"] == "https://amazon.eg/iphone-15-pro-max"
 
 
 def test_jina_search_list_format(monkeypatch):
     """Test search with list format response."""
     engine = JinaSearchEngine()
-    
+
     # Mock response as list
     mock_response_data = [
         {
-            'title': 'Samsung Galaxy S24',
-            'content': 'Latest Samsung flagship',
-            'url': 'https://example.com/s24'
+            "title": "Samsung Galaxy S24",
+            "content": "Latest Samsung flagship",
+            "url": "https://example.com/s24",
         }
     ]
-    
+
     class MockResponse:
         def json(self):
             return mock_response_data
+
         def raise_for_status(self):
             pass
-    
+
     def mock_get(*args, **kwargs):
         return MockResponse()
-    
-    monkeypatch.setattr(engine.session, 'get', mock_get)
-    
-    results = engine.search('Samsung Galaxy S24')
-    
+
+    monkeypatch.setattr(engine.session, "get", mock_get)
+
+    results = engine.search("Samsung Galaxy S24")
+
     assert len(results) > 0
-    assert results[0]['title'] == 'Samsung Galaxy S24'
-    assert 'Latest Samsung flagship' in results[0]['snippet']
+    assert results[0]["title"] == "Samsung Galaxy S24"
+    assert "Latest Samsung flagship" in results[0]["snippet"]
 
 
 def test_jina_search_max_results(monkeypatch):
     """Test search with max_results parameter."""
     engine = JinaSearchEngine()
-    
+
     # Mock response with many items
     mock_response_data = {
-        'data': [{'title': f'Result {i}', 'description': f'Desc {i}', 'url': f'https://example.com/{i}'} 
-                 for i in range(20)]
+        "data": [
+            {
+                "title": f"Result {i}",
+                "description": f"Desc {i}",
+                "url": f"https://example.com/{i}",
+            }
+            for i in range(20)
+        ]
     }
-    
+
     class MockResponse:
         def json(self):
             return mock_response_data
+
         def raise_for_status(self):
             pass
-    
+
     def mock_get(*args, **kwargs):
         return MockResponse()
-    
-    monkeypatch.setattr(engine.session, 'get', mock_get)
-    
-    results = engine.search('test query', max_results=5)
-    
+
+    monkeypatch.setattr(engine.session, "get", mock_get)
+
+    results = engine.search("test query", max_results=5)
+
     assert len(results) == 5
 
 
 def test_jina_search_timeout(monkeypatch):
     """Test search timeout handling."""
     engine = JinaSearchEngine()
-    
+
     import requests
-    
+
     def mock_get(*args, **kwargs):
         raise requests.exceptions.Timeout("Request timed out")
-    
-    monkeypatch.setattr(engine.session, 'get', mock_get)
-    
-    results = engine.search('test query')
-    
+
+    monkeypatch.setattr(engine.session, "get", mock_get)
+
+    results = engine.search("test query")
+
     # Should return empty list on timeout
     assert results == []
 
@@ -135,16 +143,16 @@ def test_jina_search_timeout(monkeypatch):
 def test_jina_search_request_exception(monkeypatch):
     """Test search request exception handling."""
     engine = JinaSearchEngine()
-    
+
     import requests
-    
+
     def mock_get(*args, **kwargs):
         raise requests.exceptions.RequestException("Connection error")
-    
-    monkeypatch.setattr(engine.session, 'get', mock_get)
-    
-    results = engine.search('test query')
-    
+
+    monkeypatch.setattr(engine.session, "get", mock_get)
+
+    results = engine.search("test query")
+
     # Should return empty list on error
     assert results == []
 
@@ -152,20 +160,21 @@ def test_jina_search_request_exception(monkeypatch):
 def test_jina_search_unexpected_format(monkeypatch):
     """Test search with unexpected response format."""
     engine = JinaSearchEngine()
-    
+
     class MockResponse:
         def json(self):
             return "unexpected string response"
+
         def raise_for_status(self):
             pass
-    
+
     def mock_get(*args, **kwargs):
         return MockResponse()
-    
-    monkeypatch.setattr(engine.session, 'get', mock_get)
-    
-    results = engine.search('test query')
-    
+
+    monkeypatch.setattr(engine.session, "get", mock_get)
+
+    results = engine.search("test query")
+
     # Should return empty list on unexpected format
     assert results == []
 
@@ -173,99 +182,93 @@ def test_jina_search_unexpected_format(monkeypatch):
 def test_jina_store_specific_search(monkeypatch):
     """Test store-specific search."""
     engine = JinaSearchEngine()
-    
+
     captured_url = []
-    
+
     class MockResponse:
         def json(self):
-            return {'data': []}
+            return {"data": []}
+
         def raise_for_status(self):
             pass
-    
+
     def mock_get(url, *args, **kwargs):
         captured_url.append(url)
         return MockResponse()
-    
-    monkeypatch.setattr(engine.session, 'get', mock_get)
-    
-    engine.search_store_specific(
-        'Samsung', 
-        'Galaxy S24',
-        '256GB',
-        'noon.com'
-    )
-    
+
+    monkeypatch.setattr(engine.session, "get", mock_get)
+
+    engine.search_store_specific("Samsung", "Galaxy S24", "256GB", "noon.com")
+
     # Verify query includes site: parameter
     assert len(captured_url) > 0
-    assert 'Samsung' in captured_url[0]
-    assert 'Galaxy' in captured_url[0]
-    assert '256GB' in captured_url[0]
-    assert 'site:noon.com' in captured_url[0]
+    assert "Samsung" in captured_url[0]
+    assert "Galaxy" in captured_url[0]
+    assert "256GB" in captured_url[0]
+    assert "site:noon.com" in captured_url[0]
 
 
 def test_jina_store_specific_search_no_storage(monkeypatch):
     """Test store-specific search without storage."""
     engine = JinaSearchEngine()
-    
+
     captured_url = []
-    
+
     class MockResponse:
         def json(self):
-            return {'data': []}
+            return {"data": []}
+
         def raise_for_status(self):
             pass
-    
+
     def mock_get(url, *args, **kwargs):
         captured_url.append(url)
         return MockResponse()
-    
-    monkeypatch.setattr(engine.session, 'get', mock_get)
-    
-    engine.search_store_specific(
-        'Apple', 
-        'iPhone 15',
-        store_domain='amazon.eg'
-    )
-    
+
+    monkeypatch.setattr(engine.session, "get", mock_get)
+
+    engine.search_store_specific("Apple", "iPhone 15", store_domain="amazon.eg")
+
     # Verify query
     assert len(captured_url) > 0
-    assert 'Apple' in captured_url[0]
-    assert 'iPhone' in captured_url[0]
-    assert 'site:amazon.eg' in captured_url[0]
+    assert "Apple" in captured_url[0]
+    assert "iPhone" in captured_url[0]
+    assert "site:amazon.eg" in captured_url[0]
 
 
 def test_jina_read_url(monkeypatch):
     """Test Jina Reader functionality."""
     engine = JinaSearchEngine()
-    
+
     class MockResponse:
         text = "# Sample Markdown Content\n\nThis is a test."
+
         def raise_for_status(self):
             pass
-    
+
     def mock_get(*args, **kwargs):
         return MockResponse()
-    
-    monkeypatch.setattr(engine.session, 'get', mock_get)
-    
-    content = engine.read_url('https://example.com/page')
-    
+
+    monkeypatch.setattr(engine.session, "get", mock_get)
+
+    content = engine.read_url("https://example.com/page")
+
     assert content == "# Sample Markdown Content\n\nThis is a test."
 
 
 def test_jina_read_url_error(monkeypatch):
     """Test Jina Reader error handling."""
     engine = JinaSearchEngine()
-    
+
     import requests
-    
+
     def mock_get(*args, **kwargs):
         raise requests.exceptions.RequestException("Error")
-    
-    monkeypatch.setattr(engine.session, 'get', mock_get)
-    
-    content = engine.read_url('https://example.com/page')
-    
+
+    monkeypatch.setattr(engine.session, "get", mock_get)
+
+    content = engine.read_url("https://example.com/page")
+
     # Should return empty string on error
     assert content == ""
 
@@ -273,30 +276,31 @@ def test_jina_read_url_error(monkeypatch):
 def test_jina_search_snippet_truncation(monkeypatch):
     """Test that snippets are truncated to 500 characters."""
     engine = JinaSearchEngine()
-    
+
     long_description = "x" * 1000
     mock_response_data = {
-        'data': [
+        "data": [
             {
-                'title': 'Test',
-                'description': long_description,
-                'url': 'https://example.com'
+                "title": "Test",
+                "description": long_description,
+                "url": "https://example.com",
             }
         ]
     }
-    
+
     class MockResponse:
         def json(self):
             return mock_response_data
+
         def raise_for_status(self):
             pass
-    
+
     def mock_get(*args, **kwargs):
         return MockResponse()
-    
-    monkeypatch.setattr(engine.session, 'get', mock_get)
-    
-    results = engine.search('test')
-    
+
+    monkeypatch.setattr(engine.session, "get", mock_get)
+
+    results = engine.search("test")
+
     assert len(results) > 0
-    assert len(results[0]['snippet']) == 500
+    assert len(results[0]["snippet"]) == 500

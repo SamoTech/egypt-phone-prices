@@ -98,8 +98,12 @@ class LinkValidator:
             elif response.status_code == 404:
                 result["is_valid"] = False
                 result["error"] = "Not Found (404)"
+            elif response.status_code in [403, 503]:
+                # Access forbidden or service unavailable - URL exists but not accessible
+                result["is_valid"] = True  # Keep the link, it's just temporarily unavailable
+                result["error"] = f"HTTP {response.status_code}"
             else:
-                # For other status codes, try GET request
+                # For other status codes, try GET request as fallback
                 response = self.session.get(url, timeout=self.timeout, allow_redirects=True)
                 result["status_code"] = response.status_code
                 result["is_valid"] = response.status_code == 200

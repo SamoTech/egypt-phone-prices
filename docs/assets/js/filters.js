@@ -74,8 +74,10 @@ class PhoneFilters {
         
         // Price range filter
         filtered = filtered.filter(phone => {
-            const price = phone.best_price || 0;
-            return price >= this.filters.priceRange.min && 
+            const price = phone.best_price;
+            // Exclude phones without price data
+            if (!price || price === 0) return false;
+            return price >= this.filters.priceRange.min &&
                    price <= this.filters.priceRange.max;
         });
         

@@ -50,7 +50,8 @@ class FreeSearchEngine:
             logger.info(f"Found {len(results)} results for query: {query}")
 
         except Exception as e:
-            logger.error(f"Search failed for query '{query}': {e}")
+            # Log detailed error for debugging
+            logger.error(f"DuckDuckGo search API failed for query '{query}': {type(e).__name__}: {e}")
 
         return results
 

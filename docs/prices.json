@@ -35,6 +35,21 @@
     },
     "last_updated": "2026-01-15T15:30:00.000Z"
   },
+  "samsung_galaxy_s24_ultra_12_512": {
+    "phone_slug": "samsung_galaxy_s24_ultra",
+    "variant": "12GB/512GB",
+    "offers": []
+  },
+  "samsung_galaxy_s24_ultra_12_1t": {
+    "phone_slug": "samsung_galaxy_s24_ultra",
+    "variant": "12GB/1TB",
+    "offers": []
+  },
+  "samsung_galaxy_s24_8_128": {
+    "phone_slug": "samsung_galaxy_s24",
+    "variant": "8GB/128GB",
+    "offers": []
+  },
   "samsung_galaxy_s24_8_256": {
     "phone_slug": "samsung_galaxy_s24",
     "variant": "8GB/256GB",
@@ -72,7 +87,7 @@
         "url": "https://www.amazon.eg/dp/SAMPLEIPHONE",
         "seller": "Amazon.eg",
         "availability": "in_stock",
-        "confidence": 0.90,
+        "confidence": 0.9,
         "scraped_at": "2026-01-15T15:30:00.000Z"
       },
       {
@@ -95,5 +110,15 @@
       "avg": 48750
     },
     "last_updated": "2026-01-15T15:30:00.000Z"
+  },
+  "iphone_15_pro_max_8_512": {
+    "phone_slug": "iphone_15_pro_max",
+    "variant": "8GB/512GB",
+    "offers": []
+  },
+  "iphone_15_pro_max_8_1t": {
+    "phone_slug": "iphone_15_pro_max",
+    "variant": "8GB/1TB",
+    "offers": []
   }
 }

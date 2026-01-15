@@ -171,8 +171,13 @@ class BasePriceScraper(ABC):
         # Fix malformed prices like "16199..00" -> "16199.00"
         cleaned = re.sub(r'\.\.+', '.', cleaned)
         
+        # Remove spaces between digits
+        cleaned = re.sub(r'(\d)\s+(\d)', r'\1\2', cleaned)
+        
         # Find numbers with optional comma separators and decimal point
-        match = re.search(r'(\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?)', cleaned)
+        # Match patterns like: 32,999 or 32999 or 32,999.50 or 16199.00
+        # Allow numbers from 1-6 digits with optional commas and decimal
+        match = re.search(r'(\d{1,6}(?:,\d{3})*(?:\.\d{1,2})?)', cleaned)
         if match:
             price_str = match.group(1).replace(',', '')
             try:

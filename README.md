@@ -14,7 +14,8 @@ This system behaves like a **search + intelligence engine**, not a crawler.
 ## 🆕 What's New in This Version
 
 ### Jina AI Search Integration
-- ✅ **Jina AI Search API** - Free, unlimited searches without API keys
+- ✅ **Jina AI Search API** - Free tier available, optional authentication for better results
+- ✅ **API key authentication** - Use `JINA_API_KEY` environment variable for authenticated requests
 - ✅ **Better reliability** - No more DuckDuckGo failures
 - ✅ **Clean content extraction** - Markdown format for better parsing
 - ✅ **Retry logic** - Exponential backoff for transient errors
@@ -45,7 +46,7 @@ This system behaves like a **search + intelligence engine**, not a crawler.
 ```
 engine/
   discovery/                # NEW: Real search integration
-    jina_search_engine.py   # Jina AI search wrapper (free, no API keys)
+    jina_search_engine.py   # Jina AI search wrapper (optional authentication)
     search_engine.py        # DuckDuckGo search wrapper (fallback)
     result_parser.py        # Extract prices from search results
   pipelines/                # NEW: Validation pipelines
@@ -161,6 +162,21 @@ Python 3.11+
 pip install -r requirements.txt
 ```
 
+### Environment Variables (Optional)
+
+```bash
+# Optional: Jina AI API key for better search quality
+export JINA_API_KEY="your_jina_api_key_here"
+```
+
+The system works without an API key (using Jina AI's free tier), but providing an API key can improve search quality and reliability.
+
+To obtain a Jina AI API key:
+1. Visit [Jina AI](https://jina.ai/)
+2. Sign up for an account
+3. Generate an API key from your dashboard
+4. Set it as an environment variable or GitHub secret
+
 ### Run Specs Discovery
 
 ```bash
@@ -218,7 +234,7 @@ rapidfuzz>=3.6.0
 tenacity==8.2.3
 python-dateutil==2.8.2
 pydantic==2.5.0
-# No external search libraries - uses Jina AI API directly
+# Jina AI API used directly via requests (optional API key for better results)
 ```
 
 **What's NOT included:**
@@ -281,13 +297,33 @@ pydantic==2.5.0
 
 1. Fork this repository
 2. Enable GitHub Actions
-3. Enable GitHub Pages (Settings → Pages → /docs folder)
-4. Trigger workflows manually or wait for schedule
-5. Access at `https://[username].github.io/egypt-phone-prices/`
+3. (Optional but recommended) Add `JINA_API_KEY` secret:
+   - Go to Settings → Secrets and variables → Actions
+   - Click "New repository secret"
+   - Name: `JINA_API_KEY`
+   - Value: Your Jina AI API key
+4. Enable GitHub Pages (Settings → Pages → /docs folder)
+5. Trigger workflows manually or wait for schedule
+6. Access at `https://[username].github.io/egypt-phone-prices/`
 
 ---
 
 ## 🔧 Configuration
+
+### Jina AI API Key (Optional)
+
+The system uses Jina AI for web search. While it works without authentication, providing an API key improves results:
+
+**For Local Development:**
+```bash
+export JINA_API_KEY="your_api_key_here"
+python -m engine.price_discovery
+```
+
+**For GitHub Actions:**
+Add `JINA_API_KEY` as a repository secret (Settings → Secrets and variables → Actions).
+
+The workflows in `.github/workflows/` are already configured to use this secret.
 
 ### Add New Phone
 

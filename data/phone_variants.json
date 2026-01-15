@@ -1,0 +1,58 @@
+[
+  {
+    "phone_slug": "samsung_galaxy_s24_ultra",
+    "variant_slug": "samsung_galaxy_s24_ultra_12_256",
+    "storage": "256GB",
+    "ram": "12GB",
+    "display_name": "Samsung Galaxy S24 Ultra (12GB/256GB)"
+  },
+  {
+    "phone_slug": "samsung_galaxy_s24_ultra",
+    "variant_slug": "samsung_galaxy_s24_ultra_12_512",
+    "storage": "512GB",
+    "ram": "12GB",
+    "display_name": "Samsung Galaxy S24 Ultra (12GB/512GB)"
+  },
+  {
+    "phone_slug": "samsung_galaxy_s24_ultra",
+    "variant_slug": "samsung_galaxy_s24_ultra_12_1t",
+    "storage": "1TB",
+    "ram": "12GB",
+    "display_name": "Samsung Galaxy S24 Ultra (12GB/1TB)"
+  },
+  {
+    "phone_slug": "samsung_galaxy_s24",
+    "variant_slug": "samsung_galaxy_s24_8_128",
+    "storage": "128GB",
+    "ram": "8GB",
+    "display_name": "Samsung Galaxy S24 (8GB/128GB)"
+  },
+  {
+    "phone_slug": "samsung_galaxy_s24",
+    "variant_slug": "samsung_galaxy_s24_8_256",
+    "storage": "256GB",
+    "ram": "8GB",
+    "display_name": "Samsung Galaxy S24 (8GB/256GB)"
+  },
+  {
+    "phone_slug": "iphone_15_pro_max",
+    "variant_slug": "iphone_15_pro_max_8_256",
+    "storage": "256GB",
+    "ram": "8GB",
+    "display_name": "Apple iPhone 15 Pro Max (8GB/256GB)"
+  },
+  {
+    "phone_slug": "iphone_15_pro_max",
+    "variant_slug": "iphone_15_pro_max_8_512",
+    "storage": "512GB",
+    "ram": "8GB",
+    "display_name": "Apple iPhone 15 Pro Max (8GB/512GB)"
+  },
+  {
+    "phone_slug": "iphone_15_pro_max",
+    "variant_slug": "iphone_15_pro_max_8_1t",
+    "storage": "1TB",
+    "ram": "8GB",
+    "display_name": "Apple iPhone 15 Pro Max (8GB/1TB)"
+  }
+]

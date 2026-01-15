@@ -54,3 +54,7 @@ htmlcov/
 # Temporary files
 /tmp/
 *.tmp
+
+# CSV files - JSON only
+*.csv
+data/*.csv

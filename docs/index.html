@@ -81,11 +81,9 @@
                     <label>اختر المتجر:</label>
                     <select id="storeFilter">
                         <option value="">جميع المتاجر</option>
-                        <option value="Jumia">Jumia</option>
-                        <option value="ElAhly">ElAhly</option>
-                        <option value="Carrefour">Carrefour</option>
-                        <option value="Noon">Noon</option>
-                        <option value="Amazon">Amazon</option>
+                        <option value="amazon_eg">Amazon Egypt</option>
+                        <option value="jumia_eg">Jumia Egypt</option>
+                        <option value="noon_eg">Noon Egypt</option>
                     </select>
                 </div>
                 
@@ -123,34 +121,87 @@
 
     <script>
         let allPhones = {};
+        let specsData = {};
         
-        async function loadPhonePrices() {
+        // Store name mapping for display
+        const storeNames = {
+            'amazon_eg': 'Amazon Egypt',
+            'jumia_eg': 'Jumia Egypt',
+            'noon_eg': 'Noon Egypt'
+        };
+        
+        async function loadPhoneData() {
             try {
-                const response = await fetch('phones_data.json');
-                const phones = await response.json();
+                // Load specs and prices
+                const [specsResponse, pricesResponse] = await Promise.all([
+                    fetch('specs.json'),
+                    fetch('prices.json')
+                ]);
                 
-                if (!phones || phones.length === 0) {
-                    document.getElementById('phones-container').innerHTML = '<p style="color: white;">لا توجد بيانات</p>';
+                const specs = await specsResponse.json();
+                const prices = await pricesResponse.json();
+                
+                if (!specs || specs.length === 0) {
+                    document.getElementById('phones-container').innerHTML = '<p style="color: white;">لا توجد بيانات المواصفات</p>';
                     return;
                 }
                 
-                if (phones.length > 0) {
-                    const date = new Date(phones[0].timestamp);
+                if (!prices || Object.keys(prices).length === 0) {
+                    document.getElementById('phones-container').innerHTML = '<p style="color: white;">لا توجد بيانات الأسعار</p>';
+                    return;
+                }
+                
+                // Build specs lookup
+                specs.forEach(spec => {
+                    specsData[spec.slug] = spec;
+                });
+                
+                // Process prices and group by phone
+                const phonesBySlug = {};
+                let latestUpdate = null;
+                
+                Object.entries(prices).forEach(([variantSlug, priceData]) => {
+                    const phoneSlug = priceData.phone_slug;
+                    
+                    if (!phonesBySlug[phoneSlug]) {
+                        const spec = specsData[phoneSlug];
+                        if (spec) {
+                            phonesBySlug[phoneSlug] = {
+                                name: `${spec.brand} ${spec.model}`,
+                                slug: phoneSlug,
+                                specs: spec,
+                                variants: []
+                            };
+                        }
+                    }
+                    
+                    if (phonesBySlug[phoneSlug] && priceData.offers && priceData.offers.length > 0) {
+                        phonesBySlug[phoneSlug].variants.push({
+                            variant: priceData.variant,
+                            offers: priceData.offers,
+                            best_price: priceData.best_price,
+                            best_store: priceData.best_store
+                        });
+                        
+                        // Track latest update
+                        if (priceData.last_updated) {
+                            if (!latestUpdate || priceData.last_updated > latestUpdate) {
+                                latestUpdate = priceData.last_updated;
+                            }
+                        }
+                    }
+                });
+                
+                // Update last update time
+                if (latestUpdate) {
+                    const date = new Date(latestUpdate);
                     document.getElementById('lastUpdate').textContent = date.toLocaleString('ar-EG');
                 }
                 
-                const phonesByName = {};
-                phones.forEach(phone => {
-                    if (!phonesByName[phone.name]) {
-                        phonesByName[phone.name] = [];
-                    }
-                    phonesByName[phone.name].push(phone);
-                });
+                allPhones = phonesBySlug;
+                document.getElementById('count').textContent = Object.keys(phonesBySlug).length;
                 
-                allPhones = phonesByName;
-                document.getElementById('count').textContent = Object.keys(phonesByName).length;
-                
-                displayPhones(phonesByName);
+                displayPhones(phonesBySlug);
                 
             } catch (error) {
                 console.error('Error:', error);
@@ -158,23 +209,77 @@
             }
         }
         
-        function displayPhones(phonesByName) {
+        function displayPhones(phonesBySlug) {
             const container = document.getElementById('phones-container');
             
-            if (Object.keys(phonesByName).length === 0) {
+            if (Object.keys(phonesBySlug).length === 0) {
                 container.innerHTML = '<div class="no-results">لا توجد نتائج</div>';
                 return;
             }
             
             let html = '';
             
-            Object.entries(phonesByName).forEach(([name, stores]) => {
-                const minPrice = Math.min(...stores.map(s => s.price));
+            Object.entries(phonesBySlug).forEach(([slug, phone]) => {
+                if (!phone.variants || phone.variants.length === 0) {
+                    return; // Skip phones with no price data
+                }
                 
-                html += `<div class="phone-card"><h3>${name}</h3><p class="price">السعر: ${minPrice.toLocaleString('ar-EG')} ج.م</p><p class="stores">عدد المتاجر: ${stores.length}</p><div class="stores-list">`;
+                // Find best price across all variants
+                const allOffers = phone.variants.flatMap(v => v.offers || []);
+                const minPrice = allOffers.length > 0 
+                    ? Math.min(...allOffers.map(o => o.price))
+                    : null;
                 
-                stores.forEach(store => {
-                    html += `<div class="store"><div class="store-info"><span class="store-name">${store.store}</span><span class="store-price">${store.price.toLocaleString('ar-EG')} ج.م</span></div><a href="${store.url}" target="_blank" class="btn-buy">اشتري</a></div>`;
+                const spec = phone.specs;
+                
+                html += `<div class="phone-card">
+                    <h3>${phone.name}</h3>`;
+                
+                // Display specs if available
+                if (spec) {
+                    html += `<div style="color: #666; font-size: 13px; margin-bottom: 10px; line-height: 1.6;">`;
+                    if (spec.display) html += `📱 ${spec.display}<br>`;
+                    if (spec.chipset) html += `⚡ ${spec.chipset}<br>`;
+                    if (spec.camera) html += `📷 ${spec.camera}<br>`;
+                    if (spec.battery) html += `🔋 ${spec.battery}`;
+                    html += `</div>`;
+                }
+                
+                if (minPrice) {
+                    html += `<p class="price">أفضل سعر: ${minPrice.toLocaleString('ar-EG')} ج.م</p>`;
+                } else {
+                    html += `<p class="price" style="color: #999;">غير متوفر</p>`;
+                }
+                
+                html += `<p class="stores">عدد الإصدارات: ${phone.variants.length}</p>`;
+                
+                // Display all variants and their offers
+                html += `<div class="stores-list">`;
+                
+                phone.variants.forEach(variant => {
+                    html += `<div style="background: #f8f9fa; padding: 10px; margin-bottom: 10px; border-radius: 5px;">
+                        <div style="font-weight: 600; color: #333; margin-bottom: 8px;">📦 ${variant.variant}</div>`;
+                    
+                    if (variant.offers && variant.offers.length > 0) {
+                        variant.offers.forEach(offer => {
+                            const storeName = storeNames[offer.store] || offer.store;
+                            const confidence = offer.confidence ? ` (${(offer.confidence * 100).toFixed(0)}%)` : '';
+                            const availability = offer.availability === 'in_stock' ? '✓ متوفر' : '✗ غير متوفر';
+                            
+                            html += `<div class="store">
+                                <div class="store-info">
+                                    <span class="store-name">${storeName}${confidence}</span>
+                                    <span style="font-size: 11px; color: #999;">${availability}</span>
+                                    <span class="store-price">${offer.price.toLocaleString('ar-EG')} ج.م</span>
+                                </div>
+                                <a href="${offer.url}" target="_blank" class="btn-buy">اشتري</a>
+                            </div>`;
+                        });
+                    } else {
+                        html += `<div style="color: #999; font-size: 12px; padding: 5px;">لا توجد عروض متاحة</div>`;
+                    }
+                    
+                    html += `</div>`;
                 });
                 
                 html += `</div></div>`;
@@ -185,23 +290,42 @@
         
         function applyFilters() {
             const searchText = document.getElementById('searchInput').value.toLowerCase();
-            const store = document.getElementById('storeFilter').value;
+            const storeFilter = document.getElementById('storeFilter').value;
             const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
             const maxPrice = parseInt(document.getElementById('maxPrice').value) || Infinity;
             
             let filtered = {};
             
-            Object.entries(allPhones).forEach(([name, stores]) => {
-                if (searchText && !name.toLowerCase().includes(searchText)) return;
+            Object.entries(allPhones).forEach(([slug, phone]) => {
+                if (searchText && !phone.name.toLowerCase().includes(searchText)) return;
                 
-                let storesFiltered = stores;
-                if (store) storesFiltered = stores.filter(s => s.store === store);
-                if (storesFiltered.length === 0) return;
+                // Filter variants by store and price
+                let filteredVariants = [];
+                phone.variants.forEach(variant => {
+                    let offers = variant.offers || [];
+                    
+                    // Filter by store
+                    if (storeFilter) {
+                        offers = offers.filter(o => o.store === storeFilter);
+                    }
+                    
+                    // Filter by price
+                    offers = offers.filter(o => o.price >= minPrice && o.price <= maxPrice);
+                    
+                    if (offers.length > 0) {
+                        filteredVariants.push({
+                            ...variant,
+                            offers: offers
+                        });
+                    }
+                });
                 
-                const minStorePrice = Math.min(...storesFiltered.map(s => s.price));
-                if (minStorePrice < minPrice || minStorePrice > maxPrice) return;
-                
-                filtered[name] = storesFiltered;
+                if (filteredVariants.length > 0) {
+                    filtered[slug] = {
+                        ...phone,
+                        variants: filteredVariants
+                    };
+                }
             });
             
             displayPhones(filtered);
@@ -221,14 +345,17 @@
             event.target.classList.add('active');
             
             const sorted = Object.fromEntries(Object.entries(allPhones).sort((a, b) => {
-                const priceA = Math.min(...a[1].map(s => s.price));
-                const priceB = Math.min(...b[1].map(s => s.price));
+                const allOffersA = a[1].variants.flatMap(v => v.offers || []);
+                const allOffersB = b[1].variants.flatMap(v => v.offers || []);
+                
+                const priceA = allOffersA.length > 0 ? Math.min(...allOffersA.map(o => o.price)) : Infinity;
+                const priceB = allOffersB.length > 0 ? Math.min(...allOffersB.map(o => o.price)) : Infinity;
                 
                 switch(sortType) {
-                    case 'name': return a[0].localeCompare(b[0], 'ar');
+                    case 'name': return a[1].name.localeCompare(b[1].name, 'ar');
                     case 'priceAsc': return priceA - priceB;
                     case 'priceDesc': return priceB - priceA;
-                    case 'stores': return b[1].length - a[1].length;
+                    case 'stores': return allOffersB.length - allOffersA.length;
                 }
             }));
             
@@ -240,7 +367,7 @@
         document.getElementById('minPrice').addEventListener('input', applyFilters);
         document.getElementById('maxPrice').addEventListener('input', applyFilters);
         
-        document.addEventListener('DOMContentLoaded', loadPhonePrices);
+        document.addEventListener('DOMContentLoaded', loadPhoneData);
     </script>
 </body>
 </html>

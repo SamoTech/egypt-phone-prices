@@ -14,10 +14,23 @@ logger = logging.getLogger(__name__)
 BASE_URL = "https://www.gsmarena.com"
 MAKERS_URL = f"{BASE_URL}/makers.php3"
 
-# Prioritized brands (most popular in Egypt)
+# Top 15 most popular smartphone brands globally (especially for Egyptian market)
 PRIORITY_BRANDS = [
-    "Samsung", "Apple", "Xiaomi", "Oppo", "Realme", "OnePlus",
-    "Google", "Motorola", "Nokia", "Vivo", "Infinix", "Tecno"
+    "Samsung",      # Market leader
+    "Apple",        # Premium segment
+    "Xiaomi",       # Best value
+    "Oppo",         # Strong presence
+    "Vivo",         # Expanding market
+    "Realme",       # Growing fast
+    "OnePlus",      # Mid-premium segment
+    "Huawei",       # Still has presence
+    "Motorola",     # USA brand
+    "Google",       # Pixel phones
+    "Nokia",        # Classic brand
+    "Infinix",      # Very popular budget brand in Egypt
+    "Tecno",        # Popular budget brand in Egypt
+    "Honor",        # Spin-off from Huawei
+    "Nothing",      # New innovative brand
 ]
 
 
@@ -84,8 +97,12 @@ def get_all_brands(priority_only: bool = False) -> List[Dict[str, str]]:
         if not priority_only:
             brands.sort(key=lambda x: (
                 x['name'] not in PRIORITY_BRANDS,
-                x['name']
-            ))
+                PRIORITY_BRANDS.index(x['name']) if x['name'] in PRIORITY_BRANDS else 999,
+                x['name'
+            ]))
+        else:
+            # Sort by priority order
+            brands.sort(key=lambda x: PRIORITY_BRANDS.index(x['name']) if x['name'] in PRIORITY_BRANDS else 999)
         
         logger.info(f"Found {len(brands)} brands")
         return brands

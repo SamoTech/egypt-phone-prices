@@ -1,0 +1,61 @@
+[MASTER]
+jobs=4
+persistent=yes
+suggestion-mode=yes
+unsafe-load-any-extension=no
+
+[MESSAGES CONTROL]
+disable=
+    C0103,  # invalid-name (we use snake_case extensively)
+    C0114,  # missing-module-docstring (not all modules need docstrings)
+    C0115,  # missing-class-docstring (some classes are self-explanatory)
+    C0116,  # missing-function-docstring (some functions are self-explanatory)
+    R0801,  # duplicate-code (some duplication is acceptable in scrapers)
+    R0902,  # too-many-instance-attributes
+    R0903,  # too-few-public-methods
+    R0913,  # too-many-arguments
+    R0914,  # too-many-locals
+    W0212,  # protected-access (needed for testing)
+    W0511,  # fixme (TODOs are okay)
+    
+[REPORTS]
+output-format=text
+reports=no
+score=yes
+
+[REFACTORING]
+max-nested-blocks=5
+
+[BASIC]
+good-names=i,j,k,ex,Run,_,id,x,y,df
+argument-naming-style=snake_case
+attr-naming-style=snake_case
+class-attribute-naming-style=any
+class-naming-style=PascalCase
+const-naming-style=UPPER_CASE
+function-naming-style=snake_case
+method-naming-style=snake_case
+module-naming-style=snake_case
+variable-naming-style=snake_case
+
+[FORMAT]
+max-line-length=120
+indent-string='    '
+
+[DESIGN]
+max-args=10
+max-attributes=15
+max-bool-expr=5
+max-branches=15
+max-locals=20
+max-parents=7
+max-public-methods=25
+max-returns=6
+max-statements=60
+min-public-methods=1
+
+[IMPORTS]
+allow-wildcard-with-all=no
+
+[EXCEPTIONS]
+overgeneral-exceptions=Exception

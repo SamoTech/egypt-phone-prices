@@ -1,9 +1,19 @@
-aiohttp==3.9.1
+# Core dependencies
+requests==2.31.0
 beautifulsoup4==4.12.2
+lxml==4.9.3
+python-dateutil==2.8.2
+pydantic==2.5.0
+python-dotenv==1.0.0
+
+# Legacy selenium (being phased out)
+aiohttp==3.9.1
 selenium==4.15.2
 webdriver-manager==4.0.1
-pydantic==2.5.0
-python-dateutil==2.8.2
-requests==2.31.0
-lxml==4.9.3
-python-dotenv==1.0.0
+
+# NEW - Production automation dependencies
+playwright==1.40.0
+fuzzywuzzy==0.18.0
+python-Levenshtein==0.23.0
+tenacity==8.2.3
+fake-useragent==1.4.0

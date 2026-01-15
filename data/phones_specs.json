@@ -6,8 +6,14 @@
     "release_year": 2024,
     "display": "6.8 inches, Dynamic AMOLED 2X",
     "chipset": "Snapdragon 8 Gen 3",
-    "ram_options": ["12GB"],
-    "storage_options": ["256GB", "512GB", "1TB"],
+    "ram_options": [
+      "12GB"
+    ],
+    "storage_options": [
+      "256GB",
+      "512GB",
+      "1TB"
+    ],
     "camera": "200 MP + 50 MP + 10 MP + 12 MP",
     "battery": "5000 mAh",
     "os": "Android 14"
@@ -19,23 +25,70 @@
     "release_year": 2024,
     "display": "6.2 inches, Dynamic AMOLED 2X",
     "chipset": "Snapdragon 8 Gen 3",
-    "ram_options": ["8GB"],
-    "storage_options": ["128GB", "256GB"],
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
     "camera": "50 MP + 10 MP + 12 MP",
     "battery": "4000 mAh",
     "os": "Android 14"
   },
   {
-    "slug": "iphone_15_pro_max",
-    "brand": "Apple",
-    "model": "iPhone 15 Pro Max",
+    "slug": "samsung_galaxy_s24_plus",
+    "brand": "Samsung",
+    "model": "Galaxy S24 Plus",
+    "release_year": 2024,
+    "display": "6.2 inches, Dynamic AMOLED 2X",
+    "chipset": "Snapdragon 8 Gen 3",
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 10 MP + 12 MP",
+    "battery": "4000 mAh",
+    "os": "Android 14"
+  },
+  {
+    "slug": "samsung_galaxy_s23",
+    "brand": "Samsung",
+    "model": "Galaxy S23",
     "release_year": 2023,
-    "display": "6.7 inches, LTPO Super Retina XDR OLED",
-    "chipset": "Apple A17 Pro",
-    "ram_options": ["8GB"],
-    "storage_options": ["256GB", "512GB", "1TB"],
-    "camera": "48 MP + 12 MP + 12 MP",
-    "battery": "4441 mAh",
-    "os": "iOS 17"
+    "display": "6.2 inches, Dynamic AMOLED 2X",
+    "chipset": "Snapdragon 8 Gen 2",
+    "ram_options": [
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 10 MP + 12 MP",
+    "battery": "4000 mAh",
+    "os": "Android 13"
+  },
+  {
+    "slug": "samsung_galaxy_a54",
+    "brand": "Samsung",
+    "model": "Galaxy A54",
+    "release_year": 2023,
+    "display": "6.5 inches, AMOLED",
+    "chipset": "Exynos 1380",
+    "ram_options": [
+      "6GB",
+      "8GB"
+    ],
+    "storage_options": [
+      "128GB",
+      "256GB"
+    ],
+    "camera": "50 MP + 12 MP",
+    "battery": "5000 mAh",
+    "os": "Android 13"
   }
 ]

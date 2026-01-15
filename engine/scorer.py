@@ -4,7 +4,7 @@ Rule-based confidence scoring for extracted data.
 NO LLM or external API calls - purely local logic.
 """
 
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any, Optional, Tuple
 
 
 # Trusted Egyptian stores with quality scores

@@ -12,6 +12,7 @@ from .extractor import (
     extract_ram_capacity,
     extract_phone_mentions,
     extract_store_names,
+    extract_product_conditions,
     create_extraction_result
 )
 from .matcher import fuzzy_match_phone, extract_storage_from_text, extract_ram_from_text
@@ -35,6 +36,7 @@ __all__ = [
     'extract_ram_capacity',
     'extract_phone_mentions',
     'extract_store_names',
+    'extract_product_conditions',
     'create_extraction_result',
     # Matching
     'fuzzy_match_phone',

@@ -1,124 +1,282 @@
 {
   "samsung_galaxy_s24_ultra_12_256": {
+    "variant_id": "samsung_galaxy_s24_ultra_12_256",
     "phone_slug": "samsung_galaxy_s24_ultra",
+    "brand": "Samsung",
+    "model": "Galaxy S24 Ultra",
+    "ram": "12GB",
+    "storage": "256GB",
     "variant": "12GB/256GB",
     "offers": [
       {
-        "store": "amazon_eg",
-        "title": "Samsung Galaxy S24 Ultra 12GB RAM 256GB Storage",
-        "price": 32999,
+        "store": "Noon",
+        "title": "Buy Samsung Galaxy S24 Ultra 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
+        "price": 33499.0,
         "currency": "EGP",
-        "url": "https://www.amazon.eg/dp/SAMPLE123",
-        "seller": "Amazon.eg",
-        "availability": "in_stock",
-        "confidence": 0.95,
-        "scraped_at": "2026-01-15T15:30:00.000Z"
+        "url": "https://www.noon.com/...",
+        "source_text": "Buy Samsung Galaxy S24 Ultra 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
+        "extracted_storage": "256GB",
+        "extracted_ram": null,
+        "conditions": {
+          "is_new": false,
+          "has_warranty": false,
+          "is_refurbished": false,
+          "is_used": false,
+          "is_official": false
+        },
+        "timestamp": "2026-01-15T18:51:15.657317Z",
+        "confidence": 1.0,
+        "confidence_level": "high",
+        "scoring_rules": [
+          "+0.4: Trusted store found",
+          "+0.3: Storage variant matches exactly"
+        ]
       },
       {
-        "store": "jumia_eg",
-        "title": "Samsung Galaxy S24 Ultra 256GB 12GB RAM",
-        "price": 33500,
+        "store": "Jumia",
+        "title": "Samsung Galaxy S24 Ultra - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
+        "price": 33200.0,
         "currency": "EGP",
-        "url": "https://www.jumia.com.eg/sample-product",
-        "seller": "Jumia",
-        "availability": "in_stock",
-        "confidence": 0.92,
-        "scraped_at": "2026-01-15T15:30:00.000Z"
+        "url": "https://www.jumia.com.eg/...",
+        "source_text": "Samsung Galaxy S24 Ultra - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
+        "extracted_storage": "256GB",
+        "extracted_ram": null,
+        "conditions": {
+          "is_new": false,
+          "has_warranty": false,
+          "is_refurbished": false,
+          "is_used": false,
+          "is_official": true
+        },
+        "timestamp": "2026-01-15T18:51:15.657641Z",
+        "confidence": 1.0,
+        "confidence_level": "high",
+        "scoring_rules": [
+          "+0.4: Trusted store found",
+          "+0.3: Storage variant matches exactly",
+          "+0.1: Official or warranty mentioned"
+        ]
       }
     ],
-    "best_price": 32999,
-    "best_store": "amazon_eg",
+    "best_price": 33200.0,
+    "best_store": "Jumia",
+    "avg_price": 33349.5,
     "price_range": {
-      "min": 32999,
-      "max": 33500,
-      "avg": 33249.5
+      "min": 33200.0,
+      "max": 33499.0,
+      "avg": 33349.5
     },
-    "last_updated": "2026-01-15T15:30:00.000Z"
+    "offer_count": 2,
+    "high_confidence_count": 2,
+    "last_updated": "2026-01-15T18:51:15.657746Z"
   },
   "samsung_galaxy_s24_ultra_12_512": {
+    "variant_id": "samsung_galaxy_s24_ultra_12_512",
     "phone_slug": "samsung_galaxy_s24_ultra",
+    "brand": "Samsung",
+    "model": "Galaxy S24 Ultra",
+    "ram": "12GB",
+    "storage": "512GB",
     "variant": "12GB/512GB",
-    "offers": []
+    "offers": [
+      {
+        "store": "Noon",
+        "title": "Buy Samsung Galaxy S24 Ultra 512GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
+        "price": 33499.0,
+        "currency": "EGP",
+        "url": "https://www.noon.com/...",
+        "source_text": "Buy Samsung Galaxy S24 Ultra 512GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
+        "extracted_storage": "512GB",
+        "extracted_ram": null,
+        "conditions": {
+          "is_new": false,
+          "has_warranty": false,
+          "is_refurbished": false,
+          "is_used": false,
+          "is_official": false
+        },
+        "timestamp": "2026-01-15T18:51:16.658454Z",
+        "confidence": 1.0,
+        "confidence_level": "high",
+        "scoring_rules": [
+          "+0.4: Trusted store found",
+          "+0.3: Storage variant matches exactly"
+        ]
+      }
+    ],
+    "best_price": 33499.0,
+    "best_store": "Noon",
+    "avg_price": 33499.0,
+    "price_range": {
+      "min": 33499.0,
+      "max": 33499.0,
+      "avg": 33499.0
+    },
+    "offer_count": 1,
+    "high_confidence_count": 1,
+    "last_updated": "2026-01-15T18:51:16.658814Z"
   },
   "samsung_galaxy_s24_ultra_12_1t": {
+    "variant_id": "samsung_galaxy_s24_ultra_12_1t",
     "phone_slug": "samsung_galaxy_s24_ultra",
+    "brand": "Samsung",
+    "model": "Galaxy S24 Ultra",
+    "ram": "12GB",
+    "storage": "1TB",
     "variant": "12GB/1TB",
-    "offers": []
+    "offers": [
+      {
+        "store": "Noon",
+        "title": "Buy Samsung Galaxy S24 Ultra 1TB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
+        "price": 33499.0,
+        "currency": "EGP",
+        "url": "https://www.noon.com/...",
+        "source_text": "Buy Samsung Galaxy S24 Ultra 1TB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
+        "extracted_storage": "1TB",
+        "extracted_ram": null,
+        "conditions": {
+          "is_new": false,
+          "has_warranty": false,
+          "is_refurbished": false,
+          "is_used": false,
+          "is_official": false
+        },
+        "timestamp": "2026-01-15T18:51:17.659845Z",
+        "confidence": 1.0,
+        "confidence_level": "high",
+        "scoring_rules": [
+          "+0.4: Trusted store found",
+          "+0.3: Storage variant matches exactly"
+        ]
+      }
+    ],
+    "best_price": 33499.0,
+    "best_store": "Noon",
+    "avg_price": 33499.0,
+    "price_range": {
+      "min": 33499.0,
+      "max": 33499.0,
+      "avg": 33499.0
+    },
+    "offer_count": 1,
+    "high_confidence_count": 1,
+    "last_updated": "2026-01-15T18:51:17.660184Z"
   },
   "samsung_galaxy_s24_8_128": {
+    "variant_id": "samsung_galaxy_s24_8_128",
     "phone_slug": "samsung_galaxy_s24",
+    "brand": "Samsung",
+    "model": "Galaxy S24",
+    "ram": "8GB",
+    "storage": "128GB",
     "variant": "8GB/128GB",
-    "offers": []
+    "offers": [
+      {
+        "store": "Noon",
+        "title": "Buy Samsung Galaxy S24 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
+        "price": 33499.0,
+        "currency": "EGP",
+        "url": "https://www.noon.com/...",
+        "source_text": "Buy Samsung Galaxy S24 128GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
+        "extracted_storage": "128GB",
+        "extracted_ram": null,
+        "conditions": {
+          "is_new": false,
+          "has_warranty": false,
+          "is_refurbished": false,
+          "is_used": false,
+          "is_official": false
+        },
+        "timestamp": "2026-01-15T18:51:18.660544Z",
+        "confidence": 1.0,
+        "confidence_level": "high",
+        "scoring_rules": [
+          "+0.4: Trusted store found",
+          "+0.3: Storage variant matches exactly"
+        ]
+      }
+    ],
+    "best_price": 33499.0,
+    "best_store": "Noon",
+    "avg_price": 33499.0,
+    "price_range": {
+      "min": 33499.0,
+      "max": 33499.0,
+      "avg": 33499.0
+    },
+    "offer_count": 1,
+    "high_confidence_count": 1,
+    "last_updated": "2026-01-15T18:51:18.660747Z"
   },
   "samsung_galaxy_s24_8_256": {
+    "variant_id": "samsung_galaxy_s24_8_256",
     "phone_slug": "samsung_galaxy_s24",
+    "brand": "Samsung",
+    "model": "Galaxy S24",
+    "ram": "8GB",
+    "storage": "256GB",
     "variant": "8GB/256GB",
     "offers": [
       {
-        "store": "noon_eg",
-        "title": "Samsung Galaxy S24 8GB 256GB",
-        "price": 28500,
+        "store": "Noon",
+        "title": "Buy Samsung Galaxy S24 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
+        "price": 33499.0,
         "currency": "EGP",
-        "url": "https://www.noon.com/egypt-en/sample",
-        "seller": "Noon",
-        "availability": "in_stock",
-        "confidence": 0.88,
-        "scraped_at": "2026-01-15T15:30:00.000Z"
-      }
-    ],
-    "best_price": 28500,
-    "best_store": "noon_eg",
-    "price_range": {
-      "min": 28500,
-      "max": 28500,
-      "avg": 28500
-    },
-    "last_updated": "2026-01-15T15:30:00.000Z"
-  },
-  "iphone_15_pro_max_8_256": {
-    "phone_slug": "iphone_15_pro_max",
-    "variant": "8GB/256GB",
-    "offers": [
-      {
-        "store": "amazon_eg",
-        "title": "Apple iPhone 15 Pro Max 256GB",
-        "price": 48500,
-        "currency": "EGP",
-        "url": "https://www.amazon.eg/dp/SAMPLEIPHONE",
-        "seller": "Amazon.eg",
-        "availability": "in_stock",
-        "confidence": 0.9,
-        "scraped_at": "2026-01-15T15:30:00.000Z"
+        "url": "https://www.noon.com/...",
+        "source_text": "Buy Samsung Galaxy S24 256GB online in Egypt - Price: 33,499 EGP - Noon.com - Fast shipping",
+        "extracted_storage": "256GB",
+        "extracted_ram": null,
+        "conditions": {
+          "is_new": false,
+          "has_warranty": false,
+          "is_refurbished": false,
+          "is_used": false,
+          "is_official": false
+        },
+        "timestamp": "2026-01-15T18:51:19.661087Z",
+        "confidence": 1.0,
+        "confidence_level": "high",
+        "scoring_rules": [
+          "+0.4: Trusted store found",
+          "+0.3: Storage variant matches exactly"
+        ]
       },
       {
-        "store": "jumia_eg",
-        "title": "iPhone 15 Pro Max 256GB",
-        "price": 49000,
+        "store": "Jumia",
+        "title": "Samsung Galaxy S24 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
+        "price": 33200.0,
         "currency": "EGP",
-        "url": "https://www.jumia.com.eg/sample-iphone",
-        "seller": "Jumia",
-        "availability": "in_stock",
-        "confidence": 0.87,
-        "scraped_at": "2026-01-15T15:30:00.000Z"
+        "url": "https://www.jumia.com.eg/...",
+        "source_text": "Samsung Galaxy S24 - 256GB Storage - EGP 33,200 - Jumia Egypt - Official Store",
+        "extracted_storage": "256GB",
+        "extracted_ram": null,
+        "conditions": {
+          "is_new": false,
+          "has_warranty": false,
+          "is_refurbished": false,
+          "is_used": false,
+          "is_official": true
+        },
+        "timestamp": "2026-01-15T18:51:19.661296Z",
+        "confidence": 1.0,
+        "confidence_level": "high",
+        "scoring_rules": [
+          "+0.4: Trusted store found",
+          "+0.3: Storage variant matches exactly",
+          "+0.1: Official or warranty mentioned"
+        ]
       }
     ],
-    "best_price": 48500,
-    "best_store": "amazon_eg",
+    "best_price": 33200.0,
+    "best_store": "Jumia",
+    "avg_price": 33349.5,
     "price_range": {
-      "min": 48500,
-      "max": 49000,
-      "avg": 48750
+      "min": 33200.0,
+      "max": 33499.0,
+      "avg": 33349.5
     },
-    "last_updated": "2026-01-15T15:30:00.000Z"
-  },
-  "iphone_15_pro_max_8_512": {
-    "phone_slug": "iphone_15_pro_max",
-    "variant": "8GB/512GB",
-    "offers": []
-  },
-  "iphone_15_pro_max_8_1t": {
-    "phone_slug": "iphone_15_pro_max",
-    "variant": "8GB/1TB",
-    "offers": []
+    "offer_count": 2,
+    "high_confidence_count": 2,
+    "last_updated": "2026-01-15T18:51:19.661399Z"
   }
 }

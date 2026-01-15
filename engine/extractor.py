@@ -420,7 +420,7 @@ def create_extraction_result(
         Complete extraction result with confidence scores
     """
     result = {
-        'timestamp': datetime.utcnow().isoformat() + 'Z',
+        'timestamp': datetime.now().isoformat() + 'Z',
         'source_text_length': len(text),
         'extracted': {},
         'confidence': 0.0

@@ -143,7 +143,7 @@ def process_search_results(
                 "extracted_storage": extracted_storage,
                 "extracted_ram": extracted_ram,
                 "conditions": conditions,
-                "timestamp": datetime.utcnow().isoformat() + "Z"
+                "timestamp": datetime.now().replace(microsecond=0).isoformat() + "Z"
             }
             
             # Validate offer
@@ -266,7 +266,7 @@ def discover_prices_for_variant(
             },
             "offer_count": len(offers),
             "high_confidence_count": sum(1 for o in offers if o["confidence"] >= 0.75),
-            "last_updated": datetime.utcnow().isoformat() + "Z"
+            "last_updated": datetime.now().isoformat() + "Z"
         }
     else:
         result = {
@@ -284,7 +284,7 @@ def discover_prices_for_variant(
             "price_range": None,
             "offer_count": 0,
             "high_confidence_count": 0,
-            "last_updated": datetime.utcnow().isoformat() + "Z"
+            "last_updated": datetime.now().isoformat() + "Z"
         }
     
     return result
@@ -376,7 +376,7 @@ def main():
                 "phone_slug": phone_slug,
                 "offers": [],
                 "error": str(e),
-                "last_updated": datetime.utcnow().isoformat() + "Z"
+                "last_updated": datetime.now().isoformat() + "Z"
             }
     
     # Save results

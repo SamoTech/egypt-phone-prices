@@ -2,101 +2,79 @@ name: Update Prices
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '0 */6 * * *'  # Every 6 hours
   workflow_dispatch:
 
 jobs:
-  scrape-and-deploy:
+  scrape-prices:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
 
-      - name: Install dependencies
+      - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y chromium-browser chromium-chromedriver
+          sudo apt-get install -y chromium-browser
+
+      - name: Install Python dependencies
+        run: |
           pip install --upgrade pip
-          pip install requests beautifulsoup4 selenium webdriver-manager
+          pip install -r requirements.txt
+          playwright install chromium
 
-      - name: Run scraper
-        run: python scraper.py
-
-      - name: Create directories
+      - name: Run price scraper pipeline
         run: |
-          mkdir -p docs
+          python -m scrapers.price_pipeline
+        timeout-minutes: 60
+        continue-on-error: true
+
+      - name: Generate history snapshot
+        run: |
           mkdir -p data/history
+          TIMESTAMP=$(date -u +'%Y%m%d_%H%M%S')
+          if [ -f data/prices.json ]; then
+            cp data/prices.json "data/history/prices_${TIMESTAMP}.json"
+            echo "✓ Created history snapshot: prices_${TIMESTAMP}.json"
+          fi
+          
+          # Keep only last 30 days of history
+          find data/history -name "prices_*.json" -mtime +30 -delete
+          
+          # Count remaining history files
+          HISTORY_COUNT=$(ls -1 data/history/prices_*.json 2>/dev/null | wc -l)
+          echo "✓ Maintaining $HISTORY_COUNT history snapshots"
 
-      - name: Copy data
-        run: cp data/phones_data.json docs/phones_data.json
-
-      - name: Generate history and charts
+      - name: Display stats
         run: |
-          python << 'EOF'
-          import json
-          import glob
-          from datetime import datetime
-          import os
-          
-          timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-          
-          with open('data/phones_data.json', 'r', encoding='utf-8') as f:
-              current_data = json.load(f)
-          
-          history_file = f'data/history/prices_{timestamp}.json'
-          with open(history_file, 'w', encoding='utf-8') as f:
-              json.dump(current_data, f, ensure_ascii=False, indent=2)
-          
-          print(f"✓ Saved to {history_file}")
-          
-          history = []
-          for file in sorted(glob.glob('data/history/prices_*.json')):
-              try:
-                  with open(file, 'r', encoding='utf-8') as f:
-                      data = json.load(f)
-                      file_time = file.split('/')[-1].replace('prices_', '').replace('.json', '')
-                      history.append({'timestamp': file_time, 'phones': data})
-              except:
-                  pass
-          
-          history = history[-720:]
-          
-          with open('docs/price_history.json', 'w', encoding='utf-8') as f:
-              json.dump(history, f, ensure_ascii=False, indent=2)
-          
-          print(f"✓ History: {len(history)} entries")
-          
-          chart_data = {}
-          for entry in history:
-              for phone in entry.get('phones', []):
-                  name = phone.get('name', 'Unknown')
-                  if name not in chart_data:
-                      chart_data[name] = {'timestamps': [], 'prices': []}
-                  chart_data[name]['timestamps'].append(entry['timestamp'])
-                  chart_data[name]['prices'].append(phone.get('price', 0))
-          
-          with open('docs/chart_data.json', 'w', encoding='utf-8') as f:
-              json.dump(chart_data, f, ensure_ascii=False, indent=2)
-          
-          print(f"✓ Chart data for {len(chart_data)} phones")
-          EOF
+          if [ -f data/prices.json ]; then
+            VARIANT_COUNT=$(python -c "import json; print(len(json.load(open('data/prices.json'))))" || echo "0")
+            echo "✓ Processed $VARIANT_COUNT variants"
+          fi
+          if [ -f data/scrape_errors.json ]; then
+            ERROR_COUNT=$(python -c "import json; print(len(json.load(open('data/scrape_errors.json'))))" || echo "0")
+            echo "⚠ $ERROR_COUNT errors logged"
+          fi
 
-      - name: Commit and push
+      - name: Upload error logs as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: price-errors
+          path: data/scrape_errors.json
+          if-no-files-found: ignore
+
+      - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add -A
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update prices - $(date)" && git push)
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
-          publish_branch: gh-pages
+          git add data/prices.json docs/prices.json data/history/ data/scrape_errors.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update prices - $(date -u +'%Y-%m-%d %H:%M UTC')" && git push)

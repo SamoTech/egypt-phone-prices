@@ -1,0 +1,67 @@
+name: Update Phone Specs
+
+on:
+  schedule:
+    - cron: '0 3 * * 0'  # Every Sunday at 3 AM UTC
+  workflow_dispatch:
+
+jobs:
+  scrape-specs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Run GSMArena specs scraper
+        run: |
+          python -m scrapers.specs_pipeline_new --min-year 2023
+        timeout-minutes: 90
+        continue-on-error: true
+      
+      - name: Validate output files
+        run: |
+          python -c "import json; json.load(open('data/phones_specs.json'))" || echo "Warning: phones_specs.json validation failed"
+          python -c "import json; json.load(open('data/phone_variants.json'))" || echo "Warning: phone_variants.json validation failed"
+      
+      - name: Display stats
+        run: |
+          if [ -f data/phones_specs.json ]; then
+            PHONE_COUNT=$(python -c "import json; print(len(json.load(open('data/phones_specs.json'))))")
+            echo "✓ Scraped $PHONE_COUNT phones"
+          fi
+          if [ -f data/phone_variants.json ]; then
+            VARIANT_COUNT=$(python -c "import json; print(len(json.load(open('data/phone_variants.json'))))")
+            echo "✓ Generated $VARIANT_COUNT variants"
+          fi
+          if [ -f data/scrape_errors.json ]; then
+            ERROR_COUNT=$(python -c "import json; print(len(json.load(open('data/scrape_errors.json'))))" || echo "0")
+            echo "⚠ $ERROR_COUNT errors logged"
+          fi
+      
+      - name: Upload error logs as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: specs-errors
+          path: data/scrape_errors.json
+          if-no-files-found: ignore
+      
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/phones_specs.json data/phone_variants.json docs/specs.json data/scrape_errors.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update phone specs - $(date -u +'%Y-%m-%d %H:%M UTC')" && git push)

@@ -5,7 +5,7 @@ Provides intelligent matching between search results and target phones.
 
 import re
 from typing import Dict, Optional, Tuple
-from fuzzywuzzy import fuzz
+from rapidfuzz import fuzz
 from .normalizer import normalize_brand, normalize_model, normalize_storage, normalize_ram
 
 

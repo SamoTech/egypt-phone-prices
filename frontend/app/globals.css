@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #01696f;
+  --color-primary-hover: #0c4e54;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f7f6f2;
+  color: #28251d;
+}
+
+.price-badge {
+  @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm font-semibold;
+}
+
+.price-badge-drop  { @apply bg-green-100 text-green-800; }
+.price-badge-rise  { @apply bg-red-100   text-red-800;   }
+.price-badge-same  { @apply bg-gray-100  text-gray-700;  }

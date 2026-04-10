@@ -1,28 +1,12 @@
-name: Daily Scrape
-
+# Scraping is now handled by Vercel Cron Jobs (vercel.json).
+# This file is intentionally left as a no-op placeholder.
+# The cron fires daily at 01:00 UTC (03:00 Cairo) via:
+#   POST /api/cron/scrape  →  FastAPI /admin/trigger-scrape
+name: '[DISABLED] Daily Scrape'
 on:
-  schedule:
-    # Every day at 01:00 UTC = 03:00 Cairo (EET)
-    - cron: '0 1 * * *'
-  workflow_dispatch:  # allow manual trigger from GitHub UI
-
+  workflow_dispatch:  # manual only — disabled schedule
 jobs:
-  scrape:
+  noop:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-        working-directory: backend
-      - name: Run scraper
-        working-directory: backend
-        run: python -m app.tasks.run_scrape
-        env:
-          DATABASE_URL:      ${{ secrets.DATABASE_URL }}
-          REDIS_URL:         ${{ secrets.REDIS_URL }}
-          ADMIN_TOKEN:       ${{ secrets.ADMIN_TOKEN }}
-          PROXY_LIST:        ${{ secrets.PROXY_LIST }}
-          SCRAPLING_STEALTH: 'true'
+      - run: echo 'Scraping is handled by Vercel Cron. See vercel.json.'

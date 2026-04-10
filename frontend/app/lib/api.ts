@@ -1,16 +1,19 @@
 import type { Device, PaginatedDevices, Price, PriceTrendPoint } from '../types';
 
-// In production on Vercel: /api/* is rewritten to the FastAPI backend.
-// In local dev: next.config.ts rewrites /api/* → localhost:8000.
-// No NEXT_PUBLIC_API_URL env var needed.
-const API = typeof window === 'undefined'
-  ? (process.env.INTERNAL_API_URL ?? '')
-  : '';
+// All requests go to /api/* which is handled by the Next.js proxy route.
+// Works on Vercel (proxies to BACKEND_URL env var) and locally
+// (proxies to localhost:8000 when BACKEND_URL is not set).
+const BASE = '/api';
 
-async function apiFetch<T>(path: string): Promise<T> {
-  const url = `${API}/api${path}`;
-  const res = await fetch(url, { next: { revalidate: 300 } });
-  if (!res.ok) throw new Error(`API error ${res.status}: ${path}`);
+async function apiFetch<T>(path: string, opts?: RequestInit): Promise<T> {
+  const res = await fetch(`${BASE}${path}`, {
+    ...opts,
+    next: { revalidate: 300 },
+  });
+  if (!res.ok) {
+    const text = await res.text().catch(() => '');
+    throw new Error(`API ${res.status} on ${path}: ${text}`);
+  }
   return res.json() as Promise<T>;
 }
 

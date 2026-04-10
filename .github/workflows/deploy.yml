@@ -7,6 +7,7 @@ on:
     branches: [main]
 
 jobs:
+  # ─────────────────────────────────────────────────────────────
   test:
     runs-on: ubuntu-latest
     defaults:
@@ -24,7 +25,29 @@ jobs:
           REDIS_URL: redis://localhost:6379/0
           ADMIN_TOKEN: test-token
 
+  # ─────────────────────────────────────────────────────────────
+  deploy-backend:
+    name: Deploy Backend → Vercel
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm i -g vercel
+      - name: Deploy FastAPI to Vercel
+        working-directory: backend
+        run: vercel --prod --token $VERCEL_TOKEN
+        env:
+          VERCEL_TOKEN:      ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID:     ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_BACKEND_PROJECT_ID }}
+
+  # ─────────────────────────────────────────────────────────────
   deploy-frontend:
+    name: Deploy Frontend → Vercel
     needs: test
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
@@ -35,24 +58,31 @@ jobs:
           node-version: '20'
       - run: npm ci
         working-directory: frontend
-      - run: npx vercel --prod --token $VERCEL_TOKEN
+      - name: Deploy Next.js to Vercel
         working-directory: frontend
+        run: vercel --prod --token $VERCEL_TOKEN
         env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_TOKEN:      ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID:     ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_FRONTEND_PROJECT_ID }}
 
-  deploy-backend:
-    needs: test
-    if: github.ref == 'refs/heads/main'
+  # ─────────────────────────────────────────────────────────────
+  scrape-cron:
+    name: Daily Scrape (GitHub Actions cron)
+    # Runs every day at 03:00 Cairo time (01:00 UTC)
+    if: github.event_name == 'schedule'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-python@v5
         with:
-          node-version: '20'
-      - run: npm i -g @railway/cli
-      - run: railway up --service api
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
         working-directory: backend
+      - name: Trigger scrape via API
+        run: |
+          curl -X POST "$BACKEND_URL/admin/trigger-scrape" \
+               -H "Authorization: Bearer $ADMIN_TOKEN"
         env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          BACKEND_URL: ${{ secrets.BACKEND_URL }}
+          ADMIN_TOKEN: ${{ secrets.ADMIN_TOKEN }}

@@ -10,7 +10,6 @@ function formatEGP(n: number) {
   }).format(n);
 }
 
-// Retailer search URL templates — used when product_url is missing or points internally
 const SEARCH_URLS: Record<string, (name: string) => string> = {
   jumia:   (n) => `https://www.jumia.com.eg/catalog/?q=${encodeURIComponent(n)}`,
   noon:    (n) => `https://www.noon.com/egypt-en/search/?q=${encodeURIComponent(n)}`,
@@ -22,7 +21,6 @@ const SEARCH_URLS: Record<string, (name: string) => string> = {
 
 function getLink(p: Price, deviceName: string): string {
   const url = p.product_url ?? '';
-  // If URL is missing, a relative path, or points back to our own site — use retailer search
   const isInternal =
     !url ||
     url.startsWith('/') ||
@@ -31,21 +29,18 @@ function getLink(p: Price, deviceName: string): string {
 
   if (!isInternal) return url;
 
-  // Find matching search URL by retailer slug
   const slug = p.retailer?.slug ?? '';
+  const name = p.retailer?.name?.toLowerCase() ?? '';
   for (const [key, builder] of Object.entries(SEARCH_URLS)) {
-    if (slug.includes(key) || p.retailer?.name?.toLowerCase().includes(key)) {
-      return builder(deviceName);
-    }
+    if (slug.includes(key) || name.includes(key)) return builder(deviceName);
   }
-  // Final fallback: retailer base_url
   return p.retailer?.base_url ?? '#';
 }
 
 export default function PriceTable({ prices, deviceName }: Props) {
   const latest = new Map<string, Price>();
   for (const p of prices) {
-    const key = p.retailer?.slug ?? p.retailer_id ?? String(p.id);
+    const key = p.retailer?.slug ?? String(p.id);
     if (!latest.has(key)) latest.set(key, p);
   }
   const rows = [...latest.values()].sort((a, b) => a.price_egp - b.price_egp);
@@ -75,23 +70,23 @@ export default function PriceTable({ prices, deviceName }: Props) {
         </thead>
         <tbody>
           {rows.map((p) => {
-            const link = getLink(p, deviceName);
+            const link   = getLink(p, deviceName);
             const isBest = p.price_egp === best;
             return (
-              <tr key={p.id} className={`border-b border-gray-100 hover:bg-gray-50 transition-colors
-                ${ isBest ? 'bg-green-50/40' : '' }`}>
+              <tr key={p.id}
+                  className={`border-b border-gray-100 hover:bg-gray-50 transition-colors
+                    ${isBest ? 'bg-green-50/40' : ''}`}>
+
                 <td className="py-3 pr-4">
                   <div className="flex items-center gap-2">
                     {p.retailer?.logo_url && (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={p.retailer.logo_url}
-                        alt={p.retailer.name}
-                        width={20} height={20}
-                        className="object-contain rounded"
-                      />
+                      <img src={p.retailer.logo_url} alt={p.retailer.name}
+                           width={20} height={20} className="object-contain rounded" />
                     )}
-                    <span className="font-medium text-gray-800">{p.retailer?.name ?? 'Unknown'}</span>
+                    <span className="font-medium text-gray-800">
+                      {p.retailer?.name ?? 'Unknown'}
+                    </span>
                   </div>
                 </td>
 
@@ -108,8 +103,8 @@ export default function PriceTable({ prices, deviceName }: Props) {
                       </span>
                     )}
                     {isBest && (
-                      <span className="text-xs bg-green-100 text-green-700 px-1.5 py-0.5
-                                       rounded font-semibold">Best</span>
+                      <span className="text-xs bg-green-100 text-green-700
+                                       px-1.5 py-0.5 rounded font-semibold">Best</span>
                     )}
                   </div>
                 </td>

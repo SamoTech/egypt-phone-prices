@@ -1,64 +1,76 @@
-"""B.Tech Egypt smartphone price scraper."""
+"""B.Tech Egypt price scraper using Scrapling."""
+from __future__ import annotations
+
+import logging
 import re
-import asyncio
-from loguru import logger
-from app.scrapers.base import BaseScraper, ScrapingError
+from typing import AsyncIterator
 
-BTECH_URL = "https://btech.com/en/mobiles/smartphones.html"
+from .base import ScraplingBase
+from .jumia import RetailPrice
+
+logger = logging.getLogger(__name__)
+
+BASE   = "https://btech.com"
+SEARCH = f"{BASE}/en/catalogsearch/result/?q={{query}}"
+CAT    = f"{BASE}/en/smartphones.html"
 
 
-class BTechScraper(BaseScraper):
-    slug = "btech"
-    name = "B.Tech"
+class BTechScraper(ScraplingBase):
+    RETAILER_SLUG = "btech"
 
-    async def scrape(self) -> list[dict]:
-        results = []
-        page_num = 1
-        while page_num <= 20:
-            url = f"{BTECH_URL}?p={page_num}"
+    async def search(self, query: str) -> AsyncIterator[RetailPrice]:
+        url = SEARCH.format(query=query.replace(" ", "+"))
+        logger.info("[BTech] search: %s", url)
+        page = await self.fetch_html(url)
+        if page is None:
+            return
+        async for item in self._parse_page(page):
+            yield item
+
+    async def scrape_phones_page(self, page_num: int = 1) -> AsyncIterator[RetailPrice]:
+        url = f"{CAT}?p={page_num}"
+        page = await self.fetch_html(url)
+        if page is None:
+            return
+        async for item in self._parse_page(page):
+            yield item
+
+    async def _parse_page(self, page) -> AsyncIterator[RetailPrice]:
+        # B.Tech uses Magento 2 — product items inside ol.products li.product-item
+        for card in page.css("ol.products li.product-item"):
             try:
-                page = await self.fetch(url)
-                items = self._parse(page)
-                if not items:
-                    break
-                results.extend(items)
-                logger.info(f"[btech] page {page_num}: {len(items)} items")
-                page_num += 1
-            except ScrapingError as exc:
-                logger.error(f"[btech] page {page_num} failed: {exc}")
-                break
-            await asyncio.sleep(2)
-        return results
+                name_el  = card.css_first(".product-item-name a")
+                price_el = card.css_first(".price")
+                link_el  = card.css_first(".product-item-name a")
+                img_el   = card.css_first("img.product-image-photo")
+                stock_el = card.css_first(".stock.unavailable")
 
-    def _parse(self, page) -> list[dict]:
-        items = []
-        if not hasattr(page, "css"):
-            return items
+                if not name_el or not price_el:
+                    continue
 
-        for card in page.css(".product-item-info"):
-            name_el  = card.css_first(".product-item-name")
-            price_el = card.css_first(".price")
-            link_el  = card.css_first("a.product-item-link")
+                price = self._parse_price(price_el.text)
+                if price <= 0:
+                    continue
 
-            if not name_el or not price_el:
-                continue
+                href  = link_el.attrib.get("href", "") if link_el else ""
+                img   = img_el.attrib.get("src", "") if img_el else ""
 
-            price = self._parse_price(price_el.text_content)
-            href  = link_el.attrib.get("href", "") if link_el else ""
-
-            items.append({
-                "device_name": name_el.text_content.strip(),
-                "price_egp": price,
-                "original_price_egp": None,
-                "product_url": href,
-                "in_stock": True,
-            })
-        return items
+                yield RetailPrice(
+                    retailer_slug=self.RETAILER_SLUG,
+                    device_name_raw=name_el.text.strip(),
+                    price_egp=price,
+                    original_price_egp=None,
+                    product_url=href,
+                    in_stock=stock_el is None,
+                    image_url=img,
+                )
+            except Exception as exc:
+                logger.debug("[BTech] card error: %s", exc)
 
     @staticmethod
-    def _parse_price(text: str) -> float | None:
+    def _parse_price(text: str) -> float:
         cleaned = re.sub(r"[^\d.]", "", (text or "").replace(",", ""))
         try:
             return float(cleaned)
         except ValueError:
-            return None
+            return 0.0

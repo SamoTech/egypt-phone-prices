@@ -1,15 +1,25 @@
-fastapi>=0.111.0
-uvicorn[standard]>=0.30.0
-mangum>=0.17.0
-sqlalchemy[asyncio]>=2.0.30
-asyncpg>=0.29.0
-alembic>=1.13.0
-pydantic>=2.7.0
-pydantic-settings>=2.3.0
-httpx>=0.27.0
+# Web framework
+fastapi==0.115.5
+uvicorn[standard]==0.32.0
+
+# Database
+sqlalchemy[asyncio]==2.0.36
+asyncpg==0.30.0
+alembic==1.14.0
+psycopg2-binary==2.9.10
+
+# Scrapling - the real scraping library
 scrapling>=0.2.9
-celery[redis]>=5.4.0
-redis>=5.0.0
-rapidfuzz>=3.9.0
-tenacity>=8.3.0
-python-dotenv>=1.0.0
+playwright>=1.49.0
+
+# Task queue
+celery[redis]==5.4.0
+redis==5.2.0
+
+# Utils
+httpx==0.28.0
+pydantic-settings==2.6.1
+rapidFuzz==3.10.0
+tenacity==9.0.0
+python-dotenv==1.0.1
+rich==13.9.4

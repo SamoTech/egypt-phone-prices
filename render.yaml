@@ -1,0 +1,63 @@
+services:
+  # ── FastAPI Web Service ──────────────────────────────────────────────────
+  - type: web
+    name: egypt-phones-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    envVars:
+      - key: SERVICE_TYPE
+        value: api
+      - key: DATABASE_URL
+        fromDatabase:
+          name: egypt-phones-db
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          name: egypt-phones-redis
+          type: redis
+          property: connectionString
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: PROXY_LIST
+        sync: false
+    healthCheckPath: /health
+    autoDeploy: true
+
+  # ── Celery Worker ─────────────────────────────────────────────────────────
+  - type: worker
+    name: egypt-phones-worker
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    envVars:
+      - key: SERVICE_TYPE
+        value: worker
+      - key: DATABASE_URL
+        fromDatabase:
+          name: egypt-phones-db
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          name: egypt-phones-redis
+          type: redis
+          property: connectionString
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: PROXY_LIST
+        sync: false
+    autoDeploy: true
+
+  # ── Redis ──────────────────────────────────────────────────────────────────
+  - type: redis
+    name: egypt-phones-redis
+    plan: free
+    maxmemoryPolicy: allkeys-lru
+
+databases:
+  - name: egypt-phones-db
+    plan: free

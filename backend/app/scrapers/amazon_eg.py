@@ -1,64 +1,68 @@
-"""Amazon.eg smartphone price scraper."""
+"""Amazon Egypt price scraper using Scrapling."""
+from __future__ import annotations
+
+import logging
 import re
-import asyncio
-from loguru import logger
-from app.scrapers.base import BaseScraper, ScrapingError
+from typing import AsyncIterator
 
-AMAZON_EG_URL = (
-    "https://www.amazon.eg/-/en/s?i=electronics&rh=n%3A21832980031"
-)
+from .base import ScraplingBase
+from .jumia import RetailPrice
+
+logger = logging.getLogger(__name__)
+
+BASE   = "https://www.amazon.eg"
+SEARCH = f"{BASE}/s?k={{query}}&rh=n%3A21639082031" # Mobiles node
 
 
-class AmazonEgScraper(BaseScraper):
-    slug = "amazon_eg"
-    name = "Amazon Egypt"
+class AmazonEgScraper(ScraplingBase):
+    RETAILER_SLUG = "amazon"
 
-    async def scrape(self) -> list[dict]:
-        results = []
-        for page_num in range(1, 21):
-            url = f"{AMAZON_EG_URL}&page={page_num}"
+    async def search(self, query: str) -> AsyncIterator[RetailPrice]:
+        url = SEARCH.format(query=query.replace(" ", "+"))
+        logger.info("[Amazon.eg] search: %s", url)
+        page = await self.fetch_html(url, dynamic=True)
+        if page is None:
+            return
+        async for item in self._parse_page(page):
+            yield item
+
+    async def scrape_phones_page(self, page_num: int = 1) -> AsyncIterator[RetailPrice]:
+        url = f"{BASE}/s?k=smartphone&rh=n%3A21639082031&page={page_num}"
+        page = await self.fetch_html(url, dynamic=True)
+        if page is None:
+            return
+        async for item in self._parse_page(page):
+            yield item
+
+    async def _parse_page(self, page) -> AsyncIterator[RetailPrice]:
+        # Amazon product cards: [data-component-type="s-search-result"]
+        for card in page.css("[data-component-type='s-search-result']"):
             try:
-                page = await self.fetch(url)
-                items = self._parse(page)
-                if not items:
-                    break
-                results.extend(items)
-                logger.info(f"[amazon_eg] page {page_num}: {len(items)} items")
-            except ScrapingError as exc:
-                logger.error(f"[amazon_eg] page {page_num} failed: {exc}")
-                break
-            await asyncio.sleep(2.5)
-        return results
+                name_el   = card.css_first("h2 a span")
+                whole_el  = card.css_first(".a-price-whole")
+                link_el   = card.css_first("h2 a")
+                img_el    = card.css_first("img.s-image")
 
-    def _parse(self, page) -> list[dict]:
-        items = []
-        if not hasattr(page, "css"):
-            return items
+                if not name_el or not whole_el:
+                    continue
 
-        for card in page.css("div[data-component-type='s-search-result']"):
-            name_el  = card.css_first("span.a-text-normal")
-            price_el = card.css_first("span.a-price-whole")
-            link_el  = card.css_first("a.a-link-normal.s-no-outline")
+                price_text = whole_el.text.replace(",", "").replace(".", "")
+                price = float(re.sub(r"[^\d]", "", price_text) or "0")
+                if price <= 0:
+                    continue
 
-            if not name_el or not price_el:
-                continue
+                href  = link_el.attrib.get("href", "") if link_el else ""
+                url_p = f"{BASE}{href}" if href.startswith("/") else href
+                img   = img_el.attrib.get("src", "") if img_el else ""
 
-            price = self._parse_price(price_el.text_content)
-            href  = link_el.attrib.get("href", "") if link_el else ""
-
-            items.append({
-                "device_name": name_el.text_content.strip(),
-                "price_egp": price,
-                "original_price_egp": None,
-                "product_url": f"https://www.amazon.eg{href}" if href.startswith("/") else href,
-                "in_stock": True,
-            })
-        return items
-
-    @staticmethod
-    def _parse_price(text: str) -> float | None:
-        cleaned = re.sub(r"[^\d]", "", (text or ""))
-        try:
-            return float(cleaned)
-        except ValueError:
-            return None
+                yield RetailPrice(
+                    retailer_slug=self.RETAILER_SLUG,
+                    device_name_raw=name_el.text.strip(),
+                    price_egp=price,
+                    original_price_egp=None,
+                    product_url=url_p,
+                    in_stock=True,
+                    image_url=img,
+                )
+            except Exception as exc:
+                logger.debug("[Amazon.eg] card error: %s", exc)

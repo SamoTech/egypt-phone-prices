@@ -1,64 +1,95 @@
-"""Noon Egypt smartphone price scraper."""
+"""Noon Egypt price scraper using Scrapling."""
+from __future__ import annotations
+
+import logging
 import re
-import asyncio
-from loguru import logger
-from app.scrapers.base import BaseScraper, ScrapingError
+from typing import AsyncIterator
 
-NOON_URL = "https://www.noon.com/egypt-en/mobile-phones/smartphones-16116/"
+from .base import ScraplingBase
+from .jumia import RetailPrice
+
+logger = logging.getLogger(__name__)
+
+BASE   = "https://www.noon.com"
+SEARCH = f"{BASE}/egypt-en/search/?q={{query}}&c=Electronics_MobilesTablets_Mobiles"
 
 
-class NoonScraper(BaseScraper):
-    slug = "noon"
-    name = "Noon Egypt"
+class NoonScraper(ScraplingBase):
+    RETAILER_SLUG = "noon"
 
-    async def scrape(self) -> list[dict]:
-        results = []
-        page_num = 1
-        while page_num <= 20:
-            url = f"{NOON_URL}?page={page_num}"
+    async def search(self, query: str) -> AsyncIterator[RetailPrice]:
+        url = SEARCH.format(query=query.replace(" ", "+"))
+        logger.info("[Noon] search: %s", url)
+        page = await self.fetch_html(url, dynamic=True)
+        if page is None:
+            return
+
+        # Noon product grid uses <div data-qa="product-block">
+        cards = page.css("[data-qa='product-block']")
+        logger.info("[Noon] %d cards for '%s'", len(cards), query)
+
+        for card in cards:
             try:
-                page = await self.fetch(url)
-                items = self._parse(page)
-                if not items:
-                    break
-                results.extend(items)
-                logger.info(f"[noon] page {page_num}: {len(items)} items")
-                page_num += 1
-            except ScrapingError as exc:
-                logger.error(f"[noon] page {page_num} failed: {exc}")
-                break
-            await asyncio.sleep(2)
-        return results
+                name_el  = card.css_first("[data-qa='product-name']")
+                price_el = card.css_first("[data-qa='price-value']")
+                link_el  = card.css_first("a")
+                img_el   = card.css_first("img")
 
-    def _parse(self, page) -> list[dict]:
-        items = []
-        if not hasattr(page, "css"):
-            return items
+                if not name_el or not price_el:
+                    continue
 
-        for card in page.css("div[data-qa='product-block']") or page.css(".sc-fhzFiK"):
-            name_el  = card.css_first("div[data-qa='product-name']")
-            price_el = card.css_first("strong.amount")
-            link_el  = card.css_first("a")
+                price = self._parse_price(price_el.text)
+                if price <= 0:
+                    continue
 
-            if not name_el or not price_el:
-                continue
+                href  = link_el.attrib.get("href", "") if link_el else ""
+                url_p = f"{BASE}{href}" if href.startswith("/") else href
+                img   = img_el.attrib.get("src", "") if img_el else ""
 
-            price = self._parse_price(price_el.text_content)
-            href  = link_el.attrib.get("href", "") if link_el else ""
+                yield RetailPrice(
+                    retailer_slug=self.RETAILER_SLUG,
+                    device_name_raw=name_el.text.strip(),
+                    price_egp=price,
+                    original_price_egp=None,
+                    product_url=url_p,
+                    in_stock=True,
+                    image_url=img,
+                )
+            except Exception as exc:
+                logger.debug("[Noon] card error: %s", exc)
 
-            items.append({
-                "device_name": name_el.text_content.strip(),
-                "price_egp": price,
-                "original_price_egp": None,
-                "product_url": f"https://www.noon.com{href}" if href.startswith("/") else href,
-                "in_stock": True,
-            })
-        return items
+    async def scrape_phones_page(self, page_num: int = 1) -> AsyncIterator[RetailPrice]:
+        url = f"{BASE}/egypt-en/search/?q=smartphone&c=Electronics_MobilesTablets_Mobiles&page={page_num}"
+        page = await self.fetch_html(url, dynamic=True)
+        if page is None:
+            return
+        for card in page.css("[data-qa='product-block']"):
+            try:
+                name_el  = card.css_first("[data-qa='product-name']")
+                price_el = card.css_first("[data-qa='price-value']")
+                link_el  = card.css_first("a")
+                if not name_el or not price_el:
+                    continue
+                price = self._parse_price(price_el.text)
+                if price <= 0:
+                    continue
+                href  = link_el.attrib.get("href", "") if link_el else ""
+                url_p = f"{BASE}{href}" if href.startswith("/") else href
+                yield RetailPrice(
+                    retailer_slug=self.RETAILER_SLUG,
+                    device_name_raw=name_el.text.strip(),
+                    price_egp=price,
+                    original_price_egp=None,
+                    product_url=url_p,
+                    in_stock=True,
+                )
+            except Exception as exc:
+                logger.debug("[Noon] card error: %s", exc)
 
     @staticmethod
-    def _parse_price(text: str) -> float | None:
+    def _parse_price(text: str) -> float:
         cleaned = re.sub(r"[^\d.]", "", (text or "").replace(",", ""))
         try:
             return float(cleaned)
         except ValueError:
-            return None
+            return 0.0

@@ -1,70 +1,125 @@
-"""Jumia Egypt smartphone price scraper."""
+"""Jumia Egypt price scraper using Scrapling."""
+from __future__ import annotations
+
+import logging
 import re
-import asyncio
-from loguru import logger
-from app.scrapers.base import BaseScraper, ScrapingError
+from dataclasses import dataclass
+from typing import AsyncIterator
 
-JUMIA_SEARCH = "https://www.jumia.com.eg/mlp-mobile-phones/"
+from .base import ScraplingBase
+
+logger = logging.getLogger(__name__)
+
+BASE = "https://www.jumia.com.eg"
+SEARCH = f"{BASE}/catalog/?q={{query}}&category=114" # 114 = Phones
 
 
-class JumiaScraper(BaseScraper):
-    slug = "jumia"
-    name = "Jumia Egypt"
+@dataclass
+class RetailPrice:
+    retailer_slug: str
+    device_name_raw: str   # as listed on retailer site
+    price_egp: float
+    original_price_egp: float | None
+    product_url: str
+    in_stock: bool = True
+    image_url: str = ""
 
-    async def scrape(self) -> list[dict]:
-        results = []
-        page_num = 1
-        while True:
-            url = f"{JUMIA_SEARCH}?page={page_num}#catalog-listing"
+
+class JumiaScraper(ScraplingBase):
+    """Scrape smartphone prices from Jumia Egypt."""
+
+    RETAILER_SLUG = "jumia"
+
+    async def search(self, query: str) -> AsyncIterator[RetailPrice]:
+        url = SEARCH.format(query=query.replace(" ", "+"))
+        logger.info("[Jumia] search: %s", url)
+        page = await self.fetch_html(url, dynamic=True)
+        if page is None:
+            return
+
+        # Product cards
+        cards = page.css("article.prd")
+        logger.info("[Jumia] %d results for '%s'", len(cards), query)
+
+        for card in cards:
             try:
-                page = await self.fetch(url)
-                items = self._parse(page)
-                if not items:
-                    break
-                results.extend(items)
-                logger.info(f"[jumia] page {page_num}: {len(items)} items")
-                page_num += 1
-                if page_num > 30:  # safety cap
-                    break
-            except ScrapingError as exc:
-                logger.error(f"[jumia] page {page_num} failed: {exc}")
-                break
-            await asyncio.sleep(1.5)
-        return results
+                name_el  = card.css_first("h3.name")
+                price_el = card.css_first("div.prc")
+                old_el   = card.css_first("div.old")
+                link_el  = card.css_first("a.core")
+                img_el   = card.css_first("img.img")
 
-    def _parse(self, page) -> list[dict]:
-        items = []
-        if not hasattr(page, "css"):
-            return items
+                if not name_el or not price_el or not link_el:
+                    continue
 
+                name  = name_el.text.strip()
+                price = self._parse_price(price_el.text)
+                old   = self._parse_price(old_el.text) if old_el else None
+                href  = link_el.attrib.get("href", "")
+                url_p = f"{BASE}{href}" if href.startswith("/") else href
+                img   = img_el.attrib.get("data-src") or img_el.attrib.get("src") or "" if img_el else ""
+
+                if price <= 0:
+                    continue
+
+                yield RetailPrice(
+                    retailer_slug=self.RETAILER_SLUG,
+                    device_name_raw=name,
+                    price_egp=price,
+                    original_price_egp=old,
+                    product_url=url_p,
+                    in_stock=True,
+                    image_url=img,
+                )
+            except Exception as exc:
+                logger.debug("[Jumia] card parse error: %s", exc)
+
+    async def scrape_phones_page(self, page_num: int = 1) -> AsyncIterator[RetailPrice]:
+        """Scrape full phones category — used for bulk daily refresh."""
+        url = f"{BASE}/catalog/?q=smartphone&category=114&page={page_num}"
+        page = await self.fetch_html(url, dynamic=True)
+        if page is None:
+            return
+        async for item in self._parse_cards(page):
+            yield item
+
+    async def _parse_cards(self, page) -> AsyncIterator[RetailPrice]:
         for card in page.css("article.prd"):
-            name_el = card.css_first("h3.name")
-            price_el = card.css_first("div.prc")
-            old_el   = card.css_first("div.old")
-            link_el  = card.css_first("a.core")
+            try:
+                name_el  = card.css_first("h3.name")
+                price_el = card.css_first("div.prc")
+                old_el   = card.css_first("div.old")
+                link_el  = card.css_first("a.core")
+                img_el   = card.css_first("img.img")
+                stock_el = card.css_first("div.bdg._out")
 
-            if not name_el or not price_el:
-                continue
+                if not name_el or not price_el:
+                    continue
 
-            price  = self._parse_price(price_el.text_content)
-            old_p  = self._parse_price(old_el.text_content) if old_el else None
-            href   = link_el.attrib.get("href", "") if link_el else ""
+                price = self._parse_price(price_el.text)
+                if price <= 0:
+                    continue
 
-            items.append({
-                "device_name": name_el.text_content.strip(),
-                "price_egp": price,
-                "original_price_egp": old_p,
-                "product_url": f"https://www.jumia.com.eg{href}",
-                "in_stock": True,
-            })
-        return items
+                href  = link_el.attrib.get("href", "") if link_el else ""
+                url_p = f"{BASE}{href}" if href.startswith("/") else href
+                img   = img_el.attrib.get("data-src") or img_el.attrib.get("src") or "" if img_el else ""
+
+                yield RetailPrice(
+                    retailer_slug=self.RETAILER_SLUG,
+                    device_name_raw=name_el.text.strip(),
+                    price_egp=price,
+                    original_price_egp=self._parse_price(old_el.text) if old_el else None,
+                    product_url=url_p,
+                    in_stock=stock_el is None,
+                    image_url=img,
+                )
+            except Exception as exc:
+                logger.debug("[Jumia] card error: %s", exc)
 
     @staticmethod
-    def _parse_price(text: str) -> float | None:
-        if not text:
-            return None
-        cleaned = re.sub(r"[^\d.]", "", text.replace(",", ""))
+    def _parse_price(text: str) -> float:
+        cleaned = re.sub(r"[^\d.]", "", (text or "").replace(",", ""))
         try:
             return float(cleaned)
         except ValueError:
-            return None
+            return 0.0

@@ -5,6 +5,8 @@ import type { Device } from '../types';
 interface Props { device: Device }
 
 export default function DeviceCard({ device }: Props) {
+  const brandName = device.brand?.name ?? '';
+
   return (
     <Link
       href={`/devices/${device.slug}`}
@@ -29,9 +31,11 @@ export default function DeviceCard({ device }: Props) {
       </div>
 
       <div className="mt-auto">
-        <p className="text-xs text-[#01696f] font-semibold uppercase tracking-wide mb-1">
-          {device.brand.name}
-        </p>
+        {brandName && (
+          <p className="text-xs text-[#01696f] font-semibold uppercase tracking-wide mb-1">
+            {brandName}
+          </p>
+        )}
         <h3 className="text-sm font-semibold text-gray-900 line-clamp-2 group-hover:text-[#01696f]
                        transition-colors leading-snug">
           {device.name}

@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import DeviceCard from '../components/DeviceCard';
 import { fetchDevices } from '../lib/api';
 import Link from 'next/link';
@@ -11,7 +10,7 @@ const BRANDS = [
 ];
 
 interface Props {
-  searchParams?: { brand?: string; search?: string; page?: string };
+  searchParams?: Promise<{ brand?: string; search?: string; page?: string }>;
 }
 
 export default async function DevicesPage({ searchParams }: Props) {
@@ -20,8 +19,12 @@ export default async function DevicesPage({ searchParams }: Props) {
   const search = params?.search ?? '';
   const page   = Number(params?.page ?? 1);
 
-  const data = await fetchDevices({ brand: brand || undefined, search: search || undefined, page, per_page: 24 })
-    .catch(() => null);
+  const data = await fetchDevices({
+    brand: brand || undefined,
+    search: search || undefined,
+    page,
+    per_page: 24,
+  }).catch(() => null);
 
   const totalPages = data ? Math.ceil(data.total / 24) : 1;
 
@@ -61,8 +64,10 @@ export default async function DevicesPage({ searchParams }: Props) {
       {totalPages > 1 && (
         <div className="flex justify-center gap-2 mt-8">
           {page > 1 && (
-            <Link href={`/devices?page=${page - 1}${brand ? `&brand=${brand}` : ''}`}
-              className="px-4 py-2 bg-white border rounded-lg hover:border-[#01696f] text-sm">
+            <Link
+              href={`/devices?page=${page - 1}${brand ? `&brand=${brand}` : ''}`}
+              className="px-4 py-2 bg-white border rounded-lg hover:border-[#01696f] text-sm"
+            >
               &larr; Prev
             </Link>
           )}
@@ -70,8 +75,10 @@ export default async function DevicesPage({ searchParams }: Props) {
             {page} / {totalPages}
           </span>
           {page < totalPages && (
-            <Link href={`/devices?page=${page + 1}${brand ? `&brand=${brand}` : ''}`}
-              className="px-4 py-2 bg-white border rounded-lg hover:border-[#01696f] text-sm">
+            <Link
+              href={`/devices?page=${page + 1}${brand ? `&brand=${brand}` : ''}`}
+              className="px-4 py-2 bg-white border rounded-lg hover:border-[#01696f] text-sm"
+            >
               Next &rarr;
             </Link>
           )}

@@ -1,4 +1,4 @@
-"""Async SQLAlchemy engine — serverless-safe (NullPool, lazy init)."""
+"""Async SQLAlchemy engine — Supabase/PgBouncer compatible."""
 from sqlalchemy.ext.asyncio import (
     AsyncSession,
     async_sessionmaker,
@@ -8,11 +8,13 @@ from sqlalchemy.pool import NullPool
 
 from app.core.config import settings
 
-# NullPool is required for serverless: no persistent connections between invocations
+# Supabase uses PgBouncer in transaction mode which does not support
+# prepared statements. Setting statement_cache_size=0 disables them.
 engine = create_async_engine(
     settings.DATABASE_URL,
     poolclass=NullPool,
     pool_pre_ping=True,
+    connect_args={"statement_cache_size": 0},
 )
 
 async_session = async_sessionmaker(

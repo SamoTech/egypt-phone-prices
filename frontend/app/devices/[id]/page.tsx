@@ -11,23 +11,23 @@ export const revalidate = 300;
 export default async function DeviceDetailPage({ params }: Props) {
   const { id } = await params;
 
-  // Step 1: fetch device by slug — response contains the UUID
-  let device;
+  let device: any;
   try {
     device = await fetchDevice(id);
   } catch {
     notFound();
   }
 
-  // Step 2: use device.id (UUID) for prices & trends — NOT the slug
   const [prices, trends] = await Promise.all([
     fetchPrices(device.id).catch(() => []),
     fetchTrends(device.id).catch(() => []),
   ]);
 
   const bestPrice = prices.length
-    ? Math.min(...prices.map((p: any) => p.price_egp))
+    ? Math.min(...(prices as any[]).map((p) => p.price_egp))
     : null;
+
+  const brandName = device.brand?.name ?? '';
 
   const specs = [
     { label: 'Display',  value: device.display  },
@@ -49,9 +49,11 @@ export default async function DeviceDetailPage({ params }: Props) {
           </div>
         )}
         <div className="flex-1">
-          <p className="text-sm font-semibold text-[#01696f] uppercase tracking-wide mb-1">
-            {device.brand.name}
-          </p>
+          {brandName && (
+            <p className="text-sm font-semibold text-[#01696f] uppercase tracking-wide mb-1">
+              {brandName}
+            </p>
+          )}
           <h1 className="text-3xl font-bold text-gray-900 mb-2">{device.name}</h1>
           {device.release_year && (
             <p className="text-sm text-gray-500 mb-4">Released {device.release_year}</p>
@@ -88,11 +90,7 @@ export default async function DeviceDetailPage({ params }: Props) {
       {/* Prices */}
       <section className="mb-10">
         <h2 className="text-xl font-semibold mb-4">Current Prices</h2>
-        {prices.length === 0 ? (
-          <p className="text-gray-400 text-sm">No prices available yet.</p>
-        ) : (
-          <PriceTable prices={prices} />
-        )}
+        <PriceTable prices={prices as any} deviceName={device.name} />
       </section>
 
       {/* Chart */}
@@ -100,7 +98,7 @@ export default async function DeviceDetailPage({ params }: Props) {
         <section>
           <h2 className="text-xl font-semibold mb-4">Price History (90 days)</h2>
           <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <PriceChart trends={trends} />
+            <PriceChart trends={trends as any} />
           </div>
         </section>
       )}

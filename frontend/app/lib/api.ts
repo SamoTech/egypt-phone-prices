@@ -1,18 +1,45 @@
 import type { Device, PaginatedDevices, Price, PriceTrendPoint } from '../types';
 
-// All requests go to /api/* which is handled by the Next.js proxy route.
-// Works on Vercel (proxies to BACKEND_URL env var) and locally
-// (proxies to localhost:8000 when BACKEND_URL is not set).
-const BASE = '/api';
+// Server-side: use absolute backend URL (same deployment).
+// Client-side: relative /api works fine.
+function getBase(): string {
+  // VERCEL_URL is set automatically by Vercel for every deployment.
+  // NEXT_PUBLIC_API_URL can override (e.g. point to Railway backend).
+  if (process.env.NEXT_PUBLIC_API_URL) {
+    return process.env.NEXT_PUBLIC_API_URL.replace(/\/$/, '');
+  }
+  if (typeof window === 'undefined') {
+    // Server-side rendering — need absolute URL
+    const host = process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : 'http://localhost:3000';
+    return `${host}/api`;
+  }
+  // Client-side — relative URL works
+  return '/api';
+}
+
+const BYPASS = process.env.VERCEL_AUTOMATION_BYPASS_SECRET ?? '';
 
 async function apiFetch<T>(path: string, opts?: RequestInit): Promise<T> {
-  const res = await fetch(`${BASE}${path}`, {
+  const base = getBase();
+  const url = `${base}${path}`;
+
+  const headers: HeadersInit = {
+    ...(opts?.headers ?? {}),
+    // Bypass Vercel deployment protection for internal server-side calls
+    ...(BYPASS ? { 'x-vercel-protection-bypass': BYPASS } : {}),
+  };
+
+  const res = await fetch(url, {
     ...opts,
+    headers,
     next: { revalidate: 300 },
   });
+
   if (!res.ok) {
     const text = await res.text().catch(() => '');
-    throw new Error(`API ${res.status} on ${path}: ${text}`);
+    throw new Error(`API ${res.status} on ${path}: ${text.slice(0, 200)}`);
   }
   return res.json() as Promise<T>;
 }

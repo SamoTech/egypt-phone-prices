@@ -1,36 +1,38 @@
-"""Application settings loaded from environment variables."""
-from functools import lru_cache
+"""Application settings — loaded from environment variables."""
+from pydantic_settings import BaseSettings
 from typing import List
-
-from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    # Database
+    DATABASE_URL: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/egypt_phones"
+    DATABASE_URL_SYNC: str = "postgresql://postgres:postgres@localhost:5432/egypt_phones"
 
-    DATABASE_URL: str = "postgresql+asyncpg://postgres:postgres@localhost/egypt_phones"
-    DATABASE_URL_SYNC: str = "postgresql://postgres:postgres@localhost/egypt_phones"
+    # Supabase (optional — for direct Supabase client usage)
+    NEXT_PUBLIC_SUPABASE_URL: str = ""
+    SUPABASE_SERVICE_ROLE_KEY: str = ""
+
+    # Redis (optional — graceful degradation if not set)
     REDIS_URL: str = "redis://localhost:6379/0"
 
-    PROXY_LIST: str = ""
+    # Admin
+    ADMIN_TOKEN: str = "dev-token"
+
+    # Cron
+    CRON_SECRET: str = "dev-cron-secret"
+
+    # CORS
+    CORS_ORIGINS: List[str] = ["*"]
+
+    # Scraping
     SCRAPLING_STEALTH: bool = True
-    SCRAPE_DELAY_MIN: float = 2.0
-    SCRAPE_DELAY_MAX: float = 6.0
+    SCRAPE_DELAY_MIN: int = 2
+    SCRAPE_DELAY_MAX: int = 6
+    PROXY_LIST: str = ""
 
-    ADMIN_TOKEN: str = "change-me"
-    CORS_ORIGINS: List[str] = ["http://localhost:3000", "https://*.vercel.app"]
-
-    SCRAPE_CRON_HOUR: int = 3
-    SCRAPE_CRON_MINUTE: int = 0
-
-    @property
-    def proxy_list(self) -> List[str]:
-        return [p.strip() for p in self.PROXY_LIST.split(",") if p.strip()]
+    class Config:
+        env_file = ".env"
+        extra = "ignore"
 
 
-@lru_cache
-def get_settings() -> Settings:
-    return Settings()
-
-
-settings = get_settings()
+settings = Settings()

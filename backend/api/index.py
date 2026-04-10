@@ -1,18 +1,20 @@
-"""Vercel serverless entry point — exposes the FastAPI app.
+"""Vercel Python serverless entry point.
 
-Vercel looks for a file at api/index.py and imports `app` from it.
-All routes defined in app.main are served through this handler.
-
-Note: Celery workers cannot run inside Vercel serverless functions.
-For the daily scrape job, use one of these free-tier options:
-  - GitHub Actions cron (see .github/workflows/scrape.yml)
-  - Vercel Cron Jobs (vercel.json `crons` key, Pro plan)
-  - A free Render.com background worker
+Vercel's @vercel/python runtime looks for `app` in api/index.py.
+Mangum wraps the ASGI FastAPI app for AWS Lambda / Vercel compatibility.
 """
 import sys
 import os
 
-# Make sure the backend/ directory is on the path so imports resolve
-sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+# Ensure backend/ is on the path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from app.main import app  # noqa: F401  — Vercel imports `app` from this module
+from app.main import app  # noqa: F401 — Vercel imports `app`
+
+# Mangum handler for ASGI → Lambda/Vercel bridge
+try:
+    from mangum import Mangum
+    handler = Mangum(app, lifespan="off")
+except ImportError:
+    # Fallback: Vercel can also use the raw ASGI app
+    handler = app

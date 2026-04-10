@@ -1,19 +1,16 @@
-"""Egypt Phone Prices — FastAPI entry point."""
+"""Egypt Phone Prices — FastAPI entry point (Vercel serverless)."""
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import devices, prices, trends, admin
 from app.core.config import settings
-from app.db.session import engine
-from app.db import models
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    async with engine.begin() as conn:
-        await conn.run_sync(models.Base.metadata.create_all)
+    # Tables are created via Alembic migrations, not auto-create
+    # (auto-create on every cold start is too slow for serverless)
     yield
 
 
@@ -25,17 +22,27 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.CORS_ORIGINS,
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+# Routers — imported here to avoid top-level heavy imports on cold start
+from app.api import devices, prices, trends, admin  # noqa: E402
+
 app.include_router(devices.router, prefix="/devices", tags=["devices"])
 app.include_router(prices.router, prefix="/prices", tags=["prices"])
 app.include_router(trends.router, prefix="/trends", tags=["trends"])
-app.include_router(admin.router, prefix="/admin", tags=["admin"])
+app.include_router(admin.router, tags=["admin"])
 
 
 @app.get("/health")
 async def health():
-    return {"status": "ok"}
+    from app.db.session import engine
+    try:
+        async with engine.connect() as conn:
+            from sqlalchemy import text
+            await conn.execute(text("SELECT 1"))
+        return {"status": "ok", "db": "connected"}
+    except Exception as e:
+        return {"status": "error", "db": str(e)}

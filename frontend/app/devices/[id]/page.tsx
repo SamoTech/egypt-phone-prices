@@ -11,48 +11,50 @@ export const revalidate = 300;
 export default async function DeviceDetailPage({ params }: Props) {
   const { id } = await params;
 
-  const [device, prices, trends] = await Promise.allSettled([
-    fetchDevice(id),
-    fetchPrices(id).catch(() => []),
-    fetchTrends(id).catch(() => []),
+  // Step 1: fetch device by slug — response contains the UUID
+  let device;
+  try {
+    device = await fetchDevice(id);
+  } catch {
+    notFound();
+  }
+
+  // Step 2: use device.id (UUID) for prices & trends — NOT the slug
+  const [prices, trends] = await Promise.all([
+    fetchPrices(device.id).catch(() => []),
+    fetchTrends(device.id).catch(() => []),
   ]);
 
-  if (device.status === 'rejected') notFound();
-
-  const d = (device as PromiseFulfilledResult<Awaited<ReturnType<typeof fetchDevice>>>).value;
-  const priceList  = (prices  as PromiseFulfilledResult<any>).value  ?? [];
-  const trendList  = (trends  as PromiseFulfilledResult<any>).value  ?? [];
-
-  const bestPrice = priceList.length
-    ? Math.min(...priceList.map((p: any) => p.price_egp))
+  const bestPrice = prices.length
+    ? Math.min(...prices.map((p: any) => p.price_egp))
     : null;
 
   const specs = [
-    { label: 'Display',  value: d.display  },
-    { label: 'Chipset',  value: d.chipset  },
-    { label: 'RAM',      value: d.ram      },
-    { label: 'Storage',  value: d.storage  },
-    { label: 'Camera',   value: d.camera   },
-    { label: 'Battery',  value: d.battery  },
-    { label: 'OS',       value: d.os       },
+    { label: 'Display',  value: device.display  },
+    { label: 'Chipset',  value: device.chipset  },
+    { label: 'RAM',      value: device.ram      },
+    { label: 'Storage',  value: device.storage  },
+    { label: 'Camera',   value: device.camera   },
+    { label: 'Battery',  value: device.battery  },
+    { label: 'OS',       value: device.os       },
   ].filter((s) => s.value);
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
       {/* Header */}
       <div className="flex flex-col sm:flex-row gap-8 mb-10">
-        {d.image_url && (
+        {device.image_url && (
           <div className="relative w-44 h-56 flex-shrink-0 rounded-xl overflow-hidden bg-gray-50">
-            <Image src={d.image_url} alt={d.name} fill className="object-contain p-3" />
+            <Image src={device.image_url} alt={device.name} fill className="object-contain p-3" />
           </div>
         )}
         <div className="flex-1">
           <p className="text-sm font-semibold text-[#01696f] uppercase tracking-wide mb-1">
-            {d.brand.name}
+            {device.brand.name}
           </p>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">{d.name}</h1>
-          {d.release_year && (
-            <p className="text-sm text-gray-500 mb-4">Released {d.release_year}</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">{device.name}</h1>
+          {device.release_year && (
+            <p className="text-sm text-gray-500 mb-4">Released {device.release_year}</p>
           )}
           {bestPrice !== null && (
             <div className="inline-block bg-green-50 border border-green-200 rounded-xl px-5 py-3">
@@ -86,16 +88,22 @@ export default async function DeviceDetailPage({ params }: Props) {
       {/* Prices */}
       <section className="mb-10">
         <h2 className="text-xl font-semibold mb-4">Current Prices</h2>
-        <PriceTable prices={priceList} />
+        {prices.length === 0 ? (
+          <p className="text-gray-400 text-sm">No prices available yet.</p>
+        ) : (
+          <PriceTable prices={prices} />
+        )}
       </section>
 
       {/* Chart */}
-      <section>
-        <h2 className="text-xl font-semibold mb-4">Price History (90 days)</h2>
-        <div className="bg-white rounded-xl border border-gray-200 p-6">
-          <PriceChart trends={trendList} />
-        </div>
-      </section>
+      {trends.length > 0 && (
+        <section>
+          <h2 className="text-xl font-semibold mb-4">Price History (90 days)</h2>
+          <div className="bg-white rounded-xl border border-gray-200 p-6">
+            <PriceChart trends={trends} />
+          </div>
+        </section>
+      )}
     </div>
   );
 }

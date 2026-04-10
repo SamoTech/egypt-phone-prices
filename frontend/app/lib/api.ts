@@ -1,9 +1,15 @@
 import type { Device, PaginatedDevices, Price, PriceTrendPoint } from '../types';
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000';
+// In production on Vercel: /api/* is rewritten to the FastAPI backend.
+// In local dev: next.config.ts rewrites /api/* → localhost:8000.
+// No NEXT_PUBLIC_API_URL env var needed.
+const API = typeof window === 'undefined'
+  ? (process.env.INTERNAL_API_URL ?? '')
+  : '';
 
 async function apiFetch<T>(path: string): Promise<T> {
-  const res = await fetch(`${API}${path}`, { next: { revalidate: 300 } });
+  const url = `${API}/api${path}`;
+  const res = await fetch(url, { next: { revalidate: 300 } });
   if (!res.ok) throw new Error(`API error ${res.status}: ${path}`);
   return res.json() as Promise<T>;
 }
@@ -21,7 +27,8 @@ export function fetchDevices(params?: {
   if (params?.year)     q.set('year',     String(params.year));
   if (params?.page)     q.set('page',     String(params.page));
   if (params?.per_page) q.set('per_page', String(params.per_page));
-  return apiFetch<PaginatedDevices>(`/devices?${q.toString()}`);
+  const qs = q.toString();
+  return apiFetch<PaginatedDevices>(`/devices${qs ? '?' + qs : ''}`);
 }
 
 export function fetchDevice(slug: string): Promise<Device> {

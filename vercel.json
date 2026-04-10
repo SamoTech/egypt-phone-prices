@@ -1,15 +1,20 @@
 {
-  "experimentalServices": {
-    "frontend": {
-      "entrypoint": "frontend",
-      "routePrefix": "/",
-      "framework": "nextjs"
-    },
-    "backend": {
-      "entrypoint": "backend",
-      "routePrefix": "/api"
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/.next",
+  "installCommand": "cd frontend && npm install",
+  "framework": "nextjs",
+  "functions": {
+    "backend/api/index.py": {
+      "runtime": "python3.11",
+      "maxDuration": 30
     }
   },
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/backend/api/index"
+    }
+  ],
   "crons": [
     {
       "path": "/api/cron/scrape",
